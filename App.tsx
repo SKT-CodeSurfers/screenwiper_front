@@ -4,7 +4,7 @@
  *
  * @format
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -81,7 +81,7 @@ function App(): React.JSX.Element {
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
-            <ReloadInstructions />
+            <ReloadInstructions /> 
           </Section>
           <Section title="Debug">
             <DebugInstructions />
