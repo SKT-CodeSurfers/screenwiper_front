@@ -1,5 +1,7 @@
-import {createStackNavigator} from '@react-navigation/stack';
-
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from '@react-navigation/native-stack';
 import React from 'react';
 import LoadingScreen from 'screens/Loading';
 import MainScreen from 'screens/Main';
@@ -9,10 +11,12 @@ export type StackParamList = {
   Loading: undefined;
 };
 
-export type StackScreenName = keyof StackParamList;
+export type StackScreenProps = {
+  navigation: NativeStackNavigationProp<StackParamList>;
+};
 
 export default function StackNavigator() {
-  const Stack = createStackNavigator<StackParamList>();
+  const Stack = createNativeStackNavigator<StackParamList>();
   return (
     <Stack.Navigator>
       <Stack.Screen name="Main" component={MainScreen} />

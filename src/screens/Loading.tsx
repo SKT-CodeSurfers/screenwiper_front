@@ -5,7 +5,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 const LoadingScreen = () => {
   return (
     <SafeAreaView>
-      <Text>Main</Text>
+      <Text>Loading</Text>
     </SafeAreaView>
   );
 };
