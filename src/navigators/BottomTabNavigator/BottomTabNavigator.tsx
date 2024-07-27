@@ -13,6 +13,20 @@ export type TabParamList = {
   Calendar: undefined;
 };
 
+export const enum TabMenu {
+  Home = 'Home',
+  List = 'List',
+  Map = 'Map',
+  Calendar = 'Calendar',
+}
+
+export enum TabMenuLabel {
+  Home = '홈',
+  List = '기록',
+  Map = '지도',
+  Calendar = '캘린더',
+}
+
 export default function BottomTabNavigator() {
   const Tab = createBottomTabNavigator();
 
@@ -20,10 +34,10 @@ export default function BottomTabNavigator() {
     <Tab.Navigator
       screenOptions={screenOptions}
       tabBar={props => <TabBar {...props} />}>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="List" component={ListScreen} />
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="Calender" component={CalendarScreen} />
+      <Tab.Screen name={TabMenu.Home} component={HomeScreen} />
+      <Tab.Screen name={TabMenu.List} component={ListScreen} />
+      <Tab.Screen name={TabMenu.Map} component={MapScreen} />
+      <Tab.Screen name={TabMenu.Calendar} component={CalendarScreen} />
     </Tab.Navigator>
   );
 }

@@ -3,12 +3,10 @@ import {
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 import React from 'react';
-import LoadingScreen from '@/screens/Loading/Loading';
-import MainScreen from 'screens/Main';
-import BottomTabNavigator from './BottomTabNavigator/BottomTabNavigator';
+import LoadingScreen from '@/screens/Loading/LoadingScreen';
+import BottomTabNavigator from '@/navigators/BottomTabNavigator/BottomTabNavigator';
 
 export type StackParamList = {
-  Tab: undefined;
   Main: undefined;
   Loading: undefined;
 };
