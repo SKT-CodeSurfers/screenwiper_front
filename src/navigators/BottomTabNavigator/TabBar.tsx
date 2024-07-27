@@ -60,9 +60,9 @@ export default function TabBar({state, navigation}: BottomTabBarProps) {
 
 const TabBarContainer = styled.View<{hasSafeArea: number | undefined}>`
   height: ${({hasSafeArea}) =>
-    hasSafeArea ? `${60 + hasSafeArea}px` : '60px'};
-  padding-bottom: 20px;
+    hasSafeArea ? `${60 + hasSafeArea}px` : '80px'};
 
+  padding-bottom: 10px;
   ${({theme}) => theme.mixins.flexBox()};
   border-top: 1px solid #ededed;
   background: rgba(255, 255, 255, 0.8);
