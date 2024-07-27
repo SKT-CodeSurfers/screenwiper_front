@@ -28,7 +28,7 @@ export enum TabMenuLabel {
 }
 
 export default function BottomTabNavigator() {
-  const Tab = createBottomTabNavigator();
+  const Tab = createBottomTabNavigator<TabParamList>();
 
   return (
     <Tab.Navigator

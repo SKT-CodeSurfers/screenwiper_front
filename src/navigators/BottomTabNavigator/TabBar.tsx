@@ -1,8 +1,10 @@
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import React, {useMemo} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {TabMenuLabel} from './BottomTabNavigator';
+import {IcCalendar, IcHome, IcList, IcMap} from '@/assets/icon';
+import styled from 'styled-components/native';
+import theme from '@/styles/theme';
 
 export default function TabBar({state, navigation}: BottomTabBarProps) {
   const {bottom: bottomSize} = useSafeAreaInsets();
@@ -14,6 +16,25 @@ export default function TabBar({state, navigation}: BottomTabBarProps) {
     );
   }, [routeNames]);
 
+  const getTabIcon = (routeName: string, focused: boolean) => {
+    const fillColor = focused
+      ? theme.colors.primary
+      : theme.colors.primary_light;
+
+    switch (routeName) {
+      case TabMenuLabel.Home:
+        return <IcHome fill={fillColor} />;
+      case TabMenuLabel.List:
+        return <IcList fill={fillColor} />;
+      case TabMenuLabel.Map:
+        return <IcMap fill={fillColor} />;
+      case TabMenuLabel.Calendar:
+        return <IcCalendar fill={fillColor} />;
+      default:
+        return null;
+    }
+  };
+
   /**
    * 탭 버튼을 눌렀을 때 페이지 이동하기
    * @param index
@@ -23,35 +44,38 @@ export default function TabBar({state, navigation}: BottomTabBarProps) {
   };
 
   return (
-    <View
-      style={{...styles.container, height: bottomSize ? 50 + bottomSize : 60}}>
+    <TabBarContainer hasSafeArea={bottomSize}>
       {routeNames.map((name, idx) => (
-        <TouchableOpacity
+        <Tab
           key={routes[idx].key}
           accessibilityRole="button"
-          onPress={() => handlePressTab(idx)}
-          style={styles.text}>
-          <Text style={{color: index === idx ? '#673ab7' : '#222'}}>
-            {routeNameLabels[idx]}
-          </Text>
-        </TouchableOpacity>
+          onPress={() => handlePressTab(idx)}>
+          {getTabIcon(routeNameLabels[idx], index === idx)}
+          <TabLabel active={index === idx}>{routeNameLabels[idx]}</TabLabel>
+        </Tab>
       ))}
-    </View>
+    </TabBarContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    borderStyle: 'solid',
-    borderTopWidth: 1,
-    borderTopColor: '#EDEDED',
-    backgroundColor: 'rgba(255, 255, 255, 0.80)',
-  },
-  text: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 60,
-  },
-});
+const TabBarContainer = styled.View<{hasSafeArea: number | undefined}>`
+  height: ${({hasSafeArea}) =>
+    hasSafeArea ? `${60 + hasSafeArea}px` : '60px'};
+  padding-bottom: 20px;
+
+  ${({theme}) => theme.mixins.flexBox()};
+  border-top: 1px solid #ededed;
+  background: rgba(255, 255, 255, 0.8);
+`;
+
+const Tab = styled.TouchableOpacity`
+  flex: 1;
+
+  ${({theme}) => theme.mixins.flexBox('column')};
+  gap: 5px;
+`;
+
+const TabLabel = styled.Text<{active: boolean}>`
+  ${({theme, active}) =>
+    active ? theme.fonts.tab_active : theme.fonts.tab_inactive};
+`;
