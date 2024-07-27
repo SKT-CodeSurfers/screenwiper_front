@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import StackNavigator from './StackNavigator';
 
-const RootNavigator = () => {
+const Navigator = () => {
   return (
     <NavigationContainer>
       <StackNavigator />
@@ -10,4 +10,4 @@ const RootNavigator = () => {
   );
 };
 
-export default RootNavigator;
+export default Navigator;

@@ -1,12 +1,12 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import RootNavigator from 'navigators/RootNavigator';
+import Navigator from 'navigators/Navigator';
 
 const App = () => {
   return (
     <SafeAreaProvider>
-      <RootNavigator />
+      <Navigator />
     </SafeAreaProvider>
   );
 };
