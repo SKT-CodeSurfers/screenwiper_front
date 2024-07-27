@@ -14,6 +14,11 @@ export default function HomeScreen({navigation}: StackScreenProps) {
           title="Go to Loading"
           onPress={() => navigation.navigate('Loading')}
         />
+
+        <Button
+          title="Go to Splash"
+          onPress={() => navigation.navigate('Splash')}
+        />
       </StyledView>
     </SafeAreaView>
   );
