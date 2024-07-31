@@ -5,7 +5,7 @@ import {
 import React from 'react';
 import LoadingScreen from '@/screens/Loading/LoadingScreen';
 import BottomTabNavigator from '@/navigators/BottomTabNavigator/BottomTabNavigator';
-import SplashScreen from '@/screens/\bSplash/SplashScreen';
+import SplashScreen from '@/screens/Splash/SplashScreen';
 
 export type StackParamList = {
   Splash: undefined;
