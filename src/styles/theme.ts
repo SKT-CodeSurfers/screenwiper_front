@@ -17,6 +17,11 @@ const colors = {
 
 /* 폰트 */
 const fonts = {
+  /** Title - Pretendard Bold 16 */
+  title_b_16: {
+    fontSize: 16,
+    fontFamily: 'Pretendard-Bold',
+  },
   /** Title - Pretendard SemiBold 21 */
   title_sb_21: {
     fontSize: 21,
@@ -42,12 +47,12 @@ const fonts = {
     fontSize: 15,
     fontFamily: 'Pretendard-Medium',
   },
-  /** Body - Pretendard Medium 15 */
+  /** Body - Pretendard Medium 12 */
   body_m_12: {
     fontSize: 12,
     fontFamily: 'Pretendard-Medium',
   },
-  /** Body - Pretendard Medium 15 */
+  /** Body - Pretendard Medium 8 */
   body_m_8: {
     fontSize: 8,
     fontFamily: 'Pretendard-Medium',

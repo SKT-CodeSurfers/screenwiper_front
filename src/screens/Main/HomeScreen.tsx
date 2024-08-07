@@ -4,7 +4,8 @@ import {Button, Text, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 import SettingIcon from '@/assets/icon/ic_settings.svg';
-import PlaceCard from '@/components/CardView/PlaceCard'
+import PlaceCard from '@/components/CardView/PlaceCard';
+import ScheduleCard from '@/components/CardView/ScheduleCard';
 
 export default function HomeScreen({navigation}: StackScreenProps) {
   return (
@@ -42,8 +43,11 @@ export default function HomeScreen({navigation}: StackScreenProps) {
             />
           
           <SectionTitle>다가오는 일정이에요</SectionTitle>
-            <ScheduleCard></ScheduleCard>
-
+            <ScheduleCard
+              date="22"
+              title="미래공정: 노문의 휴식"
+              description="서울에서 꼭 가봐야 할 전시회 13곳"
+            />
           <SectionTitle>이것도 확인해 보세요</SectionTitle>
             <AdditionalCard></AdditionalCard>
 
@@ -123,13 +127,13 @@ const SectionTitle = styled.Text`
 //   margin-bottom: 20px;
 // `;
 
-const ScheduleCard = styled.View`
-  flex-direction: row;
-  background-color: #F6F7FB;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 20px;
-`;
+// const ScheduleCard = styled.View`
+//   flex-direction: row;
+//   background-color: #F6F7FB;
+//   border-radius: 10px;
+//   padding: 10px;
+//   margin-bottom: 20px;
+// `;
 
 const AdditionalCard = styled.View`
   flex-direction: row;
