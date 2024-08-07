@@ -1,14 +1,15 @@
 import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import React from 'react';
-import {Button, Text} from 'react-native';
+import {Button, Text, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 import SettingIcon from '@/assets/icon/ic_settings.svg';
+import PlaceCard from '@/components/CardView/PlaceCard'
 
 export default function HomeScreen({navigation}: StackScreenProps) {
   return (
     <SafeAreaView style={{ flex: 1}}>
-      <StyledView>
+      <StyledScrollView>
         <TopContainer>
           <SettingButton>
             <SettingIcon width={22} height={22} />
@@ -31,7 +32,14 @@ export default function HomeScreen({navigation}: StackScreenProps) {
             onPress={() => navigation.navigate('Splash')}
           /> */}
           <SectionTitle>이번 주말에는 여기 어때요?</SectionTitle>
-            <PlaceCard></PlaceCard>
+            <PlaceCard
+              header="문래 동, 멘"
+              subHeader="영등포구 도림로 139길 19 1층"
+              descriptions={[
+                "문래에 생긴 라멘+마제소바 성지",
+                "일본 여행온 듯한 분위기"
+              ]}
+            />
           
           <SectionTitle>다가오는 일정이에요</SectionTitle>
             <ScheduleCard></ScheduleCard>
@@ -41,10 +49,15 @@ export default function HomeScreen({navigation}: StackScreenProps) {
 
 
         </ContentContainer>
-      </StyledView>
+      </StyledScrollView>
     </SafeAreaView>
   );
 }
+
+const StyledScrollView = styled(ScrollView)`
+  flex: 1;
+  background-color: #FFF;
+`;
 
 const StyledText = styled.Text`
   ${({theme}) => theme.fonts.title_sb_21};
@@ -102,13 +115,13 @@ const SectionTitle = styled.Text`
   margin-bottom: 20px;
 `
 
-const PlaceCard = styled.View`
-  flex-direction: row;
-  background-color: #F6F7FB;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 20px;
-`;
+// const PlaceCard = styled.View`
+//   flex-direction: row;
+//   background-color: #F6F7FB;
+//   border-radius: 10px;
+//   padding: 10px;
+//   margin-bottom: 20px;
+// `;
 
 const ScheduleCard = styled.View`
   flex-direction: row;

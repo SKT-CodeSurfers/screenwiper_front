@@ -42,6 +42,16 @@ const fonts = {
     fontSize: 15,
     fontFamily: 'Pretendard-Medium',
   },
+  /** Body - Pretendard Medium 15 */
+  body_m_12: {
+    fontSize: 12,
+    fontFamily: 'Pretendard-Medium',
+  },
+  /** Body - Pretendard Medium 15 */
+  body_m_8: {
+    fontSize: 8,
+    fontFamily: 'Pretendard-Medium',
+  },
   /** TabLabel - Pretendard Bold 11 */
   tab_active: {
     fontSize: 12,
