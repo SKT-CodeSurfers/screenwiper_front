@@ -6,6 +6,7 @@ import styled from 'styled-components/native';
 import SettingIcon from '@/assets/icon/ic_settings.svg';
 import PlaceCard from '@/components/CardView/PlaceCard';
 import ScheduleCard from '@/components/CardView/ScheduleCard';
+import OthersCard from '@/components/CardView/OthersCard';
 
 export default function HomeScreen({navigation}: StackScreenProps) {
   return (
@@ -49,7 +50,9 @@ export default function HomeScreen({navigation}: StackScreenProps) {
               description="서울에서 꼭 가봐야 할 전시회 13곳"
             />
           <SectionTitle>이것도 확인해 보세요</SectionTitle>
-            <AdditionalCard></AdditionalCard>
+          <OthersCard 
+            title="웜톤/쿨톤/뉴트럴톤 별 하이라이트 추천"
+          />
 
 
         </ContentContainer>
@@ -135,11 +138,11 @@ const SectionTitle = styled.Text`
 //   margin-bottom: 20px;
 // `;
 
-const AdditionalCard = styled.View`
-  flex-direction: row;
-  background-color: #F6F7FB;
-  border-radius: 10px;
-  padding: 10px;
-  align-items: center;
-  justify-content: space-between;
-`;
+// const AdditionalCard = styled.View`
+//   flex-direction: row;
+//   background-color: #F6F7FB;
+//   border-radius: 10px;
+//   padding: 10px;
+//   align-items: center;
+//   justify-content: space-between;
+// `;
