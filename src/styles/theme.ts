@@ -17,6 +17,11 @@ const colors = {
 
 /* 폰트 */
 const fonts = {
+  /** Title - Pretendard Bold 18s */
+  title_b_18: {
+    fontSize: 18,
+    fontFamily: 'Pretendard-Bold',
+  },
   /** Title - Pretendard Bold 16 */
   title_b_16: {
     fontSize: 16,

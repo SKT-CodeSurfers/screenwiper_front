@@ -35,8 +35,8 @@ export default function HomeScreen({navigation}: StackScreenProps) {
           /> */}
           <SectionTitle>이번 주말에는 여기 어때요?</SectionTitle>
             <PlaceCard
-              header="문래 동, 멘"
-              subHeader="영등포구 도림로 139길 19 1층"
+              title="문래 동, 멘"
+              location="영등포구 도림로 139길 19 1층"
               descriptions={[
                 "문래에 생긴 라멘+마제소바 성지",
                 "일본 여행온 듯한 분위기"
@@ -53,8 +53,6 @@ export default function HomeScreen({navigation}: StackScreenProps) {
           <OthersCard 
             title="웜톤/쿨톤/뉴트럴톤 별 하이라이트 추천"
           />
-
-
         </ContentContainer>
       </StyledScrollView>
     </SafeAreaView>
@@ -117,32 +115,7 @@ const ContentContainer = styled.View`
 `;
 
 const SectionTitle = styled.Text`
-  ${({theme}) => theme.fonts.title_sb_21};
+  ${({theme}) => theme.fonts.title_b_18};
   color: ${({ theme }) => theme.colors.black};
   margin-bottom: 20px;
 `
-
-// const PlaceCard = styled.View`
-//   flex-direction: row;
-//   background-color: #F6F7FB;
-//   border-radius: 10px;
-//   padding: 10px;
-//   margin-bottom: 20px;
-// `;
-
-// const ScheduleCard = styled.View`
-//   flex-direction: row;
-//   background-color: #F6F7FB;
-//   border-radius: 10px;
-//   padding: 10px;
-//   margin-bottom: 20px;
-// `;
-
-// const AdditionalCard = styled.View`
-//   flex-direction: row;
-//   background-color: #F6F7FB;
-//   border-radius: 10px;
-//   padding: 10px;
-//   align-items: center;
-//   justify-content: space-between;
-// `;

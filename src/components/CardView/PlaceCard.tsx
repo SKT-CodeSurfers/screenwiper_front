@@ -3,27 +3,27 @@ import styled from 'styled-components/native';
 import IcLocation from '@/assets/icon/ic_location.svg';
 
 interface CardProps {
-  header: string;
-  subHeader: string;
+  title: string;
+  location: string;
   descriptions: string[];
 }
 
-const Card: React.FC<CardProps> = ({ header, subHeader, descriptions }) => {
+const Card: React.FC<CardProps> = ({ title, location, descriptions }) => {
   return (
     <StyledCard>
-      <CardHeader>{header}</CardHeader>
-      <SubHeaderRow>
-        <IcLocation width={13} height={13}/>
-        <CardSubHeader>{subHeader}</CardSubHeader>
-      </SubHeaderRow>
-      <CardDescription>
+      <TitleText>{title}</TitleText>
+      <LocationRow>
+        <IcLocation width={13} height={13} />
+        <LocationText>{location}</LocationText>
+      </LocationRow>
+      <DescriptionText>
         {descriptions.map((desc, index) => (
-            <BulletPointWrapper key={index}>
-                <BulletPoint>•</BulletPoint>
-                <BulletText>{desc}</BulletText>
-            </BulletPointWrapper>
+          <BulletPointWrapper key={index}>
+            <BulletPoint>•</BulletPoint>
+            <BulletText>{desc}</BulletText>
+          </BulletPointWrapper>
         ))}
-      </CardDescription>
+      </DescriptionText>
     </StyledCard>
   );
 };
@@ -36,25 +36,25 @@ const StyledCard = styled.View`
   elevation: 5;
 `;
 
-const CardHeader = styled.Text`
+const TitleText = styled.Text`
   ${({ theme }) => theme.fonts.body_sb_17};
   color: #333;
   margin-bottom: 5px;
 `;
 
-const CardSubHeader = styled.Text`
+const LocationText = styled.Text`
   ${({ theme }) => theme.fonts.body_m_8};
   color: #666;
   margin-left: 5px;
 `;
 
-const SubHeaderRow = styled.View`
+const LocationRow = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 5px;
 `;
 
-const CardDescription = styled.View`
+const DescriptionText = styled.View`
   background-color: #F5F5F6;
   border-radius: 5px;
   padding: 10px;
