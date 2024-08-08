@@ -32,8 +32,6 @@ const StyledCard = styled.View`
   background-color: #fff;
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 20px;
-  elevation: 5;
 `;
 
 const TitleText = styled.Text`
