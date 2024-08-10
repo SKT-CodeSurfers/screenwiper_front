@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import IcLocation from '@/assets/icon/ic_location.svg';
+import { Shadow } from 'react-native-shadow-2';
 
 interface CardProps {
   title: string;
@@ -10,21 +11,27 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, location, descriptions }) => {
   return (
-    <StyledCard>
-      <TitleText>{title}</TitleText>
-      <LocationRow>
-        <IcLocation width={13} height={13} />
-        <LocationText>{location}</LocationText>
-      </LocationRow>
-      <DescriptionText>
-        {descriptions.map((desc, index) => (
-          <BulletPointWrapper key={index}>
-            <BulletPoint>•</BulletPoint>
-            <BulletText>{desc}</BulletText>
-          </BulletPointWrapper>
-        ))}
-      </DescriptionText>
-    </StyledCard>
+      <Shadow
+        distance={10}
+        startColor={'#00000008'}
+        offset={[0, 0]}
+      >
+        <StyledCard>
+          <TitleText>{title}</TitleText>
+          <LocationRow>
+            <IcLocation width={13} height={13} />
+            <LocationText>{location}</LocationText>
+          </LocationRow>
+          <DescriptionText>
+            {descriptions.map((desc, index) => (
+              <BulletPointWrapper key={index}>
+                <BulletPoint>•</BulletPoint>
+                <BulletText>{desc}</BulletText>
+              </BulletPointWrapper>
+            ))}
+          </DescriptionText>
+        </StyledCard>
+      </Shadow>
   );
 };
 
@@ -32,6 +39,7 @@ const StyledCard = styled.View`
   background-color: #fff;
   border-radius: 10px;
   padding: 15px;
+  width: 300;
 `;
 
 const TitleText = styled.Text`
