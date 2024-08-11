@@ -1,10 +1,16 @@
+import FloatingButton from '@/components/Main/FloatingButton';
 import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import React from 'react';
 import {Button, Text} from 'react-native';
+import {ImagePickerResponse} from 'react-native-image-picker';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 
 export default function HomeScreen({navigation}: StackScreenProps) {
+  function handleOnResult(res: ImagePickerResponse) {
+    console.log('[result] ', res);
+  }
+
   return (
     <SafeAreaView>
       <StyledView>
@@ -20,6 +26,8 @@ export default function HomeScreen({navigation}: StackScreenProps) {
           onPress={() => navigation.navigate('Splash')}
         />
       </StyledView>
+
+      <FloatingButton onResult={handleOnResult} />
     </SafeAreaView>
   );
 }
@@ -29,6 +37,7 @@ const StyledText = styled.Text`
 `;
 
 const StyledView = styled.View`
-  ${({theme}) => theme.mixins.flexBox('column')};
+  height: 100%;
+  ${({theme}) => theme.mixins.flexBox('column', 'flex-start', 'center')};
   gap: 5px;
 `;
