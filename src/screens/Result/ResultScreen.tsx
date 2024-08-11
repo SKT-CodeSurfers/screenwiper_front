@@ -5,6 +5,9 @@ import React, {useEffect} from 'react';
 import dummies from './dummies.json';
 import styled from 'styled-components/native';
 import {IcDown} from '@/assets/icon';
+import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import {StyleSheet} from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const ResultScreen = ({navigation}: StackScreenProps) => {
   const {result} = dummies;
@@ -18,42 +21,54 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
   }, [navigation]);
 
   return (
-    <CustomHeaderContainer>
-      <StyledImage source={{uri: data.image}} />
+    <GestureHandlerRootView style={{flex: 1}}>
+      <CustomHeaderContainer>
+        <StyledImage source={{uri: data.image}} />
 
-      <StyledScrollView>
-        <StyledCategoryButton>
-          <StyledCategoryText>{data.category}</StyledCategoryText>
-          <IcDown />
-        </StyledCategoryButton>
+        <BottomSheet snapPoints={['75%', '100%']}>
+          <BottomSheetScrollView
+            contentContainerStyle={styles.contentContainer}>
+            <StyledCategoryButton>
+              <StyledCategoryText>{data.category}</StyledCategoryText>
+              <IcDown />
+            </StyledCategoryButton>
 
-        <StyledTitle>{data.title}</StyledTitle>
+            <StyledTitle>{data.title}</StyledTitle>
 
-        <StyledSubTitle>
-          주소 <StyledSubContent>{data.address}</StyledSubContent>{' '}
-        </StyledSubTitle>
+            <StyledSubTitle>
+              주소 <StyledSubContent>{data.address}</StyledSubContent>{' '}
+            </StyledSubTitle>
 
-        <StyledSubTitle>
-          영업시간 <StyledSubContent>{data.operatingHours}</StyledSubContent>
-        </StyledSubTitle>
+            <StyledSubTitle>
+              영업시간
+              <StyledSubContent>{data.operatingHours}</StyledSubContent>
+            </StyledSubTitle>
 
-        <StyledSubTitle>✨ 요약</StyledSubTitle>
-        <StyledSubContent>{data.summary}</StyledSubContent>
-      </StyledScrollView>
-    </CustomHeaderContainer>
+            <StyledSubTitle>✨ 요약</StyledSubTitle>
+            <StyledSubContent>{data.summary}</StyledSubContent>
+          </BottomSheetScrollView>
+        </BottomSheet>
+      </CustomHeaderContainer>
+    </GestureHandlerRootView>
   );
 };
 
 export default ResultScreen;
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 200,
+  },
+  contentContainer: {
+    backgroundColor: 'white',
+    padding: 20,
+  },
+});
+
 const StyledImage = styled.Image`
   width: 100%;
-  height: 200px;
-`;
-
-const StyledScrollView = styled.ScrollView`
-  background: #fff;
-  padding: 20px;
+  height: 50%;
 `;
 
 const StyledCategoryButton = styled.TouchableOpacity`
