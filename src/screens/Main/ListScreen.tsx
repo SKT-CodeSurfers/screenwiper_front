@@ -14,8 +14,13 @@ export default function ListScreen() {
       />
 
       <Button
-        title="Go to Calendar (tabNavigation Hook)"
-        onPress={() => tabNavigation.navigate('Calendar')}
+        title="Go to Result (stackNavigation Hook)"
+        onPress={() => stackNavigation.navigate('Result')}
+      />
+
+      <Button
+        title="Go to Detail (stackNavigation Hook)"
+        onPress={() => stackNavigation.navigate('Detail')}
       />
     </SafeAreaView>
   );

@@ -37,6 +37,6 @@ const StyledFloatingButton = styled.TouchableOpacity`
   ${({theme}) => theme.mixins.flexBox()};
 
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   right: 30px;
 `;
