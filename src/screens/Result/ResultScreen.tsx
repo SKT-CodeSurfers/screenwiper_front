@@ -21,35 +21,32 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
   }, [navigation]);
 
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
-      <CustomHeaderContainer>
-        <StyledImage source={{uri: data.image}} />
+    <CustomHeaderContainer>
+      <StyledImage source={{uri: data.image}} />
 
-        <BottomSheet snapPoints={['75%', '100%']}>
-          <BottomSheetScrollView
-            contentContainerStyle={styles.contentContainer}>
-            <StyledCategoryButton>
-              <StyledCategoryText>{data.category}</StyledCategoryText>
-              <IcDown />
-            </StyledCategoryButton>
+      <BottomSheet snapPoints={['75%', '100%']}>
+        <BottomSheetScrollView contentContainerStyle={styles.contentContainer}>
+          <StyledCategoryButton>
+            <StyledCategoryText>{data.category}</StyledCategoryText>
+            <IcDown />
+          </StyledCategoryButton>
 
-            <StyledTitle>{data.title}</StyledTitle>
+          <StyledTitle>{data.title}</StyledTitle>
 
-            <StyledSubTitle>
-              주소 <StyledSubContent>{data.address}</StyledSubContent>{' '}
-            </StyledSubTitle>
+          <StyledSubTitle>
+            주소 <StyledSubContent>{data.address}</StyledSubContent>{' '}
+          </StyledSubTitle>
 
-            <StyledSubTitle>
-              영업시간
-              <StyledSubContent>{data.operatingHours}</StyledSubContent>
-            </StyledSubTitle>
+          <StyledSubTitle>
+            영업시간
+            <StyledSubContent>{data.operatingHours}</StyledSubContent>
+          </StyledSubTitle>
 
-            <StyledSubTitle>✨ 요약</StyledSubTitle>
-            <StyledSubContent>{data.summary}</StyledSubContent>
-          </BottomSheetScrollView>
-        </BottomSheet>
-      </CustomHeaderContainer>
-    </GestureHandlerRootView>
+          <StyledSubTitle>✨ 요약</StyledSubTitle>
+          <StyledSubContent>{data.summary}</StyledSubContent>
+        </BottomSheetScrollView>
+      </BottomSheet>
+    </CustomHeaderContainer>
   );
 };
 
