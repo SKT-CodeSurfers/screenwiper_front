@@ -3,8 +3,7 @@ import ResultHeader from '@/components/Result/ResultHeader';
 import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import React, {useEffect} from 'react';
 import dummies from './dummies.json';
-import styled from 'styled-components/native';
-import CustomBottomSheet from '@/components/common/CustomBottomSheet/CustomBottomSheet';
+import Result from '@/components/common/Result/Result';
 
 const ResultScreen = ({navigation}: StackScreenProps) => {
   const {result} = dummies;
@@ -19,16 +18,9 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
 
   return (
     <CustomHeaderContainer>
-      <StyledImage source={{uri: data.image}} />
-
-      <CustomBottomSheet data={data} />
+      <Result data={data} />
     </CustomHeaderContainer>
   );
 };
 
 export default ResultScreen;
-
-const StyledImage = styled.Image`
-  width: 100%;
-  height: 50%;
-`;
