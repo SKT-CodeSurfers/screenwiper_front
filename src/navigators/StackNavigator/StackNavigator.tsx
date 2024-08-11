@@ -30,10 +30,18 @@ export default function StackNavigator() {
   const Stack = createNativeStackNavigator<StackParamList>();
   return (
     <Stack.Navigator>
-      <Stack.Screen name={StackMenu.SignIn} component={SignInScreen} options={{ headerShown: false }} />
+      <Stack.Screen
+        name={StackMenu.SignIn}
+        component={SignInScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen name={StackMenu.Splash} component={SplashScreen} />
       <Stack.Screen name={StackMenu.Main} component={BottomTabNavigator} />
-      <Stack.Screen name={StackMenu.Loading} component={LoadingScreen} />
+      <Stack.Screen
+        name={StackMenu.Loading}
+        component={LoadingScreen}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }
