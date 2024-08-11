@@ -18,6 +18,12 @@ const colors = {
 /* 폰트 */
 const fonts = {
   /** Title - Pretendard SemiBold 21 */
+  title_eb_21: {
+    fontSize: 21,
+    fontFamily: 'Pretendard-ExtraBold',
+    color: colors.black,
+  },
+  /** Title - Pretendard SemiBold 21 */
   title_sb_21: {
     fontSize: 21,
     fontFamily: 'Pretendard-SemiBold',
