@@ -1,21 +1,34 @@
 import DetailHeader from '@/components/Detail/DetailHeader';
-import React from 'react';
-import {Text} from 'react-native';
+import React, {useEffect} from 'react';
+import dummies from '../Result/dummies.json';
 import styled from 'styled-components/native';
+import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
+import CustomBottomSheet from '@/components/common/CustomBottomSheet/CustomBottomSheet';
+import CustomHeaderContainer from '@/components/common/CustomHeader/CustomHeaderContainer';
 
-const DetailScreen = () => {
+const DetailScreen = ({navigation}: StackScreenProps) => {
+  const {result} = dummies;
+  const data = result[0];
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
+      header: () => <DetailHeader />,
+    });
+  }, [navigation]);
+
   return (
-    <LoadingScreenContainer>
-      <DetailHeader />
-      <Text>DetailScreen</Text>
-    </LoadingScreenContainer>
+    <CustomHeaderContainer>
+      <StyledImage source={{uri: data.image}} />
+
+      <CustomBottomSheet data={data} />
+    </CustomHeaderContainer>
   );
 };
 
 export default DetailScreen;
 
-const LoadingScreenContainer = styled.SafeAreaView`
-  flex: 1;
-
-  ${({theme}) => theme.mixins.flexBox('column')};
+const StyledImage = styled.Image`
+  width: 100%;
+  height: 50%;
 `;
