@@ -25,7 +25,7 @@ const ResultStyles = {
 const ResultPlanStyles = {
   PlanContainer: styled.View`
     ${({theme}) => theme.mixins.flexBox('column', 'center', 'flex-start')}
-    gap: 10;
+    gap: 10px;
   `,
   PlanBox: styled.View`
     ${({theme}) => theme.mixins.flexBox('column', 'center', 'flex-start')}

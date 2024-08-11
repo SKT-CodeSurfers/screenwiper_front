@@ -12,15 +12,19 @@ interface ResultProps {
 }
 export default function Result({data}: ResultProps) {
   return (
-    <>
+    <StyledResult>
       <StyledImage source={{uri: data.image}} />
 
       <CustomBottomSheet data={data} />
-    </>
+    </StyledResult>
   );
 }
 
 const StyledImage = styled.Image`
   width: 100%;
   height: 50%;
+`;
+
+const StyledResult = styled.View`
+  flex: 1;
 `;

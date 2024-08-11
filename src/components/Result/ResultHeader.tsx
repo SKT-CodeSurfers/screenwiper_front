@@ -2,12 +2,25 @@ import React from 'react';
 import CustomHeader from '../common/CustomHeader/CustomHeader';
 import styled from 'styled-components/native';
 
-export default function ResultHeader() {
+interface ResultHeaderProps {
+  idx: number;
+  total: number;
+  onPrev: () => void;
+  onNext: () => void;
+}
+export default function ResultHeader({
+  idx,
+  total,
+  onPrev,
+  onNext,
+}: ResultHeaderProps) {
   return (
     <CustomHeader>
-      <StyledCancelText>이전</StyledCancelText>
-      <StyledPageText>1/3</StyledPageText>
-      <StyledConfirmText>다음</StyledConfirmText>
+      <StyledCancelText onPress={onPrev}>이전</StyledCancelText>
+      <StyledPageText>
+        {idx + 1}/{total}
+      </StyledPageText>
+      <StyledConfirmText onPress={onNext}>다음</StyledConfirmText>
     </CustomHeader>
   );
 }
