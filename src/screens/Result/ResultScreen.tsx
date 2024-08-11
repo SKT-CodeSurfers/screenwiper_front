@@ -4,9 +4,8 @@ import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import React, {useEffect, useMemo, useState} from 'react';
 import dummies from './dummies.json';
 import Result from '@/components/common/Result/Result';
-import {Alert, Pressable, StyleSheet, Text, View} from 'react-native';
-import styled from 'styled-components/native';
-import CustomModal from '@/components/common/CustomModal/CustomModal';
+import {Alert} from 'react-native';
+import CategoryModal from '@/components/common/Modal/CategoryModal/CategoryModal';
 
 const ResultScreen = ({navigation}: StackScreenProps) => {
   const {result} = dummies;
@@ -59,9 +58,10 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
     });
   }, [navigation, idx]);
 
-  const [isModalVisible, setIsModalVisible] = React.useState(true);
-
-  const handleModal = () => setIsModalVisible(() => !isModalVisible);
+  const [visible, setVisible] = useState(true);
+  function handleOnSumbit(key: string) {
+    Alert.alert(key);
+  }
 
   return (
     <>
@@ -73,74 +73,15 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
       </Swiper> */}
 
         <Result data={data} />
-        <CustomModal />
+
+        <CategoryModal
+          visible={visible}
+          onClose={() => setVisible(false)}
+          onSumbit={handleOnSumbit}
+        />
       </CustomHeaderContainer>
     </>
   );
 };
 
 export default ResultScreen;
-
-const StyledModalWrapper = styled.View`
-  flex: 1;
-  background: #000;
-  opacity: 0.3;
-  position: abosolute;
-  top: 0;
-  left: 0;
-`;
-
-const StyledModalContent = styled.View`
-  width: 80%;
-  background: #fff;
-  margin-top: 230px;
-`;
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#17191c',
-  },
-
-  /**
-   * 일반 화면 영역
-   */
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 50,
-  },
-  viewContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 400,
-  },
-
-  /**
-   * 모달 화면 영역
-   */
-  modalView: {
-    marginTop: 320,
-    margin: 30,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  modalTextStyle: {
-    color: '#17191c',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 50,
-  },
-});

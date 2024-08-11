@@ -15,12 +15,16 @@ import {
 // [TODO] 백이랑 맞춰서 타입 수정해야 함
 interface ResultBottomSheetProps {
   data: IResultPlace | IResultPlan | IResultOther;
+  modify: () => void;
 }
-export default function CustomBottomSheet({data}: ResultBottomSheetProps) {
+export default function CustomBottomSheet({
+  data,
+  modify,
+}: ResultBottomSheetProps) {
   return (
     <BottomSheet snapPoints={['75%', '100%']}>
       <s.ScrollView>
-        <s.CategoryButton>
+        <s.CategoryButton onPress={modify}>
           <s.CategoryText>{data.category}</s.CategoryText>
           <IcDown />
         </s.CategoryButton>
