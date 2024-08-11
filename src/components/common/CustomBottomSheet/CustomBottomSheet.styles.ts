@@ -12,6 +12,7 @@ const CustomBottomSheetStyles = {
     padding: 8px 20px;
     border-radius: 20px;
     background: #4277ff;
+
     ${({theme}) => theme.mixins.flexBox()};
     gap: 5px;
   `,
@@ -23,16 +24,27 @@ const CustomBottomSheetStyles = {
 
   Title: styled.Text`
     ${({theme}) => theme.fonts.title_eb_21};
-    margin: 17px 0;
+    margin: 17px 0 30px 5px;
+  `,
+
+  SubWrapper: styled.View<{isVertical?: boolean}>`
+    ${({theme, isVertical}) =>
+      isVertical
+        ? theme.mixins.flexBox('column', 'center', 'flex-start')
+        : theme.mixins.flexBox('row', 'flex-start', 'center')};
+    gap: 10px;
+
+    margin-left: 5px;
+    margin-bottom: 10px;
   `,
 
   SubTitle: styled.Text`
     ${({theme}) => theme.fonts.body_b_16};
-    margin-bottom: 10px;
   `,
 
   SubContent: styled.Text`
     ${({theme}) => theme.fonts.body_m_16};
+    padding-left: 5px;
   `,
 };
 

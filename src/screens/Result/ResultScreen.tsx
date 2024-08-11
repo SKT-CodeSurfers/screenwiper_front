@@ -8,7 +8,7 @@ import CustomBottomSheet from '@/components/common/CustomBottomSheet/CustomBotto
 
 const ResultScreen = ({navigation}: StackScreenProps) => {
   const {result} = dummies;
-  const data = result[0];
+  const data = result[2];
 
   useEffect(() => {
     navigation.setOptions({

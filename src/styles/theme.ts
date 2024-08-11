@@ -59,6 +59,18 @@ const fonts = {
     fontFamily: 'Pretendard-Medium',
     color: colors.black,
   },
+  /** PlanTitle - Pretendard Bold 16 */
+  plan_title: {
+    fontSize: 16,
+    fontFamily: 'Pretendard-Bold',
+    color: colors.black,
+  },
+  /** PlanDate - Pretendard Medium 14 */
+  plan_date: {
+    fontSize: 14,
+    fontFamily: 'Pretendard-Medium',
+    color: colors.gray6,
+  },
   /** TabLabel - Pretendard Bold 11 */
   tab_active: {
     fontSize: 12,
