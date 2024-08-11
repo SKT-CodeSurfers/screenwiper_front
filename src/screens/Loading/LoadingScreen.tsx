@@ -25,6 +25,8 @@ const LoadingScreenContainer = styled.SafeAreaView`
   ${({theme}) => theme.mixins.flexBox('column')};
   gap: 10px;
   margin-top: -30%;
+
+  background: white;
 `;
 
 const TitleText = styled.Text`
