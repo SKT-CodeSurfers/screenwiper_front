@@ -4,6 +4,7 @@ import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import React, {useEffect, useMemo, useState} from 'react';
 import dummies from './dummies.json';
 import Result from '@/components/common/Result/Result';
+import {Alert} from 'react-native';
 
 const ResultScreen = ({navigation}: StackScreenProps) => {
   const {result} = dummies;
@@ -11,19 +12,33 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
   const [idx, setIdx] = useState(0);
   const data = useMemo(() => result[idx], [idx]);
 
-  console.log('>> ', idx);
-
+  function handleGoBack() {
+    Alert.alert(
+      '수정을 종료하시겠습니까?',
+      '수정한 내용은 반영되지 않습니다.',
+      [
+        {
+          text: '아니요',
+          onPress: () => console.log('아니라는데'),
+          style: 'cancel',
+        },
+        {text: '네', onPress: () => navigation.pop()},
+      ],
+    );
+  }
   function handleOnPrev() {
     setIdx(prev => {
-      if (prev <= 0) return 0;
       return prev - 1;
     });
   }
+
   function handleOnNext() {
     setIdx(prev => {
-      if (prev >= result.length - 1) return result.length - 1;
       return prev + 1;
     });
+  }
+  function handleOnSave() {
+    Alert.alert('Save!');
   }
 
   useEffect(() => {
@@ -33,8 +48,10 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
         <ResultHeader
           idx={idx}
           total={result.length}
+          goBack={handleGoBack}
           onPrev={handleOnPrev}
           onNext={handleOnNext}
+          onSave={handleOnSave}
         />
       ),
     });
