@@ -1,11 +1,17 @@
+import ResultHeader from '@/components/Result/ResultHeader';
 import React from 'react';
 import {Text} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 
 const ResultScreen = () => {
+  const {top} = useSafeAreaInsets();
+
   return (
     <LoadingScreenContainer>
-      <Text>ResultScreen</Text>
+      <ResultHeader />
+
+      <Text>ResultScreen{top}</Text>
     </LoadingScreenContainer>
   );
 };
@@ -17,5 +23,6 @@ const LoadingScreenContainer = styled.SafeAreaView`
 
   ${({theme}) => theme.mixins.flexBox('column')};
   gap: 10px;
-  margin-top: -30%;
+
+  position: relative;
 `;
