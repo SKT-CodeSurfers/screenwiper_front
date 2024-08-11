@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomHeader from '../common/CustomHeader';
+import CustomHeader from '../common/CustomHeader/CustomHeader';
 import styled from 'styled-components/native';
 
 export default function DetailHeader() {

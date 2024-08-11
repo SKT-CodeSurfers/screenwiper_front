@@ -1,25 +1,33 @@
+import CustomHeaderContainer from '@/components/common/CustomHeader/CustomHeaderContainer';
 import ResultHeader from '@/components/Result/ResultHeader';
-import React from 'react';
-import {Text} from 'react-native';
-import styled from 'styled-components/native';
+import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
+import React, {useEffect} from 'react';
+import {ScrollView, Text} from 'react-native';
 
-const ResultScreen = () => {
+const ResultScreen = ({navigation}: StackScreenProps) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
+      header: () => <ResultHeader />,
+    });
+  }, [navigation]);
+
   return (
-    <LoadingScreenContainer>
-      <ResultHeader />
+    <CustomHeaderContainer>
+      <ScrollView>
+        <Text>1ResultScreen</Text>
+        <Text>ResultScreen</Text>
+        <Text>ResultScreen</Text>
+        <Text>ResultScreen</Text>
+        <Text>ResultScreen</Text>
+        <Text>ResultScreen</Text>
 
-      <Text>ResultScreen</Text>
-    </LoadingScreenContainer>
+        <Text>ResultScreen</Text>
+        <Text>ResultScreen</Text>
+        <Text>ResultScreen</Text>
+      </ScrollView>
+    </CustomHeaderContainer>
   );
 };
 
 export default ResultScreen;
-
-const LoadingScreenContainer = styled.SafeAreaView`
-  flex: 1;
-
-  ${({theme}) => theme.mixins.flexBox('column')};
-  gap: 10px;
-
-  position: relative;
-`;
