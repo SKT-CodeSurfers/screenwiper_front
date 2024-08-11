@@ -1,6 +1,7 @@
 import FloatingButton from '@/components/Main/FloatingButton';
 import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import React from 'react';
+import {Modal} from 'react-native';
 import {Button, Text} from 'react-native';
 import {ImagePickerResponse} from 'react-native-image-picker';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -10,6 +11,10 @@ export default function HomeScreen({navigation}: StackScreenProps) {
   function handleOnResult(res: ImagePickerResponse) {
     console.log('[result] ', res);
   }
+
+  const [isModalVisible, setIsModalVisible] = React.useState(true);
+
+  const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
   return (
     <SafeAreaView>

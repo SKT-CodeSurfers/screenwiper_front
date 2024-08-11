@@ -83,6 +83,24 @@ const fonts = {
     fontFamily: 'Pretendard-Medium',
     color: colors.primary_light,
   },
+  /** ModalTitle - Pretendard Bold 17 */
+  modal_title: {
+    fontSize: 17,
+    fontFamily: 'Pretendard-Bold',
+    color: colors.black,
+  },
+  /** ModalSubtitle - Pretendard Medium 14 */
+  modal_subtitle: {
+    fontSize: 14,
+    fontFamily: 'Pretendard-Medium',
+    color: colors.gray5,
+  },
+  /** ModalOption - Pretendard SemiBold 15 */
+  modal_option: {
+    fontSize: 15,
+    fontFamily: 'Pretendard-SemiBold',
+    color: colors.black,
+  },
 };
 
 /* 믹스인 */
