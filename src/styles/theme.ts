@@ -12,7 +12,7 @@ const colors = {
   gray5: '#9C9C9C',
   gray6: '#858585',
   white: '#ffffff',
-  black: '#000000',
+  black: '#393939',
 };
 
 /* 폰트 */
@@ -21,26 +21,37 @@ const fonts = {
   title_sb_21: {
     fontSize: 21,
     fontFamily: 'Pretendard-SemiBold',
+    color: colors.black,
   },
   /** Title - Pretendard Medium 16 */
   title_m_16: {
     fontSize: 16,
     fontFamily: 'Pretendard-Medium',
+    color: colors.black,
   },
   /** Body - Pretendard SemiBold 17 */
   body_sb_17: {
     fontSize: 17,
     fontFamily: 'Pretendard-SemiBold',
+    color: colors.black,
+  },
+  /** Body - Pretendard Bold 16 */
+  body_b_16: {
+    fontSize: 16,
+    fontFamily: 'Pretendard-Bold',
+    color: colors.black,
   },
   /** Body - Pretendard Medium 16 */
   body_m_16: {
     fontSize: 16,
     fontFamily: 'Pretendard-Medium',
+    color: colors.black,
   },
   /** Body - Pretendard Medium 15 */
   body_m_15: {
     fontSize: 15,
     fontFamily: 'Pretendard-Medium',
+    color: colors.black,
   },
   /** TabLabel - Pretendard Bold 11 */
   tab_active: {
