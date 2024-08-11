@@ -5,7 +5,6 @@ import React, {useEffect, useMemo, useState} from 'react';
 import dummies from './dummies.json';
 import Result from '@/components/common/Result/Result';
 import {Alert} from 'react-native';
-import CategoryModal from '@/components/common/Modal/CategoryModal/CategoryModal';
 
 const ResultScreen = ({navigation}: StackScreenProps) => {
   const {result} = dummies;
@@ -58,11 +57,6 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
     });
   }, [navigation, idx]);
 
-  const [visible, setVisible] = useState(true);
-  function handleOnSumbit(key: string) {
-    Alert.alert(key);
-  }
-
   return (
     <>
       <CustomHeaderContainer>
@@ -73,12 +67,6 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
       </Swiper> */}
 
         <Result data={data} />
-
-        <CategoryModal
-          visible={visible}
-          onClose={() => setVisible(false)}
-          onSumbit={handleOnSumbit}
-        />
       </CustomHeaderContainer>
     </>
   );
