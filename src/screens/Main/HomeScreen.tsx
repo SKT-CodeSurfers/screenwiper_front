@@ -47,12 +47,12 @@ export default function HomeScreen({ navigation }: StackScreenProps) {
     <SafeAreaView style={{ flex: 1 }}>
       <s.StyledScrollView>
         <s.TopContainer>
-          <s.SettingButton>
+          <s.SettingButton onPress={() => navigation.navigate('Setting')}>
             <SettingIcon width={22} height={22} />
           </s.SettingButton>
 
-          <s.WhiteText>안녕하세요, <s.TopText>데보션님!</s.TopText></s.WhiteText>
-          <s.GrayText>오늘은 어떤 사진을 정리하셨나요?</s.GrayText>
+          <s.TitleText>안녕하세요, <s.NameText>데보션님!</s.NameText></s.TitleText>
+          <s.Description>오늘은 어떤 사진을 정리하셨나요?</s.Description>
         </s.TopContainer>
 
         <s.ContentContainer>

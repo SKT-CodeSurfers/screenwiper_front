@@ -9,17 +9,17 @@ export const StyledScrollView = styled.ScrollView`
   background-color: #FFF;
 `;
 
-export const TopText = styled.Text`
+export const NameText = styled.Text`
   ${({ theme }) => theme.fonts.title_sb_21};
   color: ${({ theme }) => theme.colors.white};
 `;
 
-export const WhiteText = styled.Text`
+export const TitleText = styled.Text`
   ${({ theme }) => theme.fonts.body_sb_17};
   color: ${({ theme }) => theme.colors.white};
 `;
 
-export const GrayText = styled.Text`
+export const Description = styled.Text`
   ${({ theme }) => theme.fonts.body_m_15};
   color: ${({ theme }) => theme.colors.white};
   opacity: 0.6;
@@ -29,14 +29,14 @@ export const TopContainer = styled.View`
   width: 100%;
   background-color: #758CF7;
   padding: 20px;
-  padding-top: 50px;
+  padding-top: 80px;
   padding-bottom: 50px;
 `;
 
 export const SettingButton = styled.TouchableOpacity`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
 `;
 
 export const ContentContainer = styled.View`
