@@ -7,7 +7,7 @@ interface CardItemProps {
   title: string;
   location?: string;
   descriptions: string[];
-  category: 'Place' | 'Schedule' | 'Others';
+  category: 'Place' | 'Plan' | 'Others';
 }
 
 const CardItem: React.FC<CardItemProps> = ({ title, location, descriptions, category }) => {
@@ -28,7 +28,7 @@ const CardItem: React.FC<CardItemProps> = ({ title, location, descriptions, cate
           {title}
         </S.TitleText>
         <S.CategoryBadge category={category}>
-          {isPlace ? '장소' : category === 'Schedule' ? '일정' : '기타'}
+          {isPlace ? '장소' : category === 'Plan' ? '일정' : '기타'}
         </S.CategoryBadge>
       </S.HeaderRow>
       {isPlace && location && (

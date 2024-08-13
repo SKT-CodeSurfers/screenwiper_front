@@ -16,7 +16,7 @@ export const TitleText = styled.Text`
   padding-right: 80px;
 `;
 
-export const ScheduleTitleText = styled.Text`
+export const PlanTitleText = styled.Text`
   ${({ theme }) => theme.fonts.title_b_16};
   color: #333;
   margin-bottom: 5px;
@@ -43,7 +43,7 @@ export const DescriptionText = styled.View`
   ${({ theme }) => theme.fonts.body_m_12};
 `;
 
-export const ScheduleDescriptionText = styled.Text`
+export const PlanDescriptionText = styled.Text`
   ${({ theme }) => theme.fonts.body_m_12};
   color: #666;
   text-align: right;
@@ -104,13 +104,13 @@ export const HeaderRow = styled.View`
 `;
 
 interface CategoryBadgeProps {
-  category: 'Place' | 'Schedule' | 'Others';
+  category: 'Place' | 'Plan' | 'Others';
 }
 
 export const CategoryBadge = styled.Text<CategoryBadgeProps>`
   background-color: ${({ category }) => 
     category === 'Place' ? '#4277FF' : 
-    category === 'Schedule' ? '#776BFD' : 
+    category === 'Plan' ? '#776BFD' : 
     '#A6A6A6'};
   color: white;
   padding: 5px 10px;

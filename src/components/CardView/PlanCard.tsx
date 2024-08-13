@@ -2,13 +2,13 @@ import React from 'react';
 import { Shadow } from 'react-native-shadow-2';
 import * as S from '@/components/CardView/CardStyles';  // 스타일 가져오기
 
-interface ScheduleCardProps {
+interface PlanCardProps {
   date: string;
   title: string;
   description: string;
 }
 
-const ScheduleCard: React.FC<ScheduleCardProps> = ({ date, title, description }) => {
+const PlanCard: React.FC<PlanCardProps> = ({ date, title, description }) => {
   return (
     <Shadow
       distance={10}
@@ -20,12 +20,12 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ date, title, description })
           <S.DateText>{date}</S.DateText>
         </S.DateContainer>
         <S.DetailsContainer>
-          <S.ScheduleTitleText numberOfLines={1} ellipsizeMode="tail">{title}</S.ScheduleTitleText>
-          <S.ScheduleDescriptionText numberOfLines={1} ellipsizeMode="tail">{description}</S.ScheduleDescriptionText>
+          <S.PlanTitleText numberOfLines={1} ellipsizeMode="tail">{title}</S.PlanTitleText>
+          <S.PlanDescriptionText numberOfLines={1} ellipsizeMode="tail">{description}</S.PlanDescriptionText>
         </S.DetailsContainer>
       </S.CardContainer>
     </Shadow>
   );
 };
 
-export default ScheduleCard;
+export default PlanCard;

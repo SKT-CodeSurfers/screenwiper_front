@@ -3,13 +3,13 @@ import IcLocation from '@/assets/icon/ic_location.svg';
 import { Shadow } from 'react-native-shadow-2';
 import * as S from '@/components/CardView/CardStyles';  // 스타일 가져오기
 
-interface CardProps {
+interface PlaceCardProps {
   title: string;
   location: string;
   descriptions: string[];
 }
 
-const Card: React.FC<CardProps> = ({ title, location, descriptions }) => {
+const Card: React.FC<PlaceCardProps> = ({ title, location, descriptions }) => {
   return (
     <Shadow
       distance={10}
