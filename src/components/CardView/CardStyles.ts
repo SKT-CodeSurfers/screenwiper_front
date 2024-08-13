@@ -6,12 +6,14 @@ export const StyledCard = styled.View`
   border-radius: 10px;
   padding: 15px;
   width: 300px;
+  position: relative;
 `;
 
 export const TitleText = styled.Text`
   ${({ theme }) => theme.fonts.body_sb_17};
   color: #333;
   margin-bottom: 5px;
+  padding-right: 80px;
 `;
 
 export const ScheduleTitleText = styled.Text`
@@ -50,7 +52,6 @@ export const ScheduleDescriptionText = styled.Text`
 export const BulletPointWrapper = styled.View`
   flex-direction: row;
   align-items: flex-start;
-  margin-bottom: 5px;
 `;
 
 export const BulletPoint = styled.Text`
@@ -99,12 +100,23 @@ export const HeaderRow = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 `;
 
-export const CategoryBadge = styled.Text`
-  background-color: #758CF7;
+interface CategoryBadgeProps {
+  category: 'Place' | 'Schedule' | 'Others';
+}
+
+export const CategoryBadge = styled.Text<CategoryBadgeProps>`
+  background-color: ${({ category }) => 
+    category === 'Place' ? '#4277FF' : 
+    category === 'Schedule' ? '#776BFD' : 
+    '#A6A6A6'};
   color: white;
   padding: 5px 10px;
   border-radius: 20px;
   ${({ theme }) => theme.fonts.body_m_12};
+  position: absolute;
+  top: 0px;
+  right: 0px;
 `;

@@ -1,5 +1,6 @@
 import React from 'react';
-import * as S from '@/components/CardView/CardStyles';  // 스타일 가져오기
+import IcLocation from '@/assets/icon/ic_location.svg';
+import * as S from '@/components/CardView/CardStyles';
 
 interface CardItemProps {
   title: string;
@@ -14,11 +15,19 @@ const CardItem: React.FC<CardItemProps> = ({ title, location, descriptions, cate
   return (
     <S.StyledCard>
       <S.HeaderRow>
-        <S.TitleText>{title}</S.TitleText>
-        <S.CategoryBadge>{isPlace ? '장소' : category === 'Schedule' ? '일정' : '기타'}</S.CategoryBadge>
+        <S.TitleText
+          numberOfLines={isPlace ? 1 : 2}
+          ellipsizeMode='tail'
+        >
+          {title}
+        </S.TitleText>
+        <S.CategoryBadge category={category}>
+          {isPlace ? '장소' : category === 'Schedule' ? '일정' : '기타'}
+        </S.CategoryBadge>
       </S.HeaderRow>
       {isPlace && location && (
         <S.LocationRow>
+          <IcLocation width={13} height={13} />
           <S.LocationText>{location}</S.LocationText>
         </S.LocationRow>
       )}

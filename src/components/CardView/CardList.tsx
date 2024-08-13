@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import ListCard from './CardItem';
 
 export function PlaceCardList() {
@@ -11,6 +11,27 @@ export function PlaceCardList() {
       descriptions: ['문래에 생긴 라멘+마제소바 성지', '일본 여행온 듯한 분위기'],
       category: 'Place' as const,
     },
+    {
+        id: '2',
+        title: '문래 동, 멘',
+        location: '영등포구 도림로 139길 19 1층',
+        descriptions: ['문래에 생긴 라멘+마제소바 성지', '일본 여행온 듯한 분위기'],
+        category: 'Place' as const,
+      },
+      {
+        id: '3',
+        title: '문래 동, 멘',
+        location: '영등포구 도림로 139길 19 1층',
+        descriptions: ['문래에 생긴 라멘+마제소바 성지', '일본 여행온 듯한 분위기'],
+        category: 'Place' as const,
+      },
+      {
+        id: '4',
+        title: '문래 동, 멘',
+        location: '영등포구 도림로 139길 19 1층',
+        descriptions: ['문래에 생긴 라멘+마제소바 성지', '일본 여행온 듯한 분위기'],
+        category: 'Place' as const,
+      },
   ];
 
   return (
@@ -18,6 +39,8 @@ export function PlaceCardList() {
       data={placeCards}
       renderItem={({ item }) => <ListCard {...item} />}
       keyExtractor={(item) => item.id}
+      contentContainerStyle={{ alignItems: 'center', paddingVertical: 10 }}
+      ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
     />
   );
 }
@@ -41,6 +64,8 @@ export function ScheduleCardList() {
       data={scheduleCards}
       renderItem={({ item }) => <ListCard {...item} />}
       keyExtractor={(item) => item.id}
+      contentContainerStyle={{ alignItems: 'center', paddingVertical: 10 }}
+      ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
     />
   );
 }
@@ -60,6 +85,8 @@ export function OthersCardList() {
       data={othersCards}
       renderItem={({ item }) => <ListCard {...item} />}
       keyExtractor={(item) => item.id}
+      contentContainerStyle={{ alignItems: 'center', paddingVertical: 10 }}
+      ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
     />
   );
 }
