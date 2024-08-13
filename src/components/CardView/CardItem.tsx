@@ -1,6 +1,7 @@
 import React from 'react';
 import IcLocation from '@/assets/icon/ic_location.svg';
 import * as S from '@/components/CardView/CardStyles';
+import { Shadow } from 'react-native-shadow-2';
 
 interface CardItemProps {
   title: string;
@@ -13,6 +14,11 @@ const CardItem: React.FC<CardItemProps> = ({ title, location, descriptions, cate
   const isPlace = category === 'Place';
 
   return (
+    <Shadow
+      distance={10}
+      startColor={'#00000008'}
+      offset={[0, 0]}
+    >
     <S.StyledCard>
       <S.HeaderRow>
         <S.TitleText
@@ -40,6 +46,7 @@ const CardItem: React.FC<CardItemProps> = ({ title, location, descriptions, cate
         ))}
       </S.DescriptionText>
     </S.StyledCard>
+    </Shadow>
   );
 };
 

@@ -39,6 +39,7 @@ export function PlaceCardList() {
       data={placeCards}
       renderItem={({ item }) => <ListCard {...item} />}
       keyExtractor={(item) => item.id}
+      style={{ backgroundColor: '#FCFCFC' }}
       contentContainerStyle={{ alignItems: 'center', paddingVertical: 10 }}
       ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
     />
@@ -64,6 +65,7 @@ export function ScheduleCardList() {
       data={scheduleCards}
       renderItem={({ item }) => <ListCard {...item} />}
       keyExtractor={(item) => item.id}
+      style={{ backgroundColor: '#FCFCFC' }}
       contentContainerStyle={{ alignItems: 'center', paddingVertical: 10 }}
       ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
     />
@@ -85,6 +87,7 @@ export function OthersCardList() {
       data={othersCards}
       renderItem={({ item }) => <ListCard {...item} />}
       keyExtractor={(item) => item.id}
+      style={{ backgroundColor: '#FCFCFC' }}
       contentContainerStyle={{ alignItems: 'center', paddingVertical: 10 }}
       ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
     />
