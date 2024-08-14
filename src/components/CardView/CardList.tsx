@@ -34,7 +34,7 @@ export function PlanCardList({data}: ListProps) {
   );
 }
 
-export function OthersCardList({ data }: ListProps) {
+export function OtherCardList({ data }: ListProps) {
 
   return (
     <FlatList

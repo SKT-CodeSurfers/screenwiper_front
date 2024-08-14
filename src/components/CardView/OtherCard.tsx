@@ -2,11 +2,11 @@ import React from 'react';
 import { Shadow } from 'react-native-shadow-2';
 import * as S from '@/components/CardView/CardStyles';  // 스타일 가져오기
 
-interface OthersCardProps {
+interface OtherCardProps {
   title: string;
 }
 
-const OthersCard: React.FC<OthersCardProps> = ({ title }) => {
+const OtherCard: React.FC<OtherCardProps> = ({ title }) => {
   return (
     <Shadow
       distance={10}
@@ -22,4 +22,4 @@ const OthersCard: React.FC<OthersCardProps> = ({ title }) => {
   );
 };
 
-export default OthersCard;
+export default OtherCard;

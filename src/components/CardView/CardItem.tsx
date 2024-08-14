@@ -5,12 +5,12 @@ import { Shadow } from 'react-native-shadow-2';
 
 interface CardItemProps {
   title: string;
-  location?: string;
+  address?: string;
   descriptions: string[];
-  category: 'Place' | 'Plan' | 'Others';
+  category: 'Place' | 'Plan' | 'Other';
 }
 
-const CardItem: React.FC<CardItemProps> = ({ title, location, descriptions, category }) => {
+const CardItem: React.FC<CardItemProps> = ({ title, address, descriptions, category }) => {
   const isPlace = category === 'Place';
 
   return (
@@ -31,11 +31,11 @@ const CardItem: React.FC<CardItemProps> = ({ title, location, descriptions, cate
           {isPlace ? '장소' : category === 'Plan' ? '일정' : '기타'}
         </S.CategoryBadge>
       </S.HeaderRow>
-      {isPlace && location && (
-        <S.LocationRow>
+      {isPlace && address && (
+        <S.AddressRow>
           <IcLocation width={13} height={13} />
-          <S.LocationText>{location}</S.LocationText>
-        </S.LocationRow>
+          <S.AddressText>{address}</S.AddressText>
+        </S.AddressRow>
       )}
       <S.DescriptionText>
         {descriptions.slice(0, isPlace ? 2 : 3).map((desc, index) => (

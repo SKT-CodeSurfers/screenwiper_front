@@ -23,13 +23,13 @@ export const PlanTitleText = styled.Text`
   text-align: right;
 `;
 
-export const LocationText = styled.Text`
+export const AddressText = styled.Text`
   ${({ theme }) => theme.fonts.body_m_8};
   color: #666;
   margin-left: 5px;
 `;
 
-export const LocationRow = styled.View`
+export const AddressRow = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 5px;
@@ -104,7 +104,7 @@ export const HeaderRow = styled.View`
 `;
 
 interface CategoryBadgeProps {
-  category: 'Place' | 'Plan' | 'Others';
+  category: 'Place' | 'Plan' | 'Other';
 }
 
 export const CategoryBadge = styled.Text<CategoryBadgeProps>`

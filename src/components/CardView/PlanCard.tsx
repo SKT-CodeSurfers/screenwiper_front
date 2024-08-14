@@ -5,10 +5,10 @@ import * as S from '@/components/CardView/CardStyles';  // 스타일 가져오�
 interface PlanCardProps {
   date: string;
   title: string;
-  description: string;
+  descriptions: string;
 }
 
-const PlanCard: React.FC<PlanCardProps> = ({ date, title, description }) => {
+const PlanCard: React.FC<PlanCardProps> = ({ date, title, descriptions }) => {
   return (
     <Shadow
       distance={10}
@@ -21,7 +21,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ date, title, description }) => {
         </S.DateContainer>
         <S.DetailsContainer>
           <S.PlanTitleText numberOfLines={1} ellipsizeMode="tail">{title}</S.PlanTitleText>
-          <S.PlanDescriptionText numberOfLines={1} ellipsizeMode="tail">{description}</S.PlanDescriptionText>
+          <S.PlanDescriptionText numberOfLines={1} ellipsizeMode="tail">{descriptions}</S.PlanDescriptionText>
         </S.DetailsContainer>
       </S.CardContainer>
     </Shadow>

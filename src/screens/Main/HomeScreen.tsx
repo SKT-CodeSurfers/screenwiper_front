@@ -1,46 +1,58 @@
 import { StackScreenProps } from '@/navigators/StackNavigator/StackNavigator';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import SettingIcon from '@/assets/icon/ic_settings.svg';
 import PlaceCard from '@/components/CardView/PlaceCard';
 import PlanCard from '@/components/CardView/PlanCard';
-import OthersCard from '@/components/CardView/OthersCard';
-import data from '@/screens/Main/HomeDummies.json';
+import OtherCard from '@/components/CardView/OtherCard';
+import rawData from '@/screens/Main/HomeDummies.json';
+import { categorizeData } from '@/utils/CategoryUtils';
 import * as s from './HomeScreen.style';
+import { CardItem } from '@/types/Main/CardTypes';
 
 const cardWidth = 300; 
 const cardMargin = 15;
+
 export default function HomeScreen({ navigation }: StackScreenProps) {
 
-  const { placeCards, planCards, othersCards } = data;
+  const [placeCards, setPlaceCards] = useState<CardItem[]>([]);
+  const [planCards, setPlanCards] = useState<CardItem[]>([]);
+  const [otherCards, setOtherCards] = useState<CardItem[]>([]);
+
+  useEffect(() => {
+    const { placeCards, planCards, otherCards } = categorizeData(rawData);
+    setPlaceCards(placeCards);
+    setPlanCards(planCards);
+    setOtherCards(otherCards);
+  }, []);
 
   const renderPlaceCard = ({ item }: { item: any }) => (
-        <s.CardWrapper>
-          <PlaceCard
-            title={item.title}
-            location={item.location}
-            descriptions={item.descriptions}
-          />
-        </s.CardWrapper>
+    <s.CardWrapper>
+      <PlaceCard
+        title={item.title}
+        address={item.address}
+        descriptions={item.descriptions}
+      />
+    </s.CardWrapper>
   );
 
   const renderPlanCard = ({ item }: { item: any }) => (
-        <s.CardWrapper>
-          <PlanCard
-            date={item.date}
-            title={item.title}
-            description={item.description}
-          />
-        </s.CardWrapper>
+    <s.CardWrapper>
+      <PlanCard
+        date={item.date}
+        title={item.title}
+        descriptions={item.descriptions}
+      />
+    </s.CardWrapper>
   );
 
-  const renderOthersCard = ({ item }: { item: any }) => (
-        <s.CardWrapper>
-          <OthersCard 
-            title={item.title}
-          />
-        </s.CardWrapper>
+  const renderOtherCard = ({ item }: { item: any }) => (
+    <s.CardWrapper>
+      <OtherCard 
+        title={item.title}
+      />
+    </s.CardWrapper>
   );
 
   return (
@@ -84,8 +96,8 @@ export default function HomeScreen({ navigation }: StackScreenProps) {
 
           <s.SectionTitle>이것도 확인해 보세요</s.SectionTitle>
           <FlatList
-            data={othersCards}
-            renderItem={renderOthersCard}
+            data={otherCards}
+            renderItem={renderOtherCard}
             keyExtractor={(item) => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}

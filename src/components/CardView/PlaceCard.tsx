@@ -5,11 +5,11 @@ import * as S from '@/components/CardView/CardStyles';  // 스타일 가져오�
 
 interface PlaceCardProps {
   title: string;
-  location: string;
+  address: string;
   descriptions: string[];
 }
 
-const Card: React.FC<PlaceCardProps> = ({ title, location, descriptions }) => {
+const Card: React.FC<PlaceCardProps> = ({ title, address, descriptions }) => {
   return (
     <Shadow
       distance={10}
@@ -18,10 +18,10 @@ const Card: React.FC<PlaceCardProps> = ({ title, location, descriptions }) => {
     >
       <S.StyledCard>
         <S.TitleText>{title}</S.TitleText>
-        <S.LocationRow>
+        <S.AddressRow>
           <IcLocation width={13} height={13} />
-          <S.LocationText>{location}</S.LocationText>
-        </S.LocationRow>
+          <S.AddressText>{address}</S.AddressText>
+        </S.AddressRow>
         <S.DescriptionText>
           {descriptions.map((desc, index) => (
             <S.BulletPointWrapper key={index}>

@@ -1,15 +1,16 @@
-export type CategoryType = 'Place' | 'Plan' | 'Others';
+export type CategoryType = 'Place' | 'Plan' | 'Other';
 
 export interface CardItem {
     id: string;
     title: string;
-    location?: string;
+    address?: string;
     descriptions: string[];
     category: CategoryType;
+    date: string;
   }
   
   export interface TopTabNavigatorProps {
     placeCards: CardItem[];
     planCards: CardItem[];
-    othersCards: CardItem[];
+    otherCards: CardItem[];
   }

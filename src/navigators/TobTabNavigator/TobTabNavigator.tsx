@@ -1,27 +1,36 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { PlaceCardList, PlanCardList, OthersCardList } from '@/components/CardView/CardList';
+import { Text } from 'react-native';
+import { PlaceCardList, PlanCardList, OtherCardList } from '@/components/CardView/CardList';
 import { TopTabNavigatorProps } from '@/types/Main/CardTypes';
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function TopTabNavigator({ placeCards, planCards, othersCards}: TopTabNavigatorProps) {
+export default function TopTabNavigator({ placeCards, planCards, otherCards}: TopTabNavigatorProps) {
   return (
     <Tab.Navigator
-    screenOptions={{
-      tabBarActiveTintColor: '#4277FF',
-      tabBarInactiveTintColor: '#666',
-      tabBarLabelStyle: { fontSize: 16, fontWeight: 'bold' },
-      tabBarIndicatorStyle: {
-        backgroundColor: '#4277FF',
-        height: 4,
-        width: '10%',
-        marginLeft: '12%',
-        borderRadius: 2,
-      },
-      tabBarStyle: { backgroundColor: '#fff' },
-    }}
-  >
+      screenOptions={({ route }) => ({
+        tabBarActiveTintColor: '#4277FF',
+        tabBarInactiveTintColor: '#666',
+        tabBarIndicatorStyle: {
+          backgroundColor: '#4277FF',
+          height: 4,
+          width: '10%',
+          marginLeft: '12%',
+          borderRadius: 2,
+        },
+        tabBarStyle: { backgroundColor: '#fff', paddingTop: 30 },
+        tabBarLabel: ({ focused, color }) => (
+          <Text style={{ 
+            color, 
+            fontSize: 16, 
+            fontWeight: focused ? 'bold' : 'normal'
+          }}>
+            {route.name}
+          </Text>
+        ),
+      })}
+    >
         <Tab.Screen name="장소">
         {() => <PlaceCardList data={placeCards} />}
         </Tab.Screen>
@@ -29,7 +38,7 @@ export default function TopTabNavigator({ placeCards, planCards, othersCards}: T
           {() => <PlanCardList data={planCards} />}
         </Tab.Screen>
         <Tab.Screen name="기타">
-          {() => <OthersCardList data={othersCards} />}
+          {() => <OtherCardList data={otherCards} />}
         </Tab.Screen>
       </Tab.Navigator>
   );
