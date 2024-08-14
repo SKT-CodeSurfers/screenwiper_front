@@ -1,6 +1,6 @@
 import React from 'react';
 import IcLocation from '@/assets/icon/ic_location.svg';
-import * as S from '@/components/CardView/CardStyles';
+import * as S from '@/components/Main/CardView/CardStyles';
 import { Shadow } from 'react-native-shadow-2';
 
 interface CardItemProps {

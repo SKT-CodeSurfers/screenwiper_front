@@ -1,7 +1,7 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Text } from 'react-native';
-import { PlaceCardList, PlanCardList, OtherCardList } from '@/components/CardView/CardList';
+import { PlaceCardList, PlanCardList, OtherCardList } from '@/components/Main/CardView/CardList';
 import { TopTabNavigatorProps } from '@/types/Main/CardTypes';
 
 const Tab = createMaterialTopTabNavigator();
