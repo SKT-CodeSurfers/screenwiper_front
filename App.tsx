@@ -5,7 +5,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Navigator from 'navigators/Navigator';
 import Styles from '@/styles';
 import SplashScreen from 'react-native-splash-screen';
-
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const App = () => {
   useEffect(() => {
@@ -13,11 +13,13 @@ const App = () => {
   }, []);
 
   return (
-    <Styles>
-      <SafeAreaProvider>
-        <Navigator />
-      </SafeAreaProvider>
-    </Styles>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <Styles>
+        <SafeAreaProvider>
+          <Navigator />
+        </SafeAreaProvider>
+      </Styles>
+    </GestureHandlerRootView>
   );
 };
 

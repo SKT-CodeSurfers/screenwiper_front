@@ -10,11 +10,24 @@ import rawData from '@/screens/Main/HomeDummies.json';
 import { categorizeData } from '@/utils/CategoryUtils';
 import * as s from './HomeScreen.style';
 import { CardItem } from '@/types/Main/CardTypes';
+import FloatingButton from '@/components/Main/FloatingButton';
+import {Modal} from 'react-native';
+import {Button, Text} from 'react-native';
+import {ImagePickerResponse} from 'react-native-image-picker';
+import styled from 'styled-components/native';
 
 const cardWidth = 300; 
 const cardMargin = 15;
 
 export default function HomeScreen({ navigation }: StackScreenProps) {
+
+  function handleOnResult(res: ImagePickerResponse) {
+    console.log('[result] ', res);
+  }
+
+  const [isModalVisible, setIsModalVisible] = React.useState(true);
+
+  const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
   const [placeCards, setPlaceCards] = useState<CardItem[]>([]);
   const [planCards, setPlanCards] = useState<CardItem[]>([]);
@@ -108,6 +121,8 @@ export default function HomeScreen({ navigation }: StackScreenProps) {
           />
         </s.ContentContainer>
       </s.StyledScrollView>
+
+      <FloatingButton onResult={handleOnResult} />
     </SafeAreaView>
   );
 }
