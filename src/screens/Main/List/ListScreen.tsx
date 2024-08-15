@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import TopTabNavigator from '@/navigators/TobTabNavigator/TobTabNavigator';
-import rawData from '@/screens/Main/ListDummies.json';
+import rawData from '@/screens/Main/List/ListDummies.json';
 import {TopTabNavigatorProps} from '@/types/Main/CardTypes';
 import {categorizeData} from '@/utils/CategoryUtils';
 import SafeAreaTabView from '@/components/common/SafeAreaTabView/SafeAreaTabView';
