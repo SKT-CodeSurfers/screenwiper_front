@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 
-
 export const StyledCard = styled.View`
   background-color: #fff;
   border-radius: 10px;
@@ -10,21 +9,21 @@ export const StyledCard = styled.View`
 `;
 
 export const TitleText = styled.Text`
-  ${({ theme }) => theme.fonts.body_sb_17};
+  ${({theme}) => theme.fonts.body_sb_17};
   color: #333;
   margin-bottom: 5px;
   padding-right: 80px;
 `;
 
 export const PlanTitleText = styled.Text`
-  ${({ theme }) => theme.fonts.title_b_16};
+  ${({theme}) => theme.fonts.title_b_16};
   color: #333;
   margin-bottom: 5px;
   text-align: right;
 `;
 
 export const AddressText = styled.Text`
-  ${({ theme }) => theme.fonts.body_m_8};
+  ${({theme}) => theme.fonts.body_m_8};
   color: #666;
   margin-left: 5px;
 `;
@@ -36,15 +35,15 @@ export const AddressRow = styled.View`
 `;
 
 export const DescriptionText = styled.View`
-  background-color: #F5F5F6;
+  background-color: #f5f5f6;
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
-  ${({ theme }) => theme.fonts.body_m_12};
+  ${({theme}) => theme.fonts.body_m_12};
 `;
 
 export const PlanDescriptionText = styled.Text`
-  ${({ theme }) => theme.fonts.body_m_12};
+  ${({theme}) => theme.fonts.body_m_12};
   color: #666;
   text-align: right;
 `;
@@ -66,7 +65,7 @@ export const BulletTextWrapper = styled.View`
 `;
 
 export const BulletText = styled.Text`
-  ${({ theme }) => theme.fonts.body_m_12};
+  ${({theme}) => theme.fonts.body_m_12};
   color: #666;
 `;
 
@@ -87,7 +86,7 @@ export const DateContainer = styled.View`
 `;
 
 export const DateText = styled.Text`
-  ${({ theme }) => theme.fonts.title_sb_21};
+  ${({theme}) => theme.fonts.title_sb_21};
   color: #333;
 `;
 
@@ -107,16 +106,22 @@ interface CategoryBadgeProps {
   category: 'Place' | 'Plan' | 'Other';
 }
 
-export const CategoryBadge = styled.Text<CategoryBadgeProps>`
-  background-color: ${({ category }) => 
-    category === 'Place' ? '#4277FF' : 
-    category === 'Plan' ? '#776BFD' : 
-    '#A6A6A6'};
-  color: white;
-  padding: 5px 10px;
+export const CategoryBadgeWrapper = styled.View<CategoryBadgeProps>`
+  background-color: ${({category}) =>
+    category === 'Place'
+      ? '#4277FF'
+      : category === 'Plan'
+        ? '#776BFD'
+        : '#A6A6A6'};
   border-radius: 20px;
-  ${({ theme }) => theme.fonts.body_m_12};
+  overflow: hidden;
   position: absolute;
   top: 0px;
   right: 0px;
+`;
+
+export const CategoryBadgeText = styled.Text`
+  color: white;
+  padding: 5px 10px;
+  ${({theme}) => theme.fonts.body_m_12};
 `;
