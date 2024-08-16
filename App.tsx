@@ -6,6 +6,8 @@ import Navigator from 'navigators/Navigator';
 import Styles from '@/styles';
 import SplashScreen from 'react-native-splash-screen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {QueryClientProvider} from '@tanstack/react-query';
+import queryClient from '@/api/queryClient';
 
 const App = () => {
   useEffect(() => {
@@ -13,13 +15,15 @@ const App = () => {
   }, []);
 
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
-      <Styles>
-        <SafeAreaProvider>
-          <Navigator />
-        </SafeAreaProvider>
-      </Styles>
-    </GestureHandlerRootView>
+    <QueryClientProvider client={queryClient}>
+      <GestureHandlerRootView style={{flex: 1}}>
+        <Styles>
+          <SafeAreaProvider>
+            <Navigator />
+          </SafeAreaProvider>
+        </Styles>
+      </GestureHandlerRootView>
+    </QueryClientProvider>
   );
 };
 
