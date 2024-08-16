@@ -33,6 +33,7 @@
     "react-native-svg": "^15.4.0",
     "react-native-swiper": "next",
     "react-native-tab-view": "^3.5.2",
+    "react-native-webview": "^13.10.5",
     "styled-components": "^6.1.12"
   },
   "devDependencies": {
