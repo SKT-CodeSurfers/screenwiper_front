@@ -1,12 +1,33 @@
-import React from 'react';
-import {Text} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, { useEffect } from 'react';
+import { View, ActivityIndicator } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import useNavigator from '@/navigators/useNavigator';
 
-const SplashScreen = () => {
+const SplashScreen: React.FC = () => {
+  const { stackNavigation } = useNavigator();
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const userInfo = await AsyncStorage.getItem('userInfo');
+        if (userInfo) {
+          stackNavigation.navigate('Main');
+        } else {
+          stackNavigation.navigate('SignIn');
+        }
+      } catch (error) {
+        console.error('Failed to load user info:', error);
+        stackNavigation.navigate('SignIn');
+      }
+    };
+
+    checkLoginStatus();
+  }, []);
+
   return (
-    <SafeAreaView>
-      <Text>SplashScreen</Text>
-    </SafeAreaView>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ActivityIndicator size="large" color="#0000ff" />
+    </View>
   );
 };
 

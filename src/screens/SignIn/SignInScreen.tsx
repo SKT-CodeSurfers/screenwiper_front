@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Logo from '@/assets/logo.svg';
 import IcKakao from '@/assets/icon/ic_kakao_talk.svg';
@@ -8,12 +8,11 @@ import useNavigator from '@/navigators/useNavigator';
 import { useKakaoLoginUrl } from '@/hooks/queries/users/useKakaoLogin';
 
 const SignInScreen = () => {
-
   const { stackNavigation } = useNavigator();
   const { data: loginUrl, isLoading, isError } = useKakaoLoginUrl();
 
   const handleLogin = () => {
-    console.log('Login url : '+ loginUrl);
+    console.log('Login url : ' + loginUrl);
     if (loginUrl) {
       stackNavigation.navigate('WebView', { url: loginUrl });
     }
@@ -23,8 +22,8 @@ const SignInScreen = () => {
     <LinearGradient
       colors={['#21DFFF', '#6A52FE', '#9C01FF']}
       locations={[0, 0.6, 0.9]}
-      start={{x: 0, y: 0}}
-      end={{x: 1, y: 1}}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       style={styles.gradient}>
       <View style={styles.overlay}>
         <Logo width={165} height={135} style={styles.logo} />

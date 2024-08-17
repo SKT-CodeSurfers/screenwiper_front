@@ -3,6 +3,8 @@ import { WebView } from 'react-native-webview';
 import useNavigator from '@/navigators/useNavigator';
 import { Text, View, ActivityIndicator } from 'react-native';
 import { useKakaoCallback } from '@/hooks/queries/users/useKakaoCallback';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const WebviewScreen: React.FC = () => {
   const { stackNavigation } = useNavigator();
   const { url } = stackNavigation.getState().routes.find(route => route.name === 'WebView')?.params ?? {};
@@ -33,7 +35,12 @@ const WebviewScreen: React.FC = () => {
       const code = getQueryParam(url, 'code');
       if (code) {
         kakaoCallback(code, {
-          onSuccess: (data) => {
+          onSuccess: async (data) => {
+            const nameMatch = data.match(/Login successful: (.+)/);
+            const name = nameMatch ? nameMatch[1] : '사용자';
+
+            await AsyncStorage.setItem('userInfo', JSON.stringify({ name: name }));
+
             stackNavigation.navigate('Main');
           },
           onError: (error) => {
