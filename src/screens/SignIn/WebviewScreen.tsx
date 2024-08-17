@@ -1,7 +1,7 @@
 import React from 'react';
 import { WebView } from 'react-native-webview';
 import useNavigator from '@/navigators/useNavigator';
-import { Text } from 'react-native';
+import { Text, View, ActivityIndicator } from 'react-native';
 
 const WebviewScreen: React.FC = () => {
   const { stackNavigation } = useNavigator();
@@ -24,8 +24,8 @@ const WebviewScreen: React.FC = () => {
     return null;
   };
 
-  const onNavigationStateChange = (navState: any) => {
-    const { url } = navState;
+  const onShouldStartLoadWithRequest = (request: any) => {
+    const { url } = request;
 
     if (url.includes('http://43.201.193.38:8080/callback')) {
       const code = getQueryParam(url, 'code');
@@ -33,22 +33,37 @@ const WebviewScreen: React.FC = () => {
         fetch(`http://43.201.193.38:8080/api/callback?code=${code}`)
           .then(response => response.text())
           .then(data => {
-            console.log('Login successful:', data);
+            console.log(data);
             stackNavigation.navigate('Main');
           })
           .catch(error => console.error('Error during callback processing:', error));
+
+        return false;
       }
     }
+
+    return true;
   };
 
   if (!url) {
-    return <Text>Loading...</Text>;
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <Text>Loading...</Text>
+      </View>
+    );
   }
 
   return (
     <WebView
       source={{ uri: url }}
-      onNavigationStateChange={onNavigationStateChange}
+      style={{ flex: 1 }}
+      onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+      startInLoadingState={true}
+      renderLoading={() => (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
+        </View>
+      )}
     />
   );
 };
