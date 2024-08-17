@@ -1,6 +1,6 @@
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
 
-export const BASE_URL = 'http://43.201.193.38:8080/ ';
+export const BASE_URL = 'http://43.201.193.38:8080/';
 
 export const API = axios.create({
   baseURL: BASE_URL,
@@ -28,7 +28,7 @@ export interface BaseResponse<T> {
 export const GET = async <T>(
   url: string,
   config?: AxiosRequestConfig,
-): Promise<AxiosResponse<BaseResponse<T>>> => {
+): Promise<AxiosResponse<T>> => {
   return API.get(url, config);
 };
 

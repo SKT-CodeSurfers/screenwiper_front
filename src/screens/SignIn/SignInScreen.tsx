@@ -4,9 +4,21 @@ import LinearGradient from 'react-native-linear-gradient';
 import Logo from '@/assets/logo.svg';
 import IcKakao from '@/assets/icon/ic_kakao_talk.svg';
 import styles from './SignInScreen.styles';
-import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
+import useNavigator from '@/navigators/useNavigator';
+import { useKakaoLoginUrl } from '@/hooks/queries/users/useKakaoLogin';
 
-const SignInScreen = ({navigation}: StackScreenProps) => {
+const SignInScreen = () => {
+
+  const { stackNavigation } = useNavigator();
+  const { data: loginUrl, isLoading, isError } = useKakaoLoginUrl();
+
+  const handleLogin = () => {
+    console.log('Login url : '+ loginUrl);
+    if (loginUrl) {
+      stackNavigation.navigate('WebView', { url: loginUrl });
+    }
+  };
+
   return (
     <LinearGradient
       colors={['#21DFFF', '#6A52FE', '#9C01FF']}
@@ -21,7 +33,7 @@ const SignInScreen = ({navigation}: StackScreenProps) => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.replace('Main')}>
+            onPress={handleLogin}>
             <IcKakao width={24} height={24} style={styles.buttonIcon} />
             <Text style={styles.buttonText}>카카오로 시작하기</Text>
           </TouchableOpacity>

@@ -10,6 +10,7 @@ import SignInScreen from '@/screens/SignIn/SignInScreen';
 import SettingScreen from '@/screens/Setting/SettingScreen';
 import ResultScreen from '@/screens/Result/ResultScreen';
 import DetailScreen from '@/screens/Detail/DetailScreen';
+import WebviewScreen from '@/screens/SignIn/WebviewScreen';
 
 export type StackParamList = {
   SignIn: undefined;
@@ -19,6 +20,7 @@ export type StackParamList = {
   Setting: undefined;
   Result: undefined;
   Detail: undefined;
+  WebView: { url: string };
 };
 
 export const enum StackMenu {
@@ -29,6 +31,7 @@ export const enum StackMenu {
   Setting = 'Setting',
   Result = 'Result',
   Detail = 'Detail',
+  WebView = 'WebView',
 }
 
 export type StackScreenProps = {
@@ -48,6 +51,7 @@ export default function StackNavigator() {
       <Stack.Screen name={StackMenu.Result} component={ResultScreen} />
       <Stack.Screen name={StackMenu.Detail} component={DetailScreen} />
       <Stack.Screen name={StackMenu.Setting} component={SettingScreen} />
+      <Stack.Screen name={StackMenu.WebView} component={WebviewScreen} />
 
       {/* <Stack.Screen name={StackMenu.Splash} component={SplashScreen} /> */}
     </Stack.Navigator>
