@@ -1,28 +1,27 @@
 import React, { useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import useNavigator from '@/navigators/useNavigator';
+import { useMemberInfo } from '@/hooks/queries/users/useMemberInfo';
 
 const SplashScreen: React.FC = () => {
   const { stackNavigation } = useNavigator();
+  const { data, isLoading, isError } = useMemberInfo();
 
   useEffect(() => {
-    const checkLoginStatus = async () => {
-      try {
-        const userInfo = await AsyncStorage.getItem('userInfo');
-        if (userInfo) {
-          stackNavigation.navigate('Main');
-        } else {
-          stackNavigation.navigate('SignIn');
-        }
-      } catch (error) {
-        console.error('Failed to load user info:', error);
+    console.log('hi');
+    if (!isLoading) {
+      if (data) {
+        console.log('Member Info:', data);
+        stackNavigation.navigate('Main');
+      } else {
         stackNavigation.navigate('SignIn');
       }
-    };
+    }
 
-    checkLoginStatus();
-  }, []);
+    if (isError) {
+      stackNavigation.navigate('SignIn');
+    }
+  }, [isLoading, data, isError]);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
