@@ -17,6 +17,16 @@ const colors = {
 
 /* 폰트 */
 const fonts = {
+  /** Title - Pretendard Bold 18s */
+  title_b_18: {
+    fontSize: 18,
+    fontFamily: 'Pretendard-Bold',
+  },
+  /** Title - Pretendard Bold 16 */
+  title_b_16: {
+    fontSize: 16,
+    fontFamily: 'Pretendard-Bold',
+  },
   /** Title - Pretendard SemiBold 21 */
   title_eb_21: {
     fontSize: 21,
@@ -70,6 +80,16 @@ const fonts = {
     fontSize: 14,
     fontFamily: 'Pretendard-Medium',
     color: colors.gray6,
+  },
+  /** Body - Pretendard Medium 12 */
+  body_m_12: {
+    fontSize: 12,
+    fontFamily: 'Pretendard-Medium',
+  },
+  /** Body - Pretendard Medium 8 */
+  body_m_8: {
+    fontSize: 8,
+    fontFamily: 'Pretendard-Medium',
   },
   /** TabLabel - Pretendard Bold 11 */
   tab_active: {
