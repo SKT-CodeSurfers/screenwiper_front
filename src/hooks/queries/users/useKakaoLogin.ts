@@ -1,10 +1,10 @@
-import { GET } from '@/api/client';
+import { GETuser } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 import { LOGIN_KEYS } from '../QueryKeys';
 
 export const fetchKakaoLoginUrl = async (): Promise<string> => {
   try {
-    const res = await GET<string>('api/login-url');
+    const res = await GETuser<string>('api/login-url');
     return res.data;
   } catch (error) {
     console.error('Error fetching login URL:', error);

@@ -36,10 +36,10 @@ const WebviewScreen: React.FC = () => {
       if (code) {
         kakaoCallback(code, {
           onSuccess: async (data) => {
-            const nameMatch = data.match(/Login successful: (.+)/);
-            const name = nameMatch ? nameMatch[1] : '사용자';
+            console.log("AccessToken:", data.accessToken);
+            console.log("Logged in as:", data.memberName);
 
-            await AsyncStorage.setItem('userInfo', JSON.stringify({ name: name }));
+            //await AsyncStorage.setItem('accessToken', data.accessToken);
 
             stackNavigation.navigate('Main');
           },

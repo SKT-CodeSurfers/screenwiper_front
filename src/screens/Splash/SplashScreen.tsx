@@ -8,7 +8,8 @@ const SplashScreen: React.FC = () => {
   const { data, isLoading, isError } = useMemberInfo();
 
   useEffect(() => {
-    console.log('hi');
+    console.log('Member Info:', data);
+    
     if (!isLoading) {
       if (data) {
         console.log('Member Info:', data);

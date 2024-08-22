@@ -1,4 +1,4 @@
-import { GET } from '@/api/client';
+import { GETuser } from '@/api/client';
 import { useQuery } from '@tanstack/react-query';
 
 interface MemberInfoResponse {
@@ -6,17 +6,23 @@ interface MemberInfoResponse {
 }
 
 const fetchMemberInfo = async (): Promise<MemberInfoResponse> => {
-  const response = await GET<string>('/api/member-info', {
-    withCredentials: true,
-  });
+  try {
+    const response = await GETuser<string>('api/member-info', {
+      withCredentials: true,
+    });
+    const responseData = response.data;
+    console.log('res' + responseData);
 
-  const responseData = response.data;
+    const nameMatch = responseData.match(/Logged in as: (.+)/);
+    const name = nameMatch ? nameMatch[1] : '사용자';
 
-  const nameMatch = responseData.match(/Logged in as: (.+)/);
-  const name = nameMatch ? nameMatch[1] : '사용자';
-
-  return { name };
+    return { name };
+  } catch (error) {
+    console.error('Error fetching member info:', error);
+    throw error;
+  }
 };
+
 
 export const useMemberInfo = () => {
   return useQuery<MemberInfoResponse, Error>({

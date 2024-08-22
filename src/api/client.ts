@@ -28,6 +28,13 @@ export interface BaseResponse<T> {
 export const GET = async <T>(
   url: string,
   config?: AxiosRequestConfig,
+): Promise<AxiosResponse<BaseResponse<T>>> => {
+  return API.get(url, config);
+};
+
+export const GETuser = async <T>(
+  url: string,
+  config?: AxiosRequestConfig,
 ): Promise<AxiosResponse<T>> => {
   return API.get(url, config);
 };
