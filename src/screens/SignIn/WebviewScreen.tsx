@@ -37,9 +37,9 @@ const WebviewScreen: React.FC = () => {
         kakaoCallback(code, {
           onSuccess: async (data) => {
             console.log("AccessToken:", data.accessToken);
-            console.log("Logged in as:", data.memberName);
+            console.log("Logged in as:", data.name);
 
-            //await AsyncStorage.setItem('accessToken', data.accessToken);
+            await AsyncStorage.setItem('accessToken', data.accessToken);
 
             stackNavigation.navigate('Main');
           },

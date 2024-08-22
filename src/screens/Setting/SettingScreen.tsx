@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Alert } from 'react-native'; // Alert 모듈 추가
+import { Alert } from 'react-native';
 import ArrowLeftIcon from '@/assets/icon/ic_arrow_left.svg';
 import ArrowRightIcon from '@/assets/icon/ic_arrow_right.svg';
 import RectangleIcon from '@/assets/icon/ic_rectangle.svg';

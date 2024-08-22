@@ -12,6 +12,7 @@ export const useDeleteMember = () => {
       headers: {
         'Content-Type': 'application/json',
       },
+      withCredentials: true,
     });
 
     if (response.status !== 200) {
@@ -29,7 +30,8 @@ export const useDeleteMember = () => {
       stackNavigation.navigate('Main');
     },
     onError: (error) => {
-      Alert.alert(`회원 탈퇴에 실패했습니다: ${error.message}`);
+      console.log('회원 탈퇴 에러:', error);
+      Alert.alert('회원 탈퇴에 실패했습니다.', error.message);    
     },
   });
 };

@@ -3,7 +3,7 @@ import { GETuser } from '@/api/client';
 
 interface KakaoCallbackResponse {
   accessToken: string;
-  memberName: string;
+  name: string;
 }
 
 const fetchKakaoCallback = async (code: string): Promise<KakaoCallbackResponse> => {
@@ -18,7 +18,7 @@ export const useKakaoCallback = () => {
 
       console.log(data);
       console.log("AccessToken:", data.accessToken);
-      console.log("Logged in as:", data.memberName);
+      console.log("Logged in as:", data.name);
     },
     onError: (error) => {
       console.error('Error during callback processing:', error);

@@ -11,7 +11,6 @@ const fetchMemberInfo = async (): Promise<MemberInfoResponse> => {
       withCredentials: true,
     });
     const responseData = response.data;
-    console.log('res' + responseData);
 
     const nameMatch = responseData.match(/Logged in as: (.+)/);
     const name = nameMatch ? nameMatch[1] : '사용자';
