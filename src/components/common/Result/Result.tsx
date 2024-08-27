@@ -20,7 +20,7 @@ export default function Result({data}: ResultProps) {
 
   return (
     <StyledResult>
-      <StyledImage source={{uri: data.image}} />
+      <StyledImage source={{uri: data.photoUrl}} />
       <CustomBottomSheet data={data} modify={() => setVisible(true)} />
 
       {/* 카테고리 수정 모달 */}

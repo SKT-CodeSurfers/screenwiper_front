@@ -7,20 +7,13 @@ import {
   launchImageLibrary,
 } from 'react-native-image-picker';
 import {usePostPhotos} from '@/hooks/mutations/photos/usePostPhotos';
+import useNavigator from '@/navigators/useNavigator';
 
 interface FloatingButtonProps {
   onResult: (response: Asset[]) => void;
 }
 export default function FloatingButton({onResult}: FloatingButtonProps) {
-  const {mutate: analyze} = usePostPhotos({
-    onSuccess: res => {
-      console.log('onSuccess');
-      console.log(res);
-    },
-    onError: e => {
-      console.error('onError', e);
-    },
-  });
+  const {stackNavigation} = useNavigator();
 
   async function openGallery() {
     const {didCancel, errorCode, errorMessage, assets} =
@@ -52,9 +45,7 @@ export default function FloatingButton({onResult}: FloatingButtonProps) {
       formData.append(`files`, photo);
     }
 
-    analyze(formData);
-
-    onResult(assets);
+    stackNavigation.navigate('Loading', {formData: formData});
   }
 
   return (

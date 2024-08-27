@@ -22,9 +22,8 @@ API.interceptors.request.use(
 
 export interface BaseResponse<T> {
   success: boolean;
-  errorCode: string | null;
   message: string;
-  result: T;
+  data: T;
 }
 
 export const GET = async <T>(

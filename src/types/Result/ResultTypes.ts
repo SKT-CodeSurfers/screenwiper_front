@@ -4,28 +4,30 @@ export const enum ResultCategory {
   OTHER = '기타',
 }
 
-export interface IResultPlace {
+export interface IResult {
+  photoId: number;
   category: string;
-  title: string;
-  address: string;
-  operatingHours: string;
-  summary: string;
-  image: string;
+  categoryName: string;
+  photoName: string;
+  photoUrl: string;
+  date: string;
 }
 
-export interface IResultPlan {
-  category: string;
-  title: string;
+export interface IResultPlace extends IResult {
+  address: string;
+  xcoordinate: string;
+  ycoordinate: string;
+  operatingHours: string;
+  summary: string;
+}
+
+export interface IResultPlan extends IResult {
   list: Array<{
     name: string;
     date: string;
   }>;
-  image: string;
 }
 
-export interface IResultOther {
-  category: string;
-  title: string;
+export interface IResultOther extends IResult {
   summary: string;
-  image: string;
 }

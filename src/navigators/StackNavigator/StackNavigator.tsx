@@ -16,7 +16,7 @@ export type StackParamList = {
   SignIn: undefined;
   Splash: undefined;
   Main: undefined;
-  Loading: {formdata: FormData};
+  Loading: {formData: FormData};
   Setting: undefined;
   Result: undefined;
   Detail: undefined;
