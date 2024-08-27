@@ -39,7 +39,8 @@ const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
     });
   }
   function handleOnSave() {
-    Alert.alert('Save!');
+    navigation.pop();
+    // Alert.alert('Save!');
   }
 
   useEffect(() => {
