@@ -4,11 +4,13 @@ import useNavigator from '@/navigators/useNavigator';
 import { Text, View, ActivityIndicator } from 'react-native';
 import { useKakaoCallback } from '@/hooks/queries/users/useKakaoCallback';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { StackParamList, StackMenu } from '@/navigators/StackNavigator/StackNavigator';
 
-const WebviewScreen: React.FC = () => {
-  const { stackNavigation } = useNavigator();
-  const { url } = stackNavigation.getState().routes.find(route => route.name === 'WebView')?.params ?? {};
-
+type WebviewScreenProps = NativeStackScreenProps<StackParamList, StackMenu.WebView>;
+const WebviewScreen: React.FC<WebviewScreenProps> = ({ navigation, route }) => {
+  
+  const { url } = route.params;
   const { mutate: kakaoCallback } = useKakaoCallback();
 
   const getQueryParam = (url: string, param: string): string | null => {
@@ -41,7 +43,7 @@ const WebviewScreen: React.FC = () => {
 
             await AsyncStorage.setItem('accessToken', data.accessToken);
 
-            stackNavigation.navigate('Main');
+            navigation.navigate(StackMenu.Main);
           },
           onError: (error) => {
             console.error('Error during callback processing:', error);
