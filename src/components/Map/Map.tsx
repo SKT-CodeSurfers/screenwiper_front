@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import MapView, {Marker} from 'react-native-maps';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import React, {useMemo} from 'react';
 import {StyleSheet, View} from 'react-native';
 
@@ -19,13 +19,14 @@ const Map = ({x, y}: MapProps) => {
   return (
     <View style={styles.container}>
       <MapView
+        provider={PROVIDER_GOOGLE}
         style={styles.map}
         region={{
           ...location,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121,
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.012,
         }}>
-        <Marker coordinate={{...location}}></Marker>
+        <Marker coordinate={{...location}} pinColor={'4277FF'}></Marker>
       </MapView>
     </View>
   );
