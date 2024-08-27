@@ -6,7 +6,7 @@ import dummies from './dummies.json';
 import Result from '@/components/common/Result/Result';
 import {Alert} from 'react-native';
 
-const ResultScreen = ({navigation}: StackScreenProps) => {
+const ResultScreen = ({navigation}: StackScreenProps<'Result'>) => {
   const {result} = dummies;
 
   const [idx, setIdx] = useState(0);

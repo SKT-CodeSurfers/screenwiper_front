@@ -1,6 +1,7 @@
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
+  NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import React from 'react';
 import LoadingScreen from '@/screens/Loading/LoadingScreen';
@@ -15,7 +16,7 @@ export type StackParamList = {
   SignIn: undefined;
   Splash: undefined;
   Main: undefined;
-  Loading: undefined;
+  Loading: {formdata: FormData};
   Setting: undefined;
   Result: undefined;
   Detail: undefined;
@@ -31,9 +32,11 @@ export const enum StackMenu {
   Detail = 'Detail',
 }
 
-export type StackScreenProps = {
-  navigation: NativeStackNavigationProp<StackParamList>;
-};
+/**
+ * Screen Props
+ * */
+export type StackScreenProps<Screen extends keyof StackParamList> =
+  NativeStackScreenProps<StackParamList, Screen>;
 
 export default function StackNavigator() {
   const Stack = createNativeStackNavigator<StackParamList>();

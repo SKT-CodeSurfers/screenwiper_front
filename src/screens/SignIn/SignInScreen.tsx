@@ -6,7 +6,7 @@ import IcKakao from '@/assets/icon/ic_kakao_talk.svg';
 import styles from './SignInScreen.styles';
 import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 
-const SignInScreen = ({navigation}: StackScreenProps) => {
+const SignInScreen = ({navigation}: StackScreenProps<'SignIn'>) => {
   return (
     <LinearGradient
       colors={['#21DFFF', '#6A52FE', '#9C01FF']}

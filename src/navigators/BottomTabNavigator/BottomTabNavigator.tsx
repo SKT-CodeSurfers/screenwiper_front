@@ -1,10 +1,16 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabScreenProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import HomeScreen from '@/screens/Main/Home/HomeScreen';
 import ListScreen from '@/screens/Main/List/ListScreen';
 import MapScreen from '@/screens/Main/MapScreen';
 import CalendarScreen from '@/screens/Main/CalendarScreen';
 import TabBar from './TabBar';
+import {StackParamList} from '../StackNavigator/StackNavigator';
+import {CompositeScreenProps} from '@react-navigation/native';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type TabParamList = {
   Home: undefined;
@@ -45,3 +51,15 @@ export default function BottomTabNavigator() {
 const screenOptions = {
   headerShown: false,
 };
+
+export type TabScreenProps<Screen extends keyof TabParamList> =
+  BottomTabScreenProps<TabParamList, Screen>;
+
+// Stack 中 Bottom Tab 중첩된 화면에서 사용
+export type TabOfStackScreenProps<
+  StackScreen extends keyof StackParamList,
+  TabScreen extends keyof TabParamList,
+> = CompositeScreenProps<
+  BottomTabScreenProps<TabParamList, TabScreen>,
+  NativeStackScreenProps<StackParamList, StackScreen>
+>;
