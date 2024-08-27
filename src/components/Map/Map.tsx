@@ -26,7 +26,7 @@ const Map = ({x, y}: MapProps) => {
           latitudeDelta: 0.005,
           longitudeDelta: 0.012,
         }}>
-        <Marker coordinate={{...location}} pinColor={'4277FF'}></Marker>
+        <Marker coordinate={{...location}} pinColor={'#4277FF'}></Marker>
       </MapView>
     </View>
   );
