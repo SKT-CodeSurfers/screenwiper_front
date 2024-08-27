@@ -8,6 +8,7 @@ export interface IResult {
   photoId: number;
   category: string;
   categoryName: string;
+  title: string;
   photoName: string;
   photoUrl: string;
   date: string;

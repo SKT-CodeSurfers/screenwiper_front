@@ -6,8 +6,9 @@ import dummies from './dummies.json';
 import Result from '@/components/common/Result/Result';
 import {Alert} from 'react-native';
 
-const ResultScreen = ({navigation}: StackScreenProps<'Result'>) => {
+const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
   const {result} = dummies;
+  const {list} = route.params;
 
   const [idx, setIdx] = useState(0);
   const data = useMemo(() => result[idx], [idx]);
@@ -66,7 +67,7 @@ const ResultScreen = ({navigation}: StackScreenProps<'Result'>) => {
         <Result data={result[2]} />
       </Swiper> */}
 
-        <Result data={data} />
+        <Result data={list[0]} />
       </CustomHeaderContainer>
     </>
   );

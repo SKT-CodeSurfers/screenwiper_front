@@ -11,6 +11,7 @@ import SignInScreen from '@/screens/SignIn/SignInScreen';
 import SettingScreen from '@/screens/Setting/SettingScreen';
 import ResultScreen from '@/screens/Result/ResultScreen';
 import DetailScreen from '@/screens/Detail/DetailScreen';
+import {AnalyzePhotoResponse} from '@/hooks/mutations/photos/usePostPhotos';
 
 export type StackParamList = {
   SignIn: undefined;
@@ -18,7 +19,7 @@ export type StackParamList = {
   Main: undefined;
   Loading: {formData: FormData};
   Setting: undefined;
-  Result: undefined;
+  Result: {list: AnalyzePhotoResponse[]};
   Detail: undefined;
 };
 

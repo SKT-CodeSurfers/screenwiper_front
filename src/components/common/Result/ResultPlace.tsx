@@ -18,7 +18,7 @@ export default function ResultPlace({data}: ResultPlaceProps) {
       </s.SubWrapper>
       <s.SubWrapper isVertical={true}>
         <s.SubTitle>✨ 요약</s.SubTitle>
-        <s.SubContent>{data.summary}</s.SubContent>
+        <s.SubContent>{data.summary}""</s.SubContent>
       </s.SubWrapper>
     </>
   );

@@ -25,19 +25,19 @@ export default function CustomBottomSheet({
     <BottomSheet snapPoints={['75%', '100%']}>
       <s.ScrollView>
         <s.CategoryButton onPress={modify}>
-          <s.CategoryText>{data.category}</s.CategoryText>
+          <s.CategoryText>{data.categoryName}</s.CategoryText>
           <IcDown />
         </s.CategoryButton>
 
         <s.Title>{data.title}</s.Title>
 
-        {data.category === ResultCategory.PLACE && (
+        {data.categoryName === ResultCategory.PLACE && (
           <ResultPlace data={data as IResultPlace} />
         )}
-        {data.category === ResultCategory.PLAN && (
+        {data.categoryName === ResultCategory.PLAN && (
           <ResultPlan data={data as IResultPlan} />
         )}
-        {data.category === ResultCategory.OTHER && (
+        {data.categoryName === ResultCategory.OTHER && (
           <ResultOther data={data as IResultOther} />
         )}
       </s.ScrollView>

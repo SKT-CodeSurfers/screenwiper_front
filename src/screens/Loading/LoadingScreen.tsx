@@ -11,6 +11,8 @@ const LoadingScreen = ({navigation, route}: StackScreenProps<'Loading'>) => {
     onSuccess: res => {
       console.log('onSuccess');
       console.log(res);
+
+      navigation.replace('Result', {list: res.data});
     },
     onError: e => {
       console.error('onError', e);
