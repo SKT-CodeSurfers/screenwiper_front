@@ -29,7 +29,7 @@ export default function CustomBottomSheet({
           <IcDown />
         </s.CategoryButton>
 
-        <s.Title>{data.title}</s.Title>
+        <s.Title>카페 아래로</s.Title>
 
         {data.categoryName === ResultCategory.PLACE && (
           <ResultPlace data={data as IResultPlace} />
