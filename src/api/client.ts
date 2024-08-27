@@ -1,6 +1,8 @@
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
 
-export const BASE_URL = 'http://43.201.193.38:8080/api';
+const ys = 'http://3.34.88.174:8080/api';
+const be = '43.201.193.38 192.168.45.221/api';
+export const BASE_URL = ys;
 
 export const API = axios.create({
   baseURL: BASE_URL,

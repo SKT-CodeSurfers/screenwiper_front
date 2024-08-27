@@ -22,7 +22,7 @@ export interface AnalyzePhotoResponse {
  *  스크린샷 분석
  */
 export const analyzePhotos = async (formdata: FormData) => {
-  const res = await POST<AnalyzePhotoResponse>(`/analyze`, formdata, {
+  const res = await POST<AnalyzePhotoResponse>(`/v1/images/analyze`, formdata, {
     headers: {'Content-Type': 'multipart/form-data'},
   });
   return res.data;
@@ -33,7 +33,7 @@ interface PostLocationMutationProps {
   onError: (e: Error) => void;
 }
 
-export const usePostLocation = ({
+export const usePostPhotos = ({
   onSuccess,
   onError,
 }: PostLocationMutationProps) => {
