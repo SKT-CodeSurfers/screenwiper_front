@@ -4,6 +4,8 @@ export const enum ResultCategory {
   OTHER = '기타',
 }
 
+export type ResultTypes = IResultPlace | IResultPlan | IResultOther;
+
 export interface IResult {
   photoId: number;
   category: string;
