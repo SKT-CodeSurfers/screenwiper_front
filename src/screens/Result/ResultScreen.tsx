@@ -48,7 +48,7 @@ const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
       header: () => (
         <ResultHeader
           idx={idx}
-          total={result.length}
+          total={list.length}
           goBack={handleGoBack}
           onPrev={handleOnPrev}
           onNext={handleOnNext}
@@ -61,13 +61,7 @@ const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
   return (
     <>
       <CustomHeaderContainer>
-        {/* <Swiper style={{flex: 1}} autoplay horizontal={true} showsButtons={true}>
-        <Result data={result[0]} />
-        <Result data={result[1]} />
-        <Result data={result[2]} />
-      </Swiper> */}
-
-        <Result data={list[0]} />
+        <Result data={list[idx]} />
       </CustomHeaderContainer>
     </>
   );

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import s from './Result.styles';
 import {IResultPlace} from '@/types/Result/ResultTypes';
+import Map from '@/components/Map/Map';
 
 interface ResultPlaceProps {
   data: IResultPlace;
@@ -16,7 +17,10 @@ export default function ResultPlace({data}: ResultPlaceProps) {
         <s.SubTitle>영업시간</s.SubTitle>
         <s.SubContent>{data.operatingHours}</s.SubContent>
       </s.SubWrapper>
-      <s.SubWrapper isVertical={true}>
+
+      <Map x={data.xcoordinate} y={data.ycoordinate} />
+
+      <s.SubWrapper isVertical={true} style={{marginTop: 30}}>
         <s.SubTitle>✨ 요약</s.SubTitle>
         <s.SubContent>{data.summary}""</s.SubContent>
       </s.SubWrapper>
