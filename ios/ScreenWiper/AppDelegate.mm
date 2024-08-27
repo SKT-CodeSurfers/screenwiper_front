@@ -2,6 +2,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import "RNSplashScreen.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
@@ -12,7 +13,9 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-  
+
+  [GMSServices provideAPIKey:@"AIzaSyCy21toZorbN4Z_I9p3o2_G5byhG9I-Kk4"];
+
   bool didFinish = [super application:application didFinishLaunchingWithOptions:launchOptions];
 
   [RNSplashScreen show];
