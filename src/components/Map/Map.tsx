@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'center',
+    marginVertical: 10,
   },
   map: {
     ...StyleSheet.absoluteFillObject,
