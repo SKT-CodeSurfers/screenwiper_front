@@ -5,24 +5,26 @@ export const categorizeData = (rawData: any): TopTabNavigatorProps => {
   const planCards: CardItem[] = [];
   const otherCards: CardItem[] = [];
 
-  rawData.data.forEach((item: any) => {
+  const photos = rawData?.photos || [];
+
+  photos.forEach((item: any) => {
     const card: CardItem = {
-      id: String(Math.random()),
+      id: String(item.photoId),
       title: item.title,
       address: item.address,
-      descriptions: item.descriptions || [item.description],
-      category: item.category as 'Place' | 'Plan' | 'Other',
+      descriptions: item.summary,
+      category: item.categoryId === 1 ? 'Place' : item.categoryId === 2 ? 'Plan' : 'Other',
       date: item.date ?? ''
     };
 
-    switch (item.category) {
-      case 'Place':
+    switch (item.categoryId) {
+      case 1:
         placeCards.push(card);
         break;
-      case 'Plan':
+      case 2:
         planCards.push(card);
         break;
-      case 'Other':
+      case 3:
         otherCards.push(card);
         break;
       default:

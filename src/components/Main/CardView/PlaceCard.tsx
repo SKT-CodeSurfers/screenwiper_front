@@ -6,10 +6,13 @@ import * as S from '@/components/Main/CardView/CardStyles';  // 스타일 가져
 interface PlaceCardProps {
   title: string;
   address: string;
-  descriptions: string[];
+  descriptions: string;
 }
 
 const Card: React.FC<PlaceCardProps> = ({ title, address, descriptions }) => {
+
+  const descriptionArray = descriptions.split('/');
+
   return (
     <Shadow
       distance={10}
@@ -23,10 +26,10 @@ const Card: React.FC<PlaceCardProps> = ({ title, address, descriptions }) => {
           <S.AddressText>{address}</S.AddressText>
         </S.AddressRow>
         <S.DescriptionText>
-          {descriptions.map((desc, index) => (
+          {descriptionArray.slice(0, 2).map((desc, index) => (
             <S.BulletPointWrapper key={index}>
               <S.BulletPoint>•</S.BulletPoint>
-              <S.BulletText>{desc}</S.BulletText>
+              <S.BulletText>{desc.trim()}</S.BulletText>
             </S.BulletPointWrapper>
           ))}
         </S.DescriptionText>

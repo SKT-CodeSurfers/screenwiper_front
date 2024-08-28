@@ -1,12 +1,12 @@
 import React from 'react';
 import IcLocation from '@/assets/icon/ic_location.svg';
 import * as S from '@/components/Main/CardView/CardStyles';
-import {Shadow} from 'react-native-shadow-2';
+import { Shadow } from 'react-native-shadow-2';
 
 interface CardItemProps {
   title: string;
   address?: string;
-  descriptions: string[];
+  descriptions: string;
   category: 'Place' | 'Plan' | 'Other';
 }
 
@@ -17,6 +17,8 @@ const CardItem: React.FC<CardItemProps> = ({
   category,
 }) => {
   const isPlace = category === 'Place';
+
+  const descriptionArray = descriptions.split('/');
 
   return (
     <Shadow distance={10} startColor={'#00000008'} offset={[0, 0]}>
@@ -38,7 +40,8 @@ const CardItem: React.FC<CardItemProps> = ({
           </S.AddressRow>
         )}
         <S.DescriptionText>
-          {descriptions.slice(0, isPlace ? 2 : 3).map((desc, index) => (
+          {/* 카테고리에 따라 2줄 또는 3줄만 출력 */}
+          {descriptionArray.slice(0, isPlace ? 2 : 3).map((desc, index) => (
             <S.BulletPointWrapper key={index}>
               <S.BulletPoint>•</S.BulletPoint>
               <S.BulletText>{desc}</S.BulletText>
