@@ -7,7 +7,7 @@ interface KakaoCallbackResponse {
 }
 
 const fetchKakaoCallback = async (code: string): Promise<KakaoCallbackResponse> => {
-  const response = await GETuser<KakaoCallbackResponse>(`/api/callback?code=${code}`);
+  const response = await GETuser<KakaoCallbackResponse>(`/callback?code=${code}`);
   return response.data;
 };
 

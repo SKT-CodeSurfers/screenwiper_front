@@ -8,7 +8,7 @@ export const useDeleteMember = () => {
   const { stackNavigation } = useNavigator();
 
   const deleteMyAccount = async (): Promise<string> => {
-    const response = await DELETE<string>('/api/members/me', {
+    const response = await DELETE<string>('/members/me', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -19,7 +19,7 @@ export const useDeleteMember = () => {
       throw new Error(response.data.message || '탈퇴에 실패했습니다.');
     }
 
-    return response.data.result;
+    return response.data.message;
   };
 
   return useMutation<string, Error>({

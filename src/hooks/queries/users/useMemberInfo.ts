@@ -7,7 +7,7 @@ interface MemberInfoResponse {
 
 const fetchMemberInfo = async (): Promise<MemberInfoResponse> => {
   try {
-    const response = await GETuser<string>('api/member-info', {
+    const response = await GETuser<string>('/member-info', {
       withCredentials: true,
     });
     const responseData = response.data;
