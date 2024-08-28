@@ -13,11 +13,14 @@ import FloatingButton from '@/components/Main/FloatingButton';
 
 import {ImagePickerResponse} from 'react-native-image-picker';
 import SafeAreaTabView from '@/components/common/SafeAreaTabView/SafeAreaTabView';
+import {TabOfStackScreenProps} from '@/navigators/BottomTabNavigator/BottomTabNavigator';
 
 const cardWidth = 300;
 const cardMargin = 15;
 
-export default function HomeScreen({navigation}: StackScreenProps) {
+export default function HomeScreen({
+  navigation,
+}: TabOfStackScreenProps<'Main', 'Home'>) {
   function handleOnResult(res: ImagePickerResponse) {
     console.log('[result] ', res);
   }

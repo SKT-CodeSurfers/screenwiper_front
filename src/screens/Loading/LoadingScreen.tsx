@@ -1,8 +1,32 @@
+import {usePostPhotos} from '@/hooks/mutations/photos/usePostPhotos';
+import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import LottieView from 'lottie-react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
 
-const LoadingScreen = () => {
+const LoadingScreen = ({navigation, route}: StackScreenProps<'Loading'>) => {
+  const {formData} = route.params;
+
+  const {mutate: analyze} = usePostPhotos({
+    onSuccess: res => {
+      console.log('onSuccess');
+      console.log(res);
+
+      navigation.replace('Result', {list: res.data});
+    },
+    onError: e => {
+      console.error('onError', e);
+    },
+  });
+
+  useEffect(() => {
+    console.log('Received formData:', formData);
+
+    if (!formData) navigation.pop();
+
+    if (formData) analyze(formData);
+  }, [formData]);
+
   return (
     <LoadingScreenContainer>
       <LottieView

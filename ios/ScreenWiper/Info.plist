@@ -49,6 +49,19 @@
 	<false/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>스크린샷 첨부를 위해 갤러리 접근 권한이 필요합니다</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key> 
+		<true/>                           
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Pretendard-Black.ttf</string>
