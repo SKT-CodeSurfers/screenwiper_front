@@ -5,7 +5,7 @@ import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import CustomHeaderContainer from '@/components/common/CustomHeader/CustomHeaderContainer';
 import Result from '@/components/common/Result/Result';
 
-const DetailScreen = ({navigation}: StackScreenProps) => {
+const DetailScreen = ({navigation}: StackScreenProps<'Detail'>) => {
   const {result} = dummies;
   const data = result[0];
 

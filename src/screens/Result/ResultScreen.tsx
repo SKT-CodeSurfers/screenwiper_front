@@ -6,8 +6,9 @@ import dummies from './dummies.json';
 import Result from '@/components/common/Result/Result';
 import {Alert} from 'react-native';
 
-const ResultScreen = ({navigation}: StackScreenProps) => {
+const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
   const {result} = dummies;
+  const {list} = route.params;
 
   const [idx, setIdx] = useState(0);
   const data = useMemo(() => result[idx], [idx]);
@@ -38,7 +39,8 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
     });
   }
   function handleOnSave() {
-    Alert.alert('Save!');
+    navigation.pop();
+    // Alert.alert('Save!');
   }
 
   useEffect(() => {
@@ -47,7 +49,7 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
       header: () => (
         <ResultHeader
           idx={idx}
-          total={result.length}
+          total={list.length}
           goBack={handleGoBack}
           onPrev={handleOnPrev}
           onNext={handleOnNext}
@@ -60,13 +62,7 @@ const ResultScreen = ({navigation}: StackScreenProps) => {
   return (
     <>
       <CustomHeaderContainer>
-        {/* <Swiper style={{flex: 1}} autoplay horizontal={true} showsButtons={true}>
-        <Result data={result[0]} />
-        <Result data={result[1]} />
-        <Result data={result[2]} />
-      </Swiper> */}
-
-        <Result data={data} />
+        <Result data={list[idx]} />
       </CustomHeaderContainer>
     </>
   );

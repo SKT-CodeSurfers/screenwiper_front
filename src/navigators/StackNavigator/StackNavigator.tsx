@@ -1,6 +1,7 @@
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
+  NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import React from 'react';
 import LoadingScreen from '@/screens/Loading/LoadingScreen';
@@ -11,14 +12,14 @@ import SettingScreen from '@/screens/Setting/SettingScreen';
 import ResultScreen from '@/screens/Result/ResultScreen';
 import DetailScreen from '@/screens/Detail/DetailScreen';
 import WebviewScreen from '@/screens/SignIn/WebviewScreen';
-
+import {AnalyzePhotoResponse} from '@/hooks/mutations/photos/usePostPhotos';
 export type StackParamList = {
   SignIn: undefined;
   Splash: undefined;
   Main: undefined;
-  Loading: undefined;
+  Loading: {formData: FormData};
   Setting: undefined;
-  Result: undefined;
+  Result: {list: AnalyzePhotoResponse[]};
   Detail: undefined;
   WebView: { url: string };
 };
@@ -34,9 +35,11 @@ export const enum StackMenu {
   WebView = 'WebView',
 }
 
-export type StackScreenProps = {
-  navigation: NativeStackNavigationProp<StackParamList>;
-};
+/**
+ * Screen Props
+ * */
+export type StackScreenProps<Screen extends keyof StackParamList> =
+  NativeStackScreenProps<StackParamList, Screen>;
 
 export default function StackNavigator() {
   const Stack = createNativeStackNavigator<StackParamList>();

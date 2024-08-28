@@ -2,22 +2,50 @@ import React from 'react';
 import {IcUpload} from '@/assets/icon';
 import styled from 'styled-components/native';
 import {
+  Asset,
   ImagePickerResponse,
   launchImageLibrary,
 } from 'react-native-image-picker';
+import {usePostPhotos} from '@/hooks/mutations/photos/usePostPhotos';
+import useNavigator from '@/navigators/useNavigator';
 
 interface FloatingButtonProps {
-  onResult: (response: ImagePickerResponse) => void;
+  onResult: (response: Asset[]) => void;
 }
 export default function FloatingButton({onResult}: FloatingButtonProps) {
-  async function openGallery() {
-    const result = await launchImageLibrary({
-      mediaType: 'photo',
-      selectionLimit: 10,
-    });
-    console.log('>> ', result);
+  const {stackNavigation} = useNavigator();
 
-    onResult(result);
+  async function openGallery() {
+    const {didCancel, errorCode, errorMessage, assets} =
+      await launchImageLibrary({
+        mediaType: 'photo',
+        selectionLimit: 10,
+      });
+    console.log('>> ', assets);
+
+    if (!assets) {
+      console.log(
+        `didCancel: ${didCancel} errorCode: ${errorCode} errorMessage: ${errorMessage}`,
+      );
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('memberId', '10000');
+
+    for (let i = 0; i < assets.length; i++) {
+      const asset = assets[i];
+
+      const photo = {
+        uri: asset.uri,
+        type: 'multipart/form-data',
+        name: `${asset.fileName}`,
+      };
+
+      formData.append(`files`, photo);
+    }
+
+    stackNavigation.navigate('Loading', {formData: formData});
   }
 
   return (
