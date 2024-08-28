@@ -43,7 +43,10 @@ const WebviewScreen: React.FC<WebviewScreenProps> = ({ navigation, route }) => {
 
             await AsyncStorage.setItem('accessToken', data.accessToken);
 
-            navigation.navigate(StackMenu.Main);
+            navigation.reset({
+              index: 0,
+              routes: [{ name: StackMenu.Main }],
+            });
           },
           onError: (error) => {
             console.error('Error during callback processing:', error);

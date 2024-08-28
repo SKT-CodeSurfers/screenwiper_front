@@ -1,25 +1,31 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import ArrowLeftIcon from '@/assets/icon/ic_arrow_left.svg';
 import ArrowRightIcon from '@/assets/icon/ic_arrow_right.svg';
 import RectangleIcon from '@/assets/icon/ic_rectangle.svg';
 import * as s from './SettingScreen.style';
 import { useDeleteMember } from '@/hooks/queries/users/useDeleteMember';
+import useNavigator from '@/navigators/useNavigator';
+import { StackMenu } from '@/navigators/StackNavigator/StackNavigator';
+import { useMemberInfo } from '@/hooks/queries/users/useMemberInfo';
 
 export default function SettingsScreen() {
-  const navigation = useNavigation();
+  const { stackNavigation } = useNavigator();
   const { mutate: deleteMember } = useDeleteMember();
+  const { data: memberInfo, isLoading, isError } = useMemberInfo();
 
   const user = {
-    name: '데보션',
-    email: 'abcd@naver.com',
+    name: memberInfo?.name ?? '사용자',
+    email: '',
     profileImage: '',
   };
 
   const handlePress = (title: string) => {
     if (title === '회원탈퇴') {
       handleDeleteAccount();
+    } else if (title === '로그아웃') {
+      handleLogout();
     } else {
       console.log(title);
     }
@@ -43,10 +49,34 @@ export default function SettingsScreen() {
     );
   };
 
+  const handleLogout = () => {
+    Alert.alert(
+      '로그아웃',
+      '정말로 로그아웃 하시겠습니까?',
+      [
+        {
+          text: '취소',
+          style: 'cancel',
+        },
+        {
+          text: '확인',
+          onPress: async () => {
+            await AsyncStorage.removeItem('accessToken');
+            stackNavigation.reset({
+              index: 0,
+              routes: [{ name: StackMenu.SignIn }], 
+            });
+          },
+        },
+      ],
+      { cancelable: false },
+    );
+  };
+
   return (
     <s.Container>
       <s.Header>
-        <s.BackButton onPress={() => navigation.goBack()}>
+        <s.BackButton onPress={() => stackNavigation.goBack()}>
           <ArrowLeftIcon />
         </s.BackButton>
         <s.HeaderText>설정</s.HeaderText>
