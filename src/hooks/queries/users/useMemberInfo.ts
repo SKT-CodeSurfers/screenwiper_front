@@ -17,7 +17,7 @@ const fetchMemberInfo = async (): Promise<MemberInfoResponse> => {
 
     return { name };
   } catch (error) {
-    console.error('Error fetching member info:', error);
+    //console.error('Error fetching member info:', error);
     throw error;
   }
 };

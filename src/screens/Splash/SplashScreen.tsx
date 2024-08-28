@@ -1,44 +1,46 @@
 import React, { useEffect } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useMemberInfo } from '@/hooks/queries/users/useMemberInfo';
 import useNavigator from '@/navigators/useNavigator';
 
 const SplashScreen: React.FC = () => {
   const { stackNavigation } = useNavigator();
+  const { data: memberInfo, isLoading, error } = useMemberInfo();
 
-
-const removeAccessToken = async () => {
-  try {
-    await AsyncStorage.removeItem('accessToken');
-    console.log('Access token removed');
-  } catch (error) {
-    console.error('Error removing access token:', error);
-  }
-};
-
-  
-  const checkToken = async () => {
-    //removeAccessToken();
-    const token = await AsyncStorage.getItem('accessToken');
-    
-    if (token) {
-      console.log('Token found:', token);
-      
-      stackNavigation.navigate('Main');
-    } else {
-      stackNavigation.navigate('SignIn');
+  const navigateTo = async (screenName: 'Main' | 'SignIn') => {
+    if (screenName === 'SignIn') {
+      await AsyncStorage.removeItem('accessToken');
     }
+    stackNavigation.reset({
+      index: 0,
+      routes: [{ name: screenName }],
+    });
   };
 
   useEffect(() => {
-    checkToken();
-  }, []);
+    if (!isLoading) {
+      if (memberInfo) {
+        navigateTo('Main');
+      } else if (error) {
+        navigateTo('SignIn');
+      }
+    }
+  }, [isLoading, memberInfo, error]);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <ActivityIndicator size="large" color="#0000ff" />
     </View>
   );
 };
 
 export default SplashScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
