@@ -33,6 +33,13 @@ export const GET = async <T>(
   return API.get(url, config);
 };
 
+export const GETuser = async <T>(
+  url: string,
+  config?: AxiosRequestConfig,
+): Promise<AxiosResponse<T>> => {
+  return API.get(url, config);
+};
+
 export const POST = async <T>(
   url: string,
   data?: any,

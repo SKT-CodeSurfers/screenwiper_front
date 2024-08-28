@@ -51,6 +51,12 @@ const fonts = {
     fontFamily: 'Pretendard-SemiBold',
     color: colors.black,
   },
+  /** Body - Pretendard SemiBold 15 */
+  body_sb_15: {
+    fontSize: 15,
+    fontFamily: 'Pretendard-SemiBold',
+    color: colors.black,
+  },
   /** Body - Pretendard Bold 16 */
   body_b_16: {
     fontSize: 16,

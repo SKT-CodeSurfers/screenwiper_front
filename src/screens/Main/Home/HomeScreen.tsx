@@ -13,6 +13,7 @@ import FloatingButton from '@/components/Main/FloatingButton';
 
 import {ImagePickerResponse} from 'react-native-image-picker';
 import SafeAreaTabView from '@/components/common/SafeAreaTabView/SafeAreaTabView';
+import { useMemberInfo } from '@/hooks/queries/users/useMemberInfo';
 import {TabOfStackScreenProps} from '@/navigators/BottomTabNavigator/BottomTabNavigator';
 
 const cardWidth = 300;
@@ -32,6 +33,8 @@ export default function HomeScreen({
   const [placeCards, setPlaceCards] = useState<CardItem[]>([]);
   const [planCards, setPlanCards] = useState<CardItem[]>([]);
   const [otherCards, setOtherCards] = useState<CardItem[]>([]);
+
+  const { data: memberInfo, isLoading, isError } = useMemberInfo();
 
   useEffect(() => {
     const {placeCards, planCards, otherCards} = categorizeData(rawData);
@@ -75,7 +78,7 @@ export default function HomeScreen({
           </s.SettingButton>
 
           <s.TitleText>
-            안녕하세요, <s.NameText>데보션님!</s.NameText>
+            안녕하세요, <s.NameText>{isLoading ? '로딩 중...' : memberInfo?.name+'님' ?? '사용자'}</s.NameText>
           </s.TitleText>
           <s.Description>오늘은 어떤 사진을 정리하셨나요?</s.Description>
         </s.TopContainer>
