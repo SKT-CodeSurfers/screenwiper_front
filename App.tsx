@@ -8,19 +8,10 @@ import SplashScreen from 'react-native-splash-screen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {QueryClientProvider} from '@tanstack/react-query';
 import queryClient from '@/api/queryClient';
-import {addScreenshotListener} from 'react-native-detector';
 
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
-
-    const userDidScreenshot = () => {
-      console.log('Screenshot!');
-    };
-    const unsubscribe = addScreenshotListener(userDidScreenshot);
-    return () => {
-      unsubscribe();
-    };
   }, []);
 
   return (

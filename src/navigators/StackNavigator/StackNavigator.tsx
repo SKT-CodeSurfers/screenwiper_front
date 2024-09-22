@@ -21,7 +21,7 @@ export type StackParamList = {
   Setting: undefined;
   Result: {list: AnalyzePhotoResponse[]};
   Detail: undefined;
-  WebView: {url: string};
+  WebView: { url: string };
 };
 
 export const enum StackMenu {
@@ -56,6 +56,7 @@ export default function StackNavigator() {
       <Stack.Screen name={StackMenu.Detail} component={DetailScreen} />
       <Stack.Screen name={StackMenu.Setting} component={SettingScreen} />
       <Stack.Screen name={StackMenu.WebView} component={WebviewScreen} />
+
     </Stack.Navigator>
   );
 }
