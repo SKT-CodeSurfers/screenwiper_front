@@ -9346,6 +9346,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-detector@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "react-native-detector@npm:0.2.3"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: ac8e8f3932c5f986c3445e2ba865184eb5e6eae551c55a1611f02eaafc8cfa68f8671b3eee3c2665cd9eab8b378b69f2abb9dc99004dda7aa3c5cb2058789054
+  languageName: node
+  linkType: hard
+
 "react-native-gesture-handler@npm:^2.18.1":
   version: 2.18.1
   resolution: "react-native-gesture-handler@npm:2.18.1"
@@ -10036,6 +10046,7 @@ __metadata:
     prettier: ^3.3.3
     react: 18.2.0
     react-native: 0.74.3
+    react-native-detector: ^0.2.3
     react-native-gesture-handler: ^2.18.1
     react-native-image-picker: ^7.1.2
     react-native-linear-gradient: ^2.8.3
