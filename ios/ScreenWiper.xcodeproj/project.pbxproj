@@ -17,11 +17,15 @@
 		42A1F59EC7F64630B0EBEA4D /* Pretendard-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77105E6F75B64202AD888A59 /* Pretendard-ExtraLight.ttf */; };
 		4B1A66392B6347A799B7C353 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B99E3F44D24B40BFB713BA56 /* Pretendard-Medium.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-ScreenWiper-ScreenWiperTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ScreenWiper-ScreenWiperTests.a */; };
+		7B5863F06A257187877B6FC3 /* libPods-ScreenWiperShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C92426D54726FBE0CAF804BA /* libPods-ScreenWiperShare.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8E95DDAFEE15411FAF980A5F /* Pretendard-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F782B3FE3044F978BAA449C /* Pretendard-Thin.ttf */; };
 		9D2D4178715D4B638FD89AB5 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78FAA0E0366748BCB8EB14EC /* Pretendard-SemiBold.ttf */; };
 		AE50F57219C0DF5DED7008E1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F72B8E2497780E91352398E5 /* PrivacyInfo.xcprivacy */; };
 		C8CDAA9ADD1F47159CE06F3B /* Pretendard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB2E3EDFB1C046A4A1E9E297 /* Pretendard-Black.ttf */; };
+		D038250D2CBBA65C001A5640 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D038250C2CBBA65C001A5640 /* ShareViewController.swift */; };
+		D03825102CBBA65C001A5640 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D038250F2CBBA65C001A5640 /* Base */; };
+		D03825142CBBA65C001A5640 /* ScreenWiperShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D038250A2CBBA65C001A5640 /* ScreenWiperShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EAAA75DFB7B343BEB2D138D8 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FE21BB91C43C9A5F17E09 /* Pretendard-Regular.ttf */; };
 		F08246F234604CF7B57C88C7 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53AD5C4142394E34B9970603 /* Pretendard-Bold.ttf */; };
 /* End PBXBuildFile section */
@@ -34,12 +38,34 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = ScreenWiper;
 		};
+		D03825122CBBA65C001A5640 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D03825092CBBA65C001A5640;
+			remoteInfo = ScreenWiperShare;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D03825152CBBA65C001A5640 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D03825142CBBA65C001A5640 /* ScreenWiperShare.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* ScreenWiperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenWiperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ScreenWiperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenWiperTests.m; sourceTree = "<group>"; };
+		02ABC3E46629EA1A592EEE61 /* Pods-ScreenWiperShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenWiperShare.release.xcconfig"; path = "Target Support Files/Pods-ScreenWiperShare/Pods-ScreenWiperShare.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ScreenWiper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenWiper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ScreenWiper/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ScreenWiper/AppDelegate.mm; sourceTree = "<group>"; };
@@ -55,6 +81,7 @@
 		5B7EB9410499542E8C5724F5 /* Pods-ScreenWiper-ScreenWiperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenWiper-ScreenWiperTests.debug.xcconfig"; path = "Target Support Files/Pods-ScreenWiper-ScreenWiperTests/Pods-ScreenWiper-ScreenWiperTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-ScreenWiper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenWiper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69920C89C25143409DEEC9B8 /* Pretendard-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Light.ttf"; path = "../src/assets/fonts/Pretendard-Light.ttf"; sourceTree = "<group>"; };
+		7591807AFF3BFD2DA934B34F /* Pods-ScreenWiperShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenWiperShare.debug.xcconfig"; path = "Target Support Files/Pods-ScreenWiperShare/Pods-ScreenWiperShare.debug.xcconfig"; sourceTree = "<group>"; };
 		77105E6F75B64202AD888A59 /* Pretendard-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-ExtraLight.ttf"; path = "../src/assets/fonts/Pretendard-ExtraLight.ttf"; sourceTree = "<group>"; };
 		78FAA0E0366748BCB8EB14EC /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-SemiBold.ttf"; path = "../src/assets/fonts/Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
 		802F31C4F8A7497FB58724E7 /* Pretendard-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-ExtraBold.ttf"; path = "../src/assets/fonts/Pretendard-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -62,7 +89,14 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-ScreenWiper-ScreenWiperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenWiper-ScreenWiperTests.release.xcconfig"; path = "Target Support Files/Pods-ScreenWiper-ScreenWiperTests/Pods-ScreenWiper-ScreenWiperTests.release.xcconfig"; sourceTree = "<group>"; };
 		8B3FE21BB91C43C9A5F17E09 /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Regular.ttf"; path = "../src/assets/fonts/Pretendard-Regular.ttf"; sourceTree = "<group>"; };
 		B99E3F44D24B40BFB713BA56 /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Medium.ttf"; path = "../src/assets/fonts/Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		C92426D54726FBE0CAF804BA /* libPods-ScreenWiperShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenWiperShare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2E3EDFB1C046A4A1E9E297 /* Pretendard-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Black.ttf"; path = "../src/assets/fonts/Pretendard-Black.ttf"; sourceTree = "<group>"; };
+		D038250A2CBBA65C001A5640 /* ScreenWiperShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScreenWiperShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D038250C2CBBA65C001A5640 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		D038250F2CBBA65C001A5640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D03825112CBBA65C001A5640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D03825192CBBA66C001A5640 /* ScreenWiperShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenWiperShare.entitlements; sourceTree = "<group>"; };
+		D038251A2CBBA67A001A5640 /* ScreenWiper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ScreenWiper.entitlements; path = ScreenWiper/ScreenWiper.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F72B8E2497780E91352398E5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = ScreenWiper/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +115,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-ScreenWiper.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D03825072CBBA65C001A5640 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5863F06A257187877B6FC3 /* libPods-ScreenWiperShare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +149,7 @@
 		13B07FAE1A68108700A75B9A /* ScreenWiper */ = {
 			isa = PBXGroup;
 			children = (
+				D038251A2CBBA67A001A5640 /* ScreenWiper.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -125,6 +168,7 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-ScreenWiper.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-ScreenWiper-ScreenWiperTests.a */,
+				C92426D54726FBE0CAF804BA /* libPods-ScreenWiperShare.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,6 +202,7 @@
 				13B07FAE1A68108700A75B9A /* ScreenWiper */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ScreenWiperTests */,
+				D038250B2CBBA65C001A5640 /* ScreenWiperShare */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -173,6 +218,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* ScreenWiper.app */,
 				00E356EE1AD99517003FC87E /* ScreenWiperTests.xctest */,
+				D038250A2CBBA65C001A5640 /* ScreenWiperShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,8 +230,21 @@
 				5709B34CF0A7D63546082F79 /* Pods-ScreenWiper.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-ScreenWiper-ScreenWiperTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-ScreenWiper-ScreenWiperTests.release.xcconfig */,
+				7591807AFF3BFD2DA934B34F /* Pods-ScreenWiperShare.debug.xcconfig */,
+				02ABC3E46629EA1A592EEE61 /* Pods-ScreenWiperShare.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D038250B2CBBA65C001A5640 /* ScreenWiperShare */ = {
+			isa = PBXGroup;
+			children = (
+				D03825192CBBA66C001A5640 /* ScreenWiperShare.entitlements */,
+				D038250C2CBBA65C001A5640 /* ShareViewController.swift */,
+				D038250E2CBBA65C001A5640 /* MainInterface.storyboard */,
+				D03825112CBBA65C001A5640 /* Info.plist */,
+			);
+			path = ScreenWiperShare;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,15 +282,36 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				D03825152CBBA65C001A5640 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D03825132CBBA65C001A5640 /* PBXTargetDependency */,
 			);
 			name = ScreenWiper;
 			productName = ScreenWiper;
 			productReference = 13B07F961A680F5B00A75B9A /* ScreenWiper.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D03825092CBBA65C001A5640 /* ScreenWiperShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D03825182CBBA65C001A5640 /* Build configuration list for PBXNativeTarget "ScreenWiperShare" */;
+			buildPhases = (
+				C631430FA7FD0281CB534223 /* [CP] Check Pods Manifest.lock */,
+				D03825062CBBA65C001A5640 /* Sources */,
+				D03825072CBBA65C001A5640 /* Frameworks */,
+				D03825082CBBA65C001A5640 /* Resources */,
+				5AEABE4CC5EF3698ABDFBB9E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScreenWiperShare;
+			productName = ScreenWiperShare;
+			productReference = D038250A2CBBA65C001A5640 /* ScreenWiperShare.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -239,6 +319,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -247,6 +328,9 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					D03825092CBBA65C001A5640 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
@@ -265,6 +349,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* ScreenWiper */,
 				00E356ED1AD99517003FC87E /* ScreenWiperTests */,
+				D03825092CBBA65C001A5640 /* ScreenWiperShare */,
 			);
 		};
 /* End PBXProject section */
@@ -293,6 +378,14 @@
 				EAAA75DFB7B343BEB2D138D8 /* Pretendard-Regular.ttf in Resources */,
 				9D2D4178715D4B638FD89AB5 /* Pretendard-SemiBold.ttf in Resources */,
 				8E95DDAFEE15411FAF980A5F /* Pretendard-Thin.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D03825082CBBA65C001A5640 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D03825102CBBA65C001A5640 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +423,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScreenWiper/Pods-ScreenWiper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AEABE4CC5EF3698ABDFBB9E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScreenWiperShare/Pods-ScreenWiperShare-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScreenWiperShare/Pods-ScreenWiperShare-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScreenWiperShare/Pods-ScreenWiperShare-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -393,6 +503,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScreenWiper-ScreenWiperTests/Pods-ScreenWiper-ScreenWiperTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C631430FA7FD0281CB534223 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScreenWiperShare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,6 +579,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D03825062CBBA65C001A5640 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D038250D2CBBA65C001A5640 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -455,7 +595,23 @@
 			target = 13B07F861A680F5B00A75B9A /* ScreenWiper */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
+		D03825132CBBA65C001A5640 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D03825092CBBA65C001A5640 /* ScreenWiperShare */;
+			targetProxy = D03825122CBBA65C001A5640 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D038250E2CBBA65C001A5640 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D038250F2CBBA65C001A5640 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
@@ -513,8 +669,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-ScreenWiper.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ScreenWiper/ScreenWiper.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JK74DYRX7M;
 				ENABLE_BITCODE = NO;
@@ -531,8 +689,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ScreenWiper;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -541,8 +704,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-ScreenWiper.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ScreenWiper/ScreenWiper.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JK74DYRX7M;
 				INFOPLIST_FILE = ScreenWiper/Info.plist;
@@ -558,7 +723,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ScreenWiper;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -722,6 +892,99 @@
 			};
 			name = Release;
 		};
+		D03825162CBBA65C001A5640 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7591807AFF3BFD2DA934B34F /* Pods-ScreenWiperShare.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ScreenWiperShare/ScreenWiperShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = JK74DYRX7M;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScreenWiperShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ScreenWiperShare;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.ScreenWiper.ScreenWiperShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D03825172CBBA65C001A5640 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02ABC3E46629EA1A592EEE61 /* Pods-ScreenWiperShare.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ScreenWiperShare/ScreenWiperShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = JK74DYRX7M;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScreenWiperShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ScreenWiperShare;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.ScreenWiper.ScreenWiperShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -748,6 +1011,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D03825182CBBA65C001A5640 /* Build configuration list for PBXNativeTarget "ScreenWiperShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D03825162CBBA65C001A5640 /* Debug */,
+				D03825172CBBA65C001A5640 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
