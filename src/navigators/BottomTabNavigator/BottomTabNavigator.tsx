@@ -11,6 +11,7 @@ import TabBar from './TabBar';
 import {StackParamList} from '../StackNavigator/StackNavigator';
 import {CompositeScreenProps} from '@react-navigation/native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import useShareExtension from '@/hooks/useShareExtension';
 
 export type TabParamList = {
   Home: undefined;
@@ -34,6 +35,7 @@ export enum TabMenuLabel {
 }
 
 export default function BottomTabNavigator() {
+  useShareExtension();
   const Tab = createBottomTabNavigator<TabParamList>();
 
   return (

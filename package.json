@@ -48,6 +48,7 @@
     "@react-native/metro-config": "0.74.85",
     "@react-native/typescript-config": "0.74.85",
     "@types/react": "^18.2.6",
+    "@types/react-native-share-menu": "^5.0.5",
     "@types/react-test-renderer": "^18.0.0",
     "@types/styled-components": "^5.1.12",
     "@types/styled-components-react-native": "^5.1.0",
