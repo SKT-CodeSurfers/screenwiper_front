@@ -23,9 +23,9 @@
 		9D2D4178715D4B638FD89AB5 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78FAA0E0366748BCB8EB14EC /* Pretendard-SemiBold.ttf */; };
 		AE50F57219C0DF5DED7008E1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F72B8E2497780E91352398E5 /* PrivacyInfo.xcprivacy */; };
 		C8CDAA9ADD1F47159CE06F3B /* Pretendard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB2E3EDFB1C046A4A1E9E297 /* Pretendard-Black.ttf */; };
-		D038250D2CBBA65C001A5640 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D038250C2CBBA65C001A5640 /* ShareViewController.swift */; };
 		D03825102CBBA65C001A5640 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D038250F2CBBA65C001A5640 /* Base */; };
 		D03825142CBBA65C001A5640 /* ScreenWiperShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D038250A2CBBA65C001A5640 /* ScreenWiperShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D038251D2CBBA76F001A5640 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D038251C2CBBA76F001A5640 /* ShareViewController.swift */; };
 		EAAA75DFB7B343BEB2D138D8 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FE21BB91C43C9A5F17E09 /* Pretendard-Regular.ttf */; };
 		F08246F234604CF7B57C88C7 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53AD5C4142394E34B9970603 /* Pretendard-Bold.ttf */; };
 /* End PBXBuildFile section */
@@ -92,11 +92,12 @@
 		C92426D54726FBE0CAF804BA /* libPods-ScreenWiperShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenWiperShare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2E3EDFB1C046A4A1E9E297 /* Pretendard-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Black.ttf"; path = "../src/assets/fonts/Pretendard-Black.ttf"; sourceTree = "<group>"; };
 		D038250A2CBBA65C001A5640 /* ScreenWiperShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScreenWiperShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		D038250C2CBBA65C001A5640 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		D038250F2CBBA65C001A5640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		D03825112CBBA65C001A5640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03825192CBBA66C001A5640 /* ScreenWiperShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenWiperShare.entitlements; sourceTree = "<group>"; };
 		D038251A2CBBA67A001A5640 /* ScreenWiper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ScreenWiper.entitlements; path = ScreenWiper/ScreenWiper.entitlements; sourceTree = "<group>"; };
+		D038251B2CBBA76F001A5640 /* ScreenWiperShare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScreenWiperShare-Bridging-Header.h"; sourceTree = "<group>"; };
+		D038251C2CBBA76F001A5640 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = "../../node_modules/react-native-share-menu/ios/ShareViewController.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F72B8E2497780E91352398E5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = ScreenWiper/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,10 +240,11 @@
 		D038250B2CBBA65C001A5640 /* ScreenWiperShare */ = {
 			isa = PBXGroup;
 			children = (
+				D038251C2CBBA76F001A5640 /* ShareViewController.swift */,
 				D03825192CBBA66C001A5640 /* ScreenWiperShare.entitlements */,
-				D038250C2CBBA65C001A5640 /* ShareViewController.swift */,
 				D038250E2CBBA65C001A5640 /* MainInterface.storyboard */,
 				D03825112CBBA65C001A5640 /* Info.plist */,
+				D038251B2CBBA76F001A5640 /* ScreenWiperShare-Bridging-Header.h */,
 			);
 			path = ScreenWiperShare;
 			sourceTree = "<group>";
@@ -331,6 +333,7 @@
 					};
 					D03825092CBBA65C001A5640 = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -583,7 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D038250D2CBBA65C001A5640 /* ShareViewController.swift in Sources */,
+				D038251D2CBBA76F001A5640 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,6 +903,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -933,6 +937,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ScreenWiperShare/ScreenWiperShare-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -947,6 +952,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -980,6 +986,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ScreenWiperShare/ScreenWiperShare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
