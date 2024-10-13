@@ -2,6 +2,7 @@ import {usePostPhotos} from '@/hooks/mutations/photos/usePostPhotos';
 import {StackScreenProps} from '@/navigators/StackNavigator/StackNavigator';
 import LottieView from 'lottie-react-native';
 import React, {useEffect} from 'react';
+import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 
 const LoadingScreen = ({navigation, route}: StackScreenProps<'Loading'>) => {
@@ -15,6 +16,12 @@ const LoadingScreen = ({navigation, route}: StackScreenProps<'Loading'>) => {
       navigation.replace('Result', {list: res.data});
     },
     onError: e => {
+      Alert.alert('분석에 실패하였습니다.', `${e.message}`, [
+        {
+          text: '확인',
+          onPress: () => navigation.pop(),
+        },
+      ]);
       console.error('onError', e);
     },
   });
