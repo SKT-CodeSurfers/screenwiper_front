@@ -3,14 +3,17 @@
     {
       "title": "문래 '동, 멘'",
       "address": "영등포구 도림로 139길 19 1층",
+      "xcoordinate": "35.89897",
+      "ycoordinate": "128.8980",
       "operatingHours": " 11:30-22:30 / 월요일 휴무",
-      "category": "장소",
+      "categoryName": "장소",
       "summary": "•문래에 생긴 라멘+마제소바 성지 \n•일본 여행온 듯한 분위기 \n•정통 하이볼 맛집",
-      "image": "https://usiny.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fa31ab473-0869-40c0-a543-d46b7ec596ac%2Fbe64f2d3-68d5-4c99-bd89-9958e8efb92b%2Fimage_place.png?table=block&id=58125f78-578b-4b8c-9e0f-68f64b679e07&spaceId=a31ab473-0869-40c0-a543-d46b7ec596ac&width=2000&userId=&cache=v2"
+      "date": "2024년 4월 25일-7월 21일",
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuExtqxy9hAuFo5HEw5LnxzkrT7ss-n6jmuA&s"
     },
     {
       "title": "서울에서 꼭 가봐야 할 전시회 13곳",
-      "category": "일정",
+      "categoryName": "일정",
       "list": [
         {"name": "미래긍정: 노먼과 아이들", "date": "2024년 4월 25일-7월 21일"},
         {"name": "<길드는 서로들>", "date": "2024년 4월 25일-7월 21일"},
@@ -20,13 +23,13 @@
         },
         {"name": "미래긍정: 노먼과 아이들", "date": "2024년 4월 25일-7월 21일"}
       ],
-      "image": "https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fa31ab473-0869-40c0-a543-d46b7ec596ac%2F79980b4c-bb04-4ebf-bd2b-ef79c8472bc2%2Fimage_plan.png?table=block&id=549cca82-239c-4755-8dcd-e121e9266907&spaceId=a31ab473-0869-40c0-a543-d46b7ec596ac&width=2000&userId=ec140e4c-4186-4d9f-933e-0229a7674385&cache=v2"
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuExtqxy9hAuFo5HEw5LnxzkrT7ss-n6jmuA&s"
     },
     {
       "title": "웜톤/쿨톤/뉴트럴톤별 하이라이터 추천",
-      "category": "기타",
+      "categoryName": "기타",
       "summary": "•문래에 생긴 라멘+마제소바 성지 \n•일본 여행온 듯한 분위기 \n•정통 하이볼 맛집",
-      "image": "https://usiny.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fa31ab473-0869-40c0-a543-d46b7ec596ac%2F3e966d17-2a51-4f6f-8688-98d3b3297a2a%2Fimage_etc.png?table=block&id=fd1c28f2-4995-4ef2-94e5-40620cd39a02&spaceId=a31ab473-0869-40c0-a543-d46b7ec596ac&width=940&userId=&cache=v2"
+      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuExtqxy9hAuFo5HEw5LnxzkrT7ss-n6jmuA&s"
     }
   ]
 }

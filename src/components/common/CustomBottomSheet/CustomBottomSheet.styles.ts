@@ -7,7 +7,7 @@ const CustomBottomSheetStyles = {
     padding: 20px;
   `,
 
-  CategoryButton: styled.TouchableOpacity`
+  CategoryButton: styled.View`
     width: 80px;
     padding: 8px 20px;
     border-radius: 20px;

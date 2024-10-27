@@ -20,6 +20,12 @@ const ResultStyles = {
     ${({theme}) => theme.fonts.body_m_16};
     padding-left: 5px;
   `,
+
+  SummaryContent: styled.Text`
+    ${({theme}) => theme.fonts.body_m_16};
+    padding-left: 5px;
+    line-height: 25px;
+  `,
 };
 
 const ResultPlanStyles = {
