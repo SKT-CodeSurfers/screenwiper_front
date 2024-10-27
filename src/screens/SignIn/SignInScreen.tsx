@@ -5,14 +5,14 @@ import Logo from '@/assets/logo.svg';
 import IcKakao from '@/assets/icon/ic_kakao_talk.svg';
 import styles from './SignInScreen.styles';
 import useNavigator from '@/navigators/useNavigator';
+import {API_LOGIN_REDIRECT_URL, KAKAO_CLIENT_ID} from '@env';
 
 const SignInScreen = () => {
   const {stackNavigation} = useNavigator();
 
+  console.log('>>', KAKAO_CLIENT_ID, API_LOGIN_REDIRECT_URL);
   const handleLogin = () => {
-    const CLIENT_ID = '3f2511703ec499e70f54ca386d55162e';
-    const REDIRECT_URL = 'http://3.34.88.174:8080/api/auth/kakao/callback';
-    const loginUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL}&response_type=code`;
+    const loginUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${API_LOGIN_REDIRECT_URL}&response_type=code`;
     console.log('Login url : ' + loginUrl);
     if (loginUrl) {
       stackNavigation.navigate('WebView', {url: loginUrl});
