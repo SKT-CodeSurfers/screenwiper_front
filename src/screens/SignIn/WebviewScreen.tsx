@@ -1,15 +1,15 @@
 import React from 'react';
-import { WebView } from 'react-native-webview';
+import { WebView, WebViewNavigation } from 'react-native-webview';
 import useNavigator from '@/navigators/useNavigator';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, Alert } from 'react-native';
 import { useKakaoCallback } from '@/hooks/queries/users/useKakaoCallback';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StackParamList, StackMenu } from '@/navigators/StackNavigator/StackNavigator';
 
 type WebviewScreenProps = NativeStackScreenProps<StackParamList, StackMenu.WebView>;
+
 const WebviewScreen: React.FC<WebviewScreenProps> = ({ navigation, route }) => {
-  
   const { url } = route.params;
   const { mutate: kakaoCallback } = useKakaoCallback();
 
@@ -30,7 +30,7 @@ const WebviewScreen: React.FC<WebviewScreenProps> = ({ navigation, route }) => {
     return null;
   };
 
-  const onShouldStartLoadWithRequest = (request: any) => {
+  const onShouldStartLoadWithRequest = (request: WebViewNavigation) => {
     const { url } = request;
 
     if (url.includes('http://43.201.193.38:8080/callback')) {
@@ -38,8 +38,8 @@ const WebviewScreen: React.FC<WebviewScreenProps> = ({ navigation, route }) => {
       if (code) {
         kakaoCallback(code, {
           onSuccess: async (data) => {
-            console.log("AccessToken:", data.accessToken);
-            console.log("Logged in as:", data.name);
+            console.log('AccessToken:', data.accessToken);
+            console.log('Logged in as:', data.name);
 
             await AsyncStorage.setItem('accessToken', data.accessToken);
 
@@ -59,6 +59,18 @@ const WebviewScreen: React.FC<WebviewScreenProps> = ({ navigation, route }) => {
     return true;
   };
 
+  // 웹뷰 로딩 중 네트워크 오류 처리
+  const handleWebViewError = (syntheticEvent: any) => {
+    const { nativeEvent } = syntheticEvent;
+    Alert.alert('웹페이지 오류', `페이지를 로드하는 중 오류가 발생했습니다: ${nativeEvent.description}`);
+  };
+
+  // HTTP 오류 처리 (예: 404, 500 등)
+  const handleHttpError = (syntheticEvent: any) => {
+    const { nativeEvent } = syntheticEvent;
+    Alert.alert('HTTP 오류', `HTTP 오류 발생: ${nativeEvent.statusCode}`);
+  };
+
   if (!url) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -73,9 +85,12 @@ const WebviewScreen: React.FC<WebviewScreenProps> = ({ navigation, route }) => {
       source={{ uri: url }}
       style={{ flex: 1 }}
       onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+      onError={handleWebViewError} // 네트워크 오류 핸들러
+      onHttpError={handleHttpError} // HTTP 오류 핸들러
       startInLoadingState={true}
       renderLoading={() => (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
+          <ActivityIndicator size="large" color="#0000ff" />
         </View>
       )}
     />
