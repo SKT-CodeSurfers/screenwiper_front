@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import React, {useEffect, useMemo} from 'react';
+import {View, ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useMemberInfo } from '@/hooks/queries/users/useMemberInfo';
+import {useGetUser} from '@/hooks/queries/users/useGetUser';
 import useNavigator from '@/navigators/useNavigator';
 
 const SplashScreen: React.FC = () => {
-  const { stackNavigation } = useNavigator();
-  const { data: memberInfo, isLoading, error } = useMemberInfo();
+  const {stackNavigation} = useNavigator();
+  const {data: user, isLoading, isError} = useGetUser();
 
   const navigateTo = async (screenName: 'Main' | 'SignIn') => {
     if (screenName === 'SignIn') {
@@ -14,19 +14,19 @@ const SplashScreen: React.FC = () => {
     }
     stackNavigation.reset({
       index: 0,
-      routes: [{ name: screenName }],
+      routes: [{name: screenName}],
     });
   };
 
   useEffect(() => {
     if (!isLoading) {
-      if (memberInfo) {
+      if (user) {
         navigateTo('Main');
-      } else if (error) {
+      } else if (isError) {
         navigateTo('SignIn');
       }
     }
-  }, [isLoading, memberInfo, error]);
+  }, [isLoading, user, isError]);
 
   return (
     <View style={styles.container}>

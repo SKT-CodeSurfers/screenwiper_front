@@ -1,6 +1,5 @@
 import {
   createNativeStackNavigator,
-  NativeStackNavigationProp,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import React from 'react';
@@ -46,8 +45,8 @@ export default function StackNavigator() {
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name={StackMenu.SignIn} component={SignInScreen} />
       <Stack.Screen name={StackMenu.Splash} component={SplashScreen} />
+      <Stack.Screen name={StackMenu.SignIn} component={SignInScreen} />
 
       <Stack.Screen name={StackMenu.Main} component={BottomTabNavigator} />
 

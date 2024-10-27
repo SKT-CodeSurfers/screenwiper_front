@@ -1,25 +1,19 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ArrowLeftIcon from '@/assets/icon/ic_arrow_left.svg';
 import ArrowRightIcon from '@/assets/icon/ic_arrow_right.svg';
 import RectangleIcon from '@/assets/icon/ic_rectangle.svg';
 import * as s from './SettingScreen.style';
-import { useDeleteMember } from '@/hooks/queries/users/useDeleteMember';
+import {useDeleteMember} from '@/hooks/queries/users/useDeleteMember';
 import useNavigator from '@/navigators/useNavigator';
-import { StackMenu } from '@/navigators/StackNavigator/StackNavigator';
-import { useMemberInfo } from '@/hooks/queries/users/useMemberInfo';
+import {StackMenu} from '@/navigators/StackNavigator/StackNavigator';
+import {useGetUser} from '@/hooks/queries/users/useGetUser';
 
 export default function SettingsScreen() {
-  const { stackNavigation } = useNavigator();
-  const { mutate: deleteMember } = useDeleteMember();
-  const { data: memberInfo, isLoading, isError } = useMemberInfo();
-
-  const user = {
-    name: memberInfo?.name ?? '사용자',
-    email: '',
-    profileImage: '',
-  };
+  const {stackNavigation} = useNavigator();
+  const {mutate: deleteMember} = useDeleteMember();
+  const {data: user} = useGetUser();
 
   const handlePress = (title: string) => {
     if (title === '회원탈퇴') {
@@ -45,7 +39,7 @@ export default function SettingsScreen() {
           onPress: () => deleteMember(),
         },
       ],
-      { cancelable: false },
+      {cancelable: false},
     );
   };
 
@@ -64,12 +58,12 @@ export default function SettingsScreen() {
             await AsyncStorage.removeItem('accessToken');
             stackNavigation.reset({
               index: 0,
-              routes: [{ name: StackMenu.SignIn }], 
+              routes: [{name: StackMenu.SignIn}],
             });
           },
         },
       ],
-      { cancelable: false },
+      {cancelable: false},
     );
   };
 
@@ -83,18 +77,18 @@ export default function SettingsScreen() {
       </s.Header>
 
       <s.ProfileSection>
-        <s.ProfileImage
-          source={user.profileImage ? { uri: user.profileImage } : require('@/assets/default-profile.png')}
-        />
+        <s.ProfileImage source={require('@/assets/default-profile.png')} />
         <s.UserInfo>
-          <s.UserName>{user.name}</s.UserName>
-          <s.UserEmail>{user.email}</s.UserEmail>
+          <s.UserName>{user?.nickname}</s.UserName>
+          <s.UserEmail>{user?.email}</s.UserEmail>
         </s.UserInfo>
       </s.ProfileSection>
 
       <s.OptionsSection>
-        {options.map((option) => (
-          <s.Option key={option.title} onPress={() => handlePress(option.title)}>
+        {options.map(option => (
+          <s.Option
+            key={option.title}
+            onPress={() => handlePress(option.title)}>
             <s.OptionContent>
               <RectangleIcon />
               <s.OptionText>{option.title}</s.OptionText>
@@ -113,8 +107,8 @@ export default function SettingsScreen() {
 }
 
 const options = [
-  { title: '서비스이용약관', showArrow: true },
-  { title: '개인정보처리방침', showArrow: true },
-  { title: '로그아웃', showArrow: false },
-  { title: '회원탈퇴', showArrow: false },
+  {title: '서비스이용약관', showArrow: true},
+  {title: '개인정보처리방침', showArrow: true},
+  {title: '로그아웃', showArrow: false},
+  {title: '회원탈퇴', showArrow: false},
 ];
