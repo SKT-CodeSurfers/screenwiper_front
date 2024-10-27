@@ -1,12 +1,11 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useEffect} from 'react';
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useGetUser} from '@/hooks/queries/users/useGetUser';
+import {getUserInfo} from '@/hooks/queries/users/useGetUser';
 import useNavigator from '@/navigators/useNavigator';
 
 const SplashScreen: React.FC = () => {
   const {stackNavigation} = useNavigator();
-  const {data: user, isLoading, isError} = useGetUser();
 
   const navigateTo = async (screenName: 'Main' | 'SignIn') => {
     if (screenName === 'SignIn') {
@@ -18,15 +17,29 @@ const SplashScreen: React.FC = () => {
     });
   };
 
-  useEffect(() => {
-    if (!isLoading) {
+  const checkAutoLogin = async () => {
+    try {
+      const token = await AsyncStorage.getItem('accessToken');
+      if (!token) {
+        navigateTo('SignIn');
+        return;
+      }
+
+      const user = await getUserInfo();
       if (user) {
         navigateTo('Main');
-      } else if (isError) {
+      } else {
         navigateTo('SignIn');
       }
+    } catch (error) {
+      console.error('Error fetching user info:', error);
+      navigateTo('SignIn');
     }
-  }, [isLoading, user, isError]);
+  };
+
+  useEffect(() => {
+    checkAutoLogin();
+  }, []);
 
   return (
     <View style={styles.container}>
