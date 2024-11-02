@@ -14,6 +14,7 @@ import {ImagePickerResponse} from 'react-native-image-picker';
 import SafeAreaTabView from '@/components/common/SafeAreaTabView/SafeAreaTabView';
 import {TabOfStackScreenProps} from '@/navigators/BottomTabNavigator/BottomTabNavigator';
 import {useGetUser} from '@/hooks/queries/users/useGetUser';
+import { useGetRecommand } from '@/hooks/queries/home/useRecommand';
 
 const cardWidth = 300;
 const cardMargin = 15;
@@ -33,14 +34,26 @@ export default function HomeScreen({
   const [planCards, setPlanCards] = useState<CardItem[]>([]);
   const [otherCards, setOtherCards] = useState<CardItem[]>([]);
 
-  const {data: user, isLoading} = useGetUser();
+  const { data: user, isLoading: isUserLoading } = useGetUser();
+  const { data: recommandData, isLoading: isRecommandLoading } = useGetRecommand();
+  
 
   useEffect(() => {
-    const {placeCards, planCards, otherCards} = categorizeData(rawData);
-    setPlaceCards(placeCards);
-    setPlanCards(planCards);
-    setOtherCards(otherCards);
-  }, []);
+    if (recommandData) {
+      const { placeCards, planCards, otherCards } = categorizeData(recommandData);
+      setPlaceCards(placeCards);
+      setPlanCards(planCards);
+      setOtherCards(otherCards);
+    }
+  }, [recommandData]);
+  
+
+  // useEffect(() => {
+  //   const {placeCards, planCards, otherCards} = categorizeData(rawData);
+  //   setPlaceCards(placeCards);
+  //   setPlanCards(planCards);
+  //   setOtherCards(otherCards);
+  // }, []);
 
   const renderPlaceCard = ({item}: {item: any}) => (
     <s.CardWrapper>
@@ -79,7 +92,7 @@ export default function HomeScreen({
           <s.TitleText>
             안녕하세요,{' '}
             <s.NameText>
-              {isLoading ? '로딩 중...' : `${user?.nickname}님`}
+              {isUserLoading ? '로딩 중...' : `${user?.nickname}님`}
             </s.NameText>
           </s.TitleText>
           <s.Description>오늘은 어떤 사진을 정리하셨나요?</s.Description>
