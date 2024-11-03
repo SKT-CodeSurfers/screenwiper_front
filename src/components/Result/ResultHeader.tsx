@@ -44,7 +44,7 @@ export default function ResultHeader({
       </StyledPageText>
 
       <StyledConfirmText onPress={handleOnNext}>
-        {idx >= total - 1 ? '완료' : '다음'}
+        {idx >= total - 1 ? '   ' : '다음'}
       </StyledConfirmText>
     </CustomHeader>
   );
