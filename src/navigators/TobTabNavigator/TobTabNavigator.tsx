@@ -6,15 +6,10 @@ import {
   PlanCardList,
   OtherCardList,
 } from '@/components/Main/CardView/CardList';
-import {TopTabNavigatorProps} from '@/types/Main/CardTypes';
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function TopTabNavigator({
-  placeCards,
-  planCards,
-  otherCards,
-}: TopTabNavigatorProps) {
+export default function TopTabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -39,15 +34,9 @@ export default function TopTabNavigator({
           </Text>
         ),
       })}>
-      <Tab.Screen name="장소">
-        {() => <PlaceCardList data={placeCards} />}
-      </Tab.Screen>
-      <Tab.Screen name="일정">
-        {() => <PlanCardList data={planCards} />}
-      </Tab.Screen>
-      <Tab.Screen name="기타">
-        {() => <OtherCardList data={otherCards} />}
-      </Tab.Screen>
+      <Tab.Screen name="장소">{() => <PlaceCardList />}</Tab.Screen>
+      <Tab.Screen name="일정">{() => <PlanCardList />}</Tab.Screen>
+      <Tab.Screen name="기타">{() => <OtherCardList />}</Tab.Screen>
     </Tab.Navigator>
   );
 }

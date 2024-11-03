@@ -5,11 +5,7 @@ import {CardItem} from '@/types/Main/CardTypes'; // 타입 가져오기
 import useNavigator from '@/navigators/useNavigator';
 import {useGetPhotoList} from '@/hooks/queries/photos/useGetPhotoList';
 
-interface ListProps {
-  data: CardItem[];
-}
-
-export function PlaceCardList({data}: ListProps) {
+export function PlaceCardList() {
   const [page, setPage] = useState(0);
   const {data: res} = useGetPhotoList({type: '장소', page: page});
   const list = res?.data.photos;
@@ -27,7 +23,7 @@ export function PlaceCardList({data}: ListProps) {
   );
 }
 
-export function PlanCardList({data}: ListProps) {
+export function PlanCardList() {
   const [page, setPage] = useState(0);
   const {data: res} = useGetPhotoList({type: '일정', page: page});
   const list = res?.data.photos;
@@ -45,7 +41,7 @@ export function PlanCardList({data}: ListProps) {
   );
 }
 
-export function OtherCardList({data}: ListProps) {
+export function OtherCardList() {
   const [page, setPage] = useState(0);
   const {data: res} = useGetPhotoList({type: '기타', page: page});
   const list = res?.data.photos;

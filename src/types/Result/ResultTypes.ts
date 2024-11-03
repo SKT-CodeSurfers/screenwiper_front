@@ -39,3 +39,13 @@ export interface IResultOther {
 
   summary: string;
 }
+
+export const isPlaceItem = (item: ResultTypes): item is IResultPlace => {
+  return item.categoryName === ResultCategory.PLACE;
+};
+
+export const isPlanItem = (
+  item: IResultPlace | IResultPlan | IResultOther,
+): item is IResultPlan => {
+  return item.categoryName === ResultCategory.PLAN;
+};
