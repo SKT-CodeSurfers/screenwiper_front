@@ -6,6 +6,8 @@ import Result from '@/components/common/Result/Result';
 import {useGetPhoto} from '@/hooks/queries/photos/useGetPhoto';
 import styled from 'styled-components/native';
 import LottieView from 'lottie-react-native';
+import {Alert} from 'react-native';
+import {useDeletePhotos} from '@/hooks/mutations/photos/useDeletePhotos';
 
 const DetailScreen = ({navigation, route}: StackScreenProps<'Detail'>) => {
   const {photoId} = route.params;
@@ -13,10 +15,35 @@ const DetailScreen = ({navigation, route}: StackScreenProps<'Detail'>) => {
   const {data, isError} = useGetPhoto({photoId});
   const photo = data?.data;
 
+  const {mutate: deletePhoto} = useDeletePhotos({
+    onSuccess(res) {
+      console.log('res', res);
+      navigation.pop();
+    },
+    onError(e) {
+      console.log('e', e);
+    },
+  });
+
+  const onDelete = () => {
+    Alert.alert(
+      '정말로 삭제하시겠습니까?',
+      '삭제하면 기록을 복구할 수 없어요!',
+      [
+        {
+          text: '아니요',
+        },
+        {text: '네', onPress: () => deletePhoto(photoId)},
+      ],
+    );
+  };
+
   useEffect(() => {
     navigation.setOptions({
       headerShown: true,
-      header: () => <DetailHeader goBack={() => navigation.pop()} />,
+      header: () => (
+        <DetailHeader goBack={() => navigation.pop()} onDelete={onDelete} />
+      ),
     });
   }, [navigation]);
 

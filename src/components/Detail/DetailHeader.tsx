@@ -3,12 +3,13 @@ import CustomHeader from '../common/CustomHeader/CustomHeader';
 import styled from 'styled-components/native';
 interface DetailHeaderProps {
   goBack: () => void;
+  onDelete: () => void;
 }
-export default function DetailHeader({goBack}: DetailHeaderProps) {
+export default function DetailHeader({goBack, onDelete}: DetailHeaderProps) {
   return (
     <CustomHeader>
       <StyledCancelText onPress={goBack}>이전</StyledCancelText>
-      {/* <StyledConfirmText>삭제</StyledConfirmText> */}
+      <StyledConfirmText onPress={onDelete}>삭제</StyledConfirmText>
     </CustomHeader>
   );
 }

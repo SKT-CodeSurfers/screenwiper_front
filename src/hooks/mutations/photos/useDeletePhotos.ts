@@ -4,7 +4,7 @@ import {useMutation} from '@tanstack/react-query';
 /**
  *  스크린샷 삭제
  */
-export const deletePhotos = async (photoId: number) => {
+export const deletePhotos = async (photoId: string) => {
   const res = await DELETE<string>(`/photos/${photoId}`);
   return res.data;
 };
@@ -16,7 +16,7 @@ interface DeletePhotoProps {
 
 export const useDeletePhotos = ({onSuccess, onError}: DeletePhotoProps) => {
   return useMutation({
-    mutationFn: (req: number) => deletePhotos(req),
+    mutationFn: (req: string) => deletePhotos(req),
     onSuccess: onSuccess,
     onError: onError,
   });
