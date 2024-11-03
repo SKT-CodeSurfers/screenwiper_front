@@ -10,10 +10,11 @@ const PHOTOS_KEYS = {
   detail: (id: string) => [...PHOTOS_KEYS.details(), id] as const, // ["photos", "detail", "id"]
 };
 
-
 const LOGIN_KEYS = {
   all: ['kakao'] as const,
   loginUrl: () => [...LOGIN_KEYS.all, 'loginUrl'] as const,
 };
 
-export { PHOTOS_KEYS, LOGIN_KEYS };
+const USER_KEY = ['user'];
+
+export {PHOTOS_KEYS, LOGIN_KEYS, USER_KEY};

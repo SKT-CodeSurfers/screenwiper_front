@@ -7,11 +7,11 @@ import Result from '@/components/common/Result/Result';
 import {Alert} from 'react-native';
 
 const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
-  const {result} = dummies;
+  // const {result} = dummies;
   const {list} = route.params;
 
   const [idx, setIdx] = useState(0);
-  const data = useMemo(() => result[idx], [idx]);
+  // const data = useMemo(() => result[idx], [idx]);
 
   function handleGoBack() {
     Alert.alert(

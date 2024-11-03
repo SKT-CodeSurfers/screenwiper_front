@@ -1,8 +1,4 @@
-import {
-  IResultOther,
-  IResultPlace,
-  IResultPlan,
-} from '@/types/Result/ResultTypes';
+import {ResultTypes} from '@/types/Result/ResultTypes';
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import CustomBottomSheet from '../CustomBottomSheet/CustomBottomSheet';
@@ -10,7 +6,7 @@ import {Alert} from 'react-native';
 import CategoryModal from '../Modal/CategoryModal/CategoryModal';
 
 interface ResultProps {
-  data: IResultPlace | IResultPlan | IResultOther;
+  data: ResultTypes;
 }
 export default function Result({data}: ResultProps) {
   const [visible, setVisible] = useState(false);

@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import React, {useEffect} from 'react';
+import {View, ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useMemberInfo } from '@/hooks/queries/users/useMemberInfo';
+import {getUserInfo} from '@/hooks/queries/users/useGetUser';
 import useNavigator from '@/navigators/useNavigator';
 
 const SplashScreen: React.FC = () => {
-  const { stackNavigation } = useNavigator();
-  const { data: memberInfo, isLoading, error } = useMemberInfo();
+  const {stackNavigation} = useNavigator();
 
   const navigateTo = async (screenName: 'Main' | 'SignIn') => {
     if (screenName === 'SignIn') {
@@ -14,19 +13,33 @@ const SplashScreen: React.FC = () => {
     }
     stackNavigation.reset({
       index: 0,
-      routes: [{ name: screenName }],
+      routes: [{name: screenName}],
     });
   };
 
-  useEffect(() => {
-    if (!isLoading) {
-      if (memberInfo) {
+  const checkAutoLogin = async () => {
+    try {
+      const token = await AsyncStorage.getItem('accessToken');
+      if (!token) {
+        navigateTo('SignIn');
+        return;
+      }
+
+      const user = await getUserInfo();
+      if (user) {
         navigateTo('Main');
-      } else if (error) {
+      } else {
         navigateTo('SignIn');
       }
+    } catch (error) {
+      console.error('Error fetching user info:', error);
+      navigateTo('SignIn');
     }
-  }, [isLoading, memberInfo, error]);
+  };
+
+  useEffect(() => {
+    checkAutoLogin();
+  }, []);
 
   return (
     <View style={styles.container}>

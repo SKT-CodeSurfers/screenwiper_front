@@ -7,13 +7,9 @@ export const enum ResultCategory {
 export type ResultTypes = IResultPlace | IResultPlan | IResultOther;
 
 export interface IResult {
-  photoId: number;
-  category: string;
   categoryName: string;
   title: string;
-  photoName: string;
   photoUrl: string;
-  date: string;
 }
 
 export interface IResultPlace extends IResult {
@@ -25,10 +21,10 @@ export interface IResultPlace extends IResult {
 }
 
 export interface IResultPlan extends IResult {
-  list: Array<{
+  list: {
     name: string;
     date: string;
-  }>;
+  }[];
 }
 
 export interface IResultOther extends IResult {

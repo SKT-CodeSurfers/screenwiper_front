@@ -24,12 +24,12 @@ export default function CustomBottomSheet({
   return (
     <BottomSheet snapPoints={['75%', '100%']}>
       <s.ScrollView>
-        <s.CategoryButton onPress={modify}>
+        <s.CategoryButton>
           <s.CategoryText>{data.categoryName}</s.CategoryText>
-          <IcDown />
+          {/* <IcDown /> */}
         </s.CategoryButton>
 
-        <s.Title>카페 아래로</s.Title>
+        <s.Title>{data.title}</s.Title>
 
         {data.categoryName === ResultCategory.PLACE && (
           <ResultPlace data={data as IResultPlace} />

@@ -1,6 +1,5 @@
 import {
   createNativeStackNavigator,
-  NativeStackNavigationProp,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import React from 'react';
@@ -21,7 +20,7 @@ export type StackParamList = {
   Setting: undefined;
   Result: {list: AnalyzePhotoResponse[]};
   Detail: undefined;
-  WebView: { url: string };
+  WebView: {url: string};
 };
 
 export const enum StackMenu {
@@ -45,11 +44,10 @@ export default function StackNavigator() {
   const Stack = createNativeStackNavigator<StackParamList>();
 
   return (
-    
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name={StackMenu.SignIn} component={SignInScreen} />
       <Stack.Screen name={StackMenu.Splash} component={SplashScreen} />
-      
+      <Stack.Screen name={StackMenu.SignIn} component={SignInScreen} />
+
       <Stack.Screen name={StackMenu.Main} component={BottomTabNavigator} />
 
       <Stack.Screen name={StackMenu.Loading} component={LoadingScreen} />
@@ -57,7 +55,6 @@ export default function StackNavigator() {
       <Stack.Screen name={StackMenu.Detail} component={DetailScreen} />
       <Stack.Screen name={StackMenu.Setting} component={SettingScreen} />
       <Stack.Screen name={StackMenu.WebView} component={WebviewScreen} />
-
     </Stack.Navigator>
   );
 }

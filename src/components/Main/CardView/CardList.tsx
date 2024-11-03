@@ -2,6 +2,7 @@ import React from 'react';
 import {FlatList, View} from 'react-native';
 import ListCard from './CardItem';
 import {CardItem} from '@/types/Main/CardTypes'; // 타입 가져오기
+import useNavigator from '@/navigators/useNavigator';
 
 interface ListProps {
   data: CardItem[];
