@@ -8,6 +8,8 @@ import styled from 'styled-components/native';
 import LottieView from 'lottie-react-native';
 import {Alert} from 'react-native';
 import {useDeletePhotos} from '@/hooks/mutations/photos/useDeletePhotos';
+import {useQueryClient} from '@tanstack/react-query';
+import {PHOTOS_KEYS} from '@/hooks/queries/QueryKeys';
 
 const DetailScreen = ({navigation, route}: StackScreenProps<'Detail'>) => {
   const {photoId} = route.params;
@@ -15,9 +17,13 @@ const DetailScreen = ({navigation, route}: StackScreenProps<'Detail'>) => {
   const {data, isError} = useGetPhoto({photoId});
   const photo = data?.data;
 
+  const queryClient = useQueryClient();
+
   const {mutate: deletePhoto} = useDeletePhotos({
     onSuccess(res) {
       console.log('res', res);
+      queryClient.invalidateQueries({queryKey: PHOTOS_KEYS.lists()});
+
       navigation.pop();
     },
     onError(e) {
