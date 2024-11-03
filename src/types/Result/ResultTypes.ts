@@ -6,13 +6,11 @@ export const enum ResultCategory {
 
 export type ResultTypes = IResultPlace | IResultPlan | IResultOther;
 
-export interface IResult {
-  categoryName: string;
+export interface IResultPlace {
   title: string;
   photoUrl: string;
-}
+  categoryName: string;
 
-export interface IResultPlace extends IResult {
   address: string;
   xcoordinate: string;
   ycoordinate: string;
@@ -20,13 +18,21 @@ export interface IResultPlace extends IResult {
   summary: string;
 }
 
-export interface IResultPlan extends IResult {
+export interface IResultPlan {
+  title: string;
+  photoUrl: string;
+  categoryName: string;
+
   list: {
     name: string;
     date: string;
   }[];
 }
 
-export interface IResultOther extends IResult {
+export interface IResultOther {
+  title: string;
+  photoUrl: string;
+  categoryName: string;
+
   summary: string;
 }

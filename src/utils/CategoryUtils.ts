@@ -1,4 +1,4 @@
-import { TopTabNavigatorProps, CardItem } from '@/types/Main/CardTypes';
+import {TopTabNavigatorProps, CardItem} from '@/types/Main/CardTypes';
 
 export const categorizeData = (rawData: any): TopTabNavigatorProps => {
   const placeCards: CardItem[] = [];
@@ -7,12 +7,12 @@ export const categorizeData = (rawData: any): TopTabNavigatorProps => {
 
   rawData.data.forEach((item: any) => {
     const card: CardItem = {
-      id: String(Math.random()),
+      photoId: 7,
       title: item.title,
       address: item.address,
       descriptions: item.descriptions || [item.description],
       category: item.category as 'Place' | 'Plan' | 'Other',
-      date: item.date ?? ''
+      date: item.date ?? '',
     };
 
     switch (item.category) {
@@ -33,6 +33,6 @@ export const categorizeData = (rawData: any): TopTabNavigatorProps => {
   return {
     placeCards,
     planCards,
-    otherCards
+    otherCards,
   };
 };

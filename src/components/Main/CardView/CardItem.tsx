@@ -7,6 +7,7 @@ import useNavigator from '@/navigators/useNavigator';
 import {TouchableOpacity} from 'react-native';
 
 interface CardItemProps {
+  photoId: number;
   title: string;
   address?: string;
   descriptions: string[];
@@ -14,6 +15,7 @@ interface CardItemProps {
 }
 
 const CardItem: React.FC<CardItemProps> = ({
+  photoId,
   title,
   address,
   descriptions,
@@ -24,7 +26,8 @@ const CardItem: React.FC<CardItemProps> = ({
   const isPlace = category === 'Place';
 
   return (
-    <TouchableOpacity onPress={() => stackNavigation.navigate('Detail')}>
+    <TouchableOpacity
+      onPress={() => stackNavigation.navigate('Detail', {photoId})}>
       <Shadow distance={10} startColor={'#00000008'} offset={[0, 0]}>
         <S.StyledCard>
           <S.HeaderRow>
