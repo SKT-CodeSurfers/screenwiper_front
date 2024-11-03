@@ -8,9 +8,8 @@ import styled from 'styled-components/native';
 import LottieView from 'lottie-react-native';
 
 const DetailScreen = ({navigation, route}: StackScreenProps<'Detail'>) => {
-  // const {photoId} = route.params;
-  // 장소 : 19, 16, 11 일정 : 13, 8,18 기타 : 7, 20, 9
-  const photoId = 19;
+  const {photoId} = route.params;
+
   const {data, isError} = useGetPhoto({photoId});
   const photo = data?.data;
 

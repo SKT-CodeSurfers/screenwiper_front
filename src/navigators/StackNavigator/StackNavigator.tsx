@@ -19,7 +19,7 @@ export type StackParamList = {
   Loading: {formData: FormData};
   Setting: undefined;
   Result: {list: AnalyzePhotoResponse[]};
-  Detail: {photoId: number};
+  Detail: {photoId: string};
   WebView: {url: string};
 };
 

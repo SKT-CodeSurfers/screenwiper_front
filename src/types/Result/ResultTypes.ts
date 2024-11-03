@@ -8,8 +8,9 @@ export type ResultTypes = IResultPlace | IResultPlan | IResultOther;
 
 export interface IResultPlace {
   title: string;
+  photoId: string;
   photoUrl: string;
-  categoryName: string;
+  categoryName: ResultCategory;
 
   address: string;
   xcoordinate: string;
@@ -20,8 +21,9 @@ export interface IResultPlace {
 
 export interface IResultPlan {
   title: string;
+  photoId: string;
   photoUrl: string;
-  categoryName: string;
+  categoryName: ResultCategory;
 
   list: {
     name: string;
@@ -31,8 +33,9 @@ export interface IResultPlan {
 
 export interface IResultOther {
   title: string;
+  photoId: string;
   photoUrl: string;
-  categoryName: string;
+  categoryName: ResultCategory;
 
   summary: string;
 }

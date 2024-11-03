@@ -14,7 +14,7 @@ export default function ListScreen() {
   const [page, setPage] = useState(0);
 
   const {data: res} = useGetPhotoList({type: type, page: page});
-  console.log(res?.data);
+  // console.log(res?.data);
 
   useEffect(() => {
     const categorizedData = categorizeData(rawData);

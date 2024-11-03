@@ -4,7 +4,7 @@ import {PHOTOS_KEYS} from '../QueryKeys';
 import {ResultTypes} from '@/types/Result/ResultTypes';
 
 export interface GetPhotoRequest {
-  photoId: number;
+  photoId: string;
 }
 
 export interface GetPhotoResponse {
