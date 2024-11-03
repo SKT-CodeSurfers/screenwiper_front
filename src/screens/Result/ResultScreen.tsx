@@ -5,6 +5,8 @@ import React, {useEffect, useMemo, useState} from 'react';
 import dummies from './dummies.json';
 import Result from '@/components/common/Result/Result';
 import {Alert} from 'react-native';
+import {useQueryClient} from '@tanstack/react-query';
+import {PHOTOS_KEYS} from '@/hooks/queries/QueryKeys';
 
 const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
   // const {result} = dummies;
@@ -13,7 +15,9 @@ const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
   const [idx, setIdx] = useState(0);
   // const data = useMemo(() => result[idx], [idx]);
 
+  const queryClient = useQueryClient();
   function handleGoBack() {
+    queryClient.invalidateQueries({queryKey: PHOTOS_KEYS.lists()});
     navigation.pop();
   }
   function handleOnPrev() {

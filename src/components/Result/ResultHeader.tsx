@@ -8,7 +8,6 @@ interface ResultHeaderProps {
   goBack: () => void;
   onPrev: () => void;
   onNext: () => void;
-  onSave: () => void;
 }
 export default function ResultHeader({
   idx,
@@ -16,7 +15,6 @@ export default function ResultHeader({
   goBack,
   onPrev,
   onNext,
-  onSave,
 }: ResultHeaderProps) {
   function handleOnPrev() {
     if (idx <= 0) {
