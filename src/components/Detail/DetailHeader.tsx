@@ -1,12 +1,15 @@
 import React from 'react';
 import CustomHeader from '../common/CustomHeader/CustomHeader';
 import styled from 'styled-components/native';
-
-export default function DetailHeader() {
+interface DetailHeaderProps {
+  goBack: () => void;
+  onDelete: () => void;
+}
+export default function DetailHeader({goBack, onDelete}: DetailHeaderProps) {
   return (
     <CustomHeader>
-      <StyledCancelText>이전</StyledCancelText>
-      <StyledConfirmText>저장</StyledConfirmText>
+      <StyledCancelText onPress={goBack}>이전</StyledCancelText>
+      <StyledConfirmText onPress={onDelete}>삭제</StyledConfirmText>
     </CustomHeader>
   );
 }

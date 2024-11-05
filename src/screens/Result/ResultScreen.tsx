@@ -5,6 +5,8 @@ import React, {useEffect, useMemo, useState} from 'react';
 import dummies from './dummies.json';
 import Result from '@/components/common/Result/Result';
 import {Alert} from 'react-native';
+import {useQueryClient} from '@tanstack/react-query';
+import {PHOTOS_KEYS} from '@/hooks/queries/QueryKeys';
 
 const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
   // const {result} = dummies;
@@ -13,19 +15,10 @@ const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
   const [idx, setIdx] = useState(0);
   // const data = useMemo(() => result[idx], [idx]);
 
+  const queryClient = useQueryClient();
   function handleGoBack() {
-    Alert.alert(
-      '수정을 종료하시겠습니까?',
-      '수정한 내용은 반영되지 않습니다.',
-      [
-        {
-          text: '아니요',
-          onPress: () => console.log('아니라는데'),
-          style: 'cancel',
-        },
-        {text: '네', onPress: () => navigation.pop()},
-      ],
-    );
+    queryClient.invalidateQueries({queryKey: PHOTOS_KEYS.lists()});
+    navigation.pop();
   }
   function handleOnPrev() {
     setIdx(prev => {
@@ -38,10 +31,6 @@ const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
       return prev + 1;
     });
   }
-  function handleOnSave() {
-    navigation.pop();
-    // Alert.alert('Save!');
-  }
 
   useEffect(() => {
     navigation.setOptions({
@@ -53,7 +42,6 @@ const ResultScreen = ({navigation, route}: StackScreenProps<'Result'>) => {
           goBack={handleGoBack}
           onPrev={handleOnPrev}
           onNext={handleOnNext}
-          onSave={handleOnSave}
         />
       ),
     });

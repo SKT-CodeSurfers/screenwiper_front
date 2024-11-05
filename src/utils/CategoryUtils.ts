@@ -6,12 +6,10 @@ export const categorizeData = (rawData: GetRecommandResponse): TopTabNavigatorPr
   const planCards: CardItem[] = [];
   const otherCards: CardItem[] = [];
 
-  // rawData가 객체 형태로 들어올 경우 각 키에 대해 반복
-  Object.entries(rawData).forEach(([key, item]) => {
-    // item이 null이 아니거나 undefined가 아니도록 확인
+  rawData.data.forEach((item: any) => {
     if (item) {
-      const dateObject = new Date(item.date);
-      const day = dateObject.getDate();
+      const dateObject = item.date ? new Date(item.date) : null;
+      const day = dateObject ? dateObject.getDate() : '';
 
       const card: CardItem = {
         id: String(item.photo_id),  // 고유 ID 설정
@@ -19,7 +17,7 @@ export const categorizeData = (rawData: GetRecommandResponse): TopTabNavigatorPr
         address: item.address ? item.address : "",
         descriptions: item.summary ? [item.summary] : [],
         category: item.category_name as '장소' | '일정' | '기타',
-        date: item.date ? String(new Date(item.date).getDate()) : '',
+        date: String(day),
       };
 
     // 카테고리에 따라 분류
