@@ -21,6 +21,8 @@ export const getPhotoList = async ({type, page}: GetPhotoListRequest) => {
   const res = await GET<GetPhotoListResponse>(
     `/photos/list?type=${type}&page=${page}`,
   );
+
+  console.log('!', type, page, res.data);
   return res.data;
 };
 

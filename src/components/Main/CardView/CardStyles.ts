@@ -1,3 +1,4 @@
+import {ResultCategory} from '@/types/Result/ResultTypes';
 import styled from 'styled-components/native';
 
 export const StyledCard = styled.View`
@@ -103,7 +104,7 @@ export const HeaderRow = styled.View`
 `;
 
 interface CategoryBadgeProps {
-  category: 'Place' | 'Plan' | 'Other';
+  category: ResultCategory;
 }
 
 export const CategoryBadgeWrapper = styled.View<CategoryBadgeProps>`
