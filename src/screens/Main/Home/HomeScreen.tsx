@@ -46,14 +46,6 @@ export default function HomeScreen({
       setOtherCards(otherCards);
     }
   }, [recommandData]);
-  
-
-  // useEffect(() => {
-  //   const {placeCards, planCards, otherCards} = categorizeData(rawData);
-  //   setPlaceCards(placeCards);
-  //   setPlanCards(planCards);
-  //   setOtherCards(otherCards);
-  // }, []);
 
   const renderPlaceCard = ({item}: {item: any}) => (
     <s.CardWrapper>
@@ -103,7 +95,7 @@ export default function HomeScreen({
           <FlatList
             data={placeCards}
             renderItem={renderPlaceCard}
-            keyExtractor={item => item.id}
+            //keyExtractor={item => item.photoId}
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled
@@ -120,7 +112,7 @@ export default function HomeScreen({
           <FlatList
             data={planCards}
             renderItem={renderPlanCard}
-            keyExtractor={item => item.id}
+            //keyExtractor={item => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled
@@ -137,7 +129,7 @@ export default function HomeScreen({
           <FlatList
             data={otherCards}
             renderItem={renderOtherCard}
-            keyExtractor={item => item.id}
+            //keyExtractor={item => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled

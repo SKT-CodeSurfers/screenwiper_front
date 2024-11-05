@@ -6,16 +6,16 @@ export interface RecommandData {
   date: string;
   summary: string | null;
   address: string | null;
-  category_name: string;
-  photo_id: number;
-  photo_name: string;
-  operating_hours: string | null;
-  photo_url: string;
+  category: string;
+  photoId: number;
+  photoName: string;
+  operatingHours: string | null;
+  photoUrl: string;
   title: string;
 }
 
 export interface GetRecommandResponse {
-  [key: string]: RecommandData;
+    data: RecommandData[];
 }
 
 export const getRecommands = async () => {
