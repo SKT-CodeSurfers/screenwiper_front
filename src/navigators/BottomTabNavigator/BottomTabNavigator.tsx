@@ -44,8 +44,8 @@ export default function BottomTabNavigator() {
       tabBar={props => <TabBar {...props} />}>
       <Tab.Screen name={TabMenu.Home} component={HomeScreen} />
       <Tab.Screen name={TabMenu.List} component={ListScreen} />
-      <Tab.Screen name={TabMenu.Map} component={MapScreen} />
-      <Tab.Screen name={TabMenu.Calendar} component={CalendarScreen} />
+      {/* <Tab.Screen name={TabMenu.Map} component={MapScreen} />
+      <Tab.Screen name={TabMenu.Calendar} component={CalendarScreen} /> */}
     </Tab.Navigator>
   );
 }
