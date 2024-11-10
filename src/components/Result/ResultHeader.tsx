@@ -26,7 +26,7 @@ export default function ResultHeader({
   }
   function handleOnNext() {
     if (idx >= total - 1) {
-      onSave();
+      //onSave();
       return;
     }
 

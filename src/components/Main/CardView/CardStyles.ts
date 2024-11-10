@@ -65,7 +65,9 @@ export const BulletTextWrapper = styled.View`
   flex-wrap: wrap;
 `;
 
-export const BulletText = styled.Text`
+export const BulletText = styled.Text.attrs({
+  numberOfLines: 3,
+})`
   ${({theme}) => theme.fonts.body_m_12};
   color: #666;
 `;

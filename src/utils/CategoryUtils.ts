@@ -1,32 +1,42 @@
-import {TopTabNavigatorProps, CardItem} from '@/types/Main/CardTypes';
+import { TopTabNavigatorProps, CardItem } from '@/types/Main/CardTypes';
+import { GetRecommandResponse } from '@/hooks/queries/home/useRecommand';
 
-export const categorizeData = (rawData: any): TopTabNavigatorProps => {
+export const categorizeData = (rawData: GetRecommandResponse): TopTabNavigatorProps => {
   const placeCards: CardItem[] = [];
   const planCards: CardItem[] = [];
   const otherCards: CardItem[] = [];
 
-  rawData.data.forEach((item: any) => {
-    const card: CardItem = {
-      photoId: 7,
-      title: item.title,
-      address: item.address,
-      descriptions: item.descriptions || [item.description],
-      category: item.category as 'Place' | 'Plan' | 'Other',
-      date: item.date ?? '',
-    };
+  Object.entries(rawData).forEach(([key, items]) => {
+    if (Array.isArray(items)) {
+      items.forEach(item => {
+        if (item) {
+          const dateObject = item.date ? new Date(item.date) : null;
+          const day = dateObject ? dateObject.getDate() : '';
 
-    switch (item.category) {
-      case 'Place':
-        placeCards.push(card);
-        break;
-      case 'Plan':
-        planCards.push(card);
-        break;
-      case 'Other':
-        otherCards.push(card);
-        break;
-      default:
-        break;
+          const card: CardItem = {
+            photoId: item.photo_id,
+            title: item.title,
+            address: item.address ?? "",
+            descriptions: item.summary ? [item.summary] : [],
+            category: item.category_name as '장소' | '일정' | '기타',
+            date: String(day),
+          };
+
+          switch (item.category_name) {
+            case '장소':
+              placeCards.push(card);
+              break;
+            case '일정':
+              planCards.push(card);
+              break;
+            case '기타':
+              otherCards.push(card);
+              break;
+            default:
+              break;
+          }
+        }
+      });
     }
   });
 

@@ -1,4 +1,4 @@
-export type CategoryType = 'Place' | 'Plan' | 'Other';
+export type CategoryType = '장소' | '일정' | '기타';
 
 export interface CardItem {
   photoId: number;

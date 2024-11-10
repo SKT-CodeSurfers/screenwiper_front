@@ -90,7 +90,6 @@ export default function SettingsScreen() {
             key={option.title}
             onPress={() => handlePress(option.title)}>
             <s.OptionContent>
-              <RectangleIcon />
               <s.OptionText>{option.title}</s.OptionText>
             </s.OptionContent>
             {option.showArrow && <ArrowRightIcon />}

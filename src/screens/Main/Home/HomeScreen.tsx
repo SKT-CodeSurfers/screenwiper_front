@@ -4,7 +4,6 @@ import SettingIcon from '@/assets/icon/ic_settings.svg';
 import PlaceCard from '@/components/Main/CardView/PlaceCard';
 import PlanCard from '@/components/Main/CardView/PlanCard';
 import OtherCard from '@/components/Main/CardView/OtherCard';
-import rawData from '@/screens/Main/Home/HomeDummies.json';
 import {categorizeData} from '@/utils/CategoryUtils';
 import * as s from './HomeScreen.style';
 import {CardItem} from '@/types/Main/CardTypes';
@@ -14,6 +13,7 @@ import {ImagePickerResponse} from 'react-native-image-picker';
 import SafeAreaTabView from '@/components/common/SafeAreaTabView/SafeAreaTabView';
 import {TabOfStackScreenProps} from '@/navigators/BottomTabNavigator/BottomTabNavigator';
 import {useGetUser} from '@/hooks/queries/users/useGetUser';
+import {useGetRecommand} from '@/hooks/queries/home/useRecommand';
 
 const cardWidth = 300;
 const cardMargin = 15;
@@ -33,17 +33,22 @@ export default function HomeScreen({
   const [planCards, setPlanCards] = useState<CardItem[]>([]);
   const [otherCards, setOtherCards] = useState<CardItem[]>([]);
 
-  const {data: user, isLoading} = useGetUser();
+  const {data: user, isLoading: isUserLoading} = useGetUser();
+  const {data: recommandData, isLoading: isRecommandLoading} =
+    useGetRecommand();
 
   useEffect(() => {
-    const {placeCards, planCards, otherCards} = categorizeData(rawData);
-    setPlaceCards(placeCards);
-    setPlanCards(planCards);
-    setOtherCards(otherCards);
-  }, []);
+    if (recommandData) {
+      const {placeCards, planCards, otherCards} = categorizeData(recommandData);
+      setPlaceCards(placeCards);
+      setPlanCards(planCards);
+      setOtherCards(otherCards);
+    }
+  }, [recommandData]);
 
   const renderPlaceCard = ({item}: {item: any}) => (
-    <s.CardWrapper>
+    <s.CardWrapper
+      onPress={() => navigation.push('Detail', {photoId: item.photoId})}>
       <PlaceCard
         title={item.title}
         address={item.address}
@@ -53,7 +58,8 @@ export default function HomeScreen({
   );
 
   const renderPlanCard = ({item}: {item: any}) => (
-    <s.CardWrapper>
+    <s.CardWrapper
+      onPress={() => navigation.push('Detail', {photoId: item.photoId})}>
       <PlanCard
         date={item.date}
         title={item.title}
@@ -63,7 +69,8 @@ export default function HomeScreen({
   );
 
   const renderOtherCard = ({item}: {item: any}) => (
-    <s.CardWrapper>
+    <s.CardWrapper
+      onPress={() => navigation.push('Detail', {photoId: item.photoId})}>
       <OtherCard title={item.title} />
     </s.CardWrapper>
   );
@@ -79,7 +86,7 @@ export default function HomeScreen({
           <s.TitleText>
             안녕하세요,{' '}
             <s.NameText>
-              {isLoading ? '로딩 중...' : `${user?.nickname}님`}
+              {isUserLoading ? '로딩 중...' : `${user?.nickname}님`}
             </s.NameText>
           </s.TitleText>
           <s.Description>오늘은 어떤 사진을 정리하셨나요?</s.Description>
@@ -90,7 +97,7 @@ export default function HomeScreen({
           <FlatList
             data={placeCards}
             renderItem={renderPlaceCard}
-            keyExtractor={item => item.id}
+            //keyExtractor={item => item.photoId}
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled
@@ -107,7 +114,7 @@ export default function HomeScreen({
           <FlatList
             data={planCards}
             renderItem={renderPlanCard}
-            keyExtractor={item => item.id}
+            //keyExtractor={item => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled
@@ -124,7 +131,7 @@ export default function HomeScreen({
           <FlatList
             data={otherCards}
             renderItem={renderOtherCard}
-            keyExtractor={item => item.id}
+            //keyExtractor={item => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled

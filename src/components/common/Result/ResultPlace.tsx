@@ -13,10 +13,13 @@ export default function ResultPlace({data}: ResultPlaceProps) {
         <s.SubTitle>주소</s.SubTitle>
         <s.SubContent>{data.address}</s.SubContent>
       </s.SubWrapper>
-      <s.SubWrapper>
-        <s.SubTitle>영업시간</s.SubTitle>
-        <s.SubContent>{data.operatingHours}</s.SubContent>
-      </s.SubWrapper>
+
+      {data.operatingHours && (
+        <s.SubWrapper>
+          <s.SubTitle>영업시간</s.SubTitle>
+          <s.SubContent>{data.operatingHours}</s.SubContent>
+        </s.SubWrapper>
+      )}
 
       <Map x={data.xcoordinate} y={data.ycoordinate} />
 
