@@ -23,6 +23,7 @@ export const getPhotoList = async ({type, page}: GetPhotoListRequest) => {
   );
 
   console.log('!', type, page, res.data);
+  res.data.data.photos = res.data.data.photos.reverse();
   return res.data;
 };
 

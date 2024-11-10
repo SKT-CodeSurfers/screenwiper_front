@@ -6,7 +6,7 @@ import Result from '@/components/common/Result/Result';
 import {useGetPhoto} from '@/hooks/queries/photos/useGetPhoto';
 import styled from 'styled-components/native';
 import LottieView from 'lottie-react-native';
-import {Alert} from 'react-native';
+import {ActivityIndicator, Alert, View} from 'react-native';
 import {useDeletePhotos} from '@/hooks/mutations/photos/useDeletePhotos';
 import {useQueryClient} from '@tanstack/react-query';
 import {PHOTOS_KEYS} from '@/hooks/queries/QueryKeys';
@@ -14,7 +14,7 @@ import {PHOTOS_KEYS} from '@/hooks/queries/QueryKeys';
 const DetailScreen = ({navigation, route}: StackScreenProps<'Detail'>) => {
   const {photoId} = route.params;
 
-  const {data, isError} = useGetPhoto({photoId});
+  const {data, isError, isLoading} = useGetPhoto({photoId});
   const photo = data?.data;
 
   const queryClient = useQueryClient();
@@ -53,6 +53,13 @@ const DetailScreen = ({navigation, route}: StackScreenProps<'Detail'>) => {
     });
   }, [navigation]);
 
+  if (isLoading) {
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  }
   if (!photo || isError)
     return (
       <CustomHeaderContainer>

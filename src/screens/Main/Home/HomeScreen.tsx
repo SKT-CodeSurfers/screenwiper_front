@@ -13,7 +13,7 @@ import {ImagePickerResponse} from 'react-native-image-picker';
 import SafeAreaTabView from '@/components/common/SafeAreaTabView/SafeAreaTabView';
 import {TabOfStackScreenProps} from '@/navigators/BottomTabNavigator/BottomTabNavigator';
 import {useGetUser} from '@/hooks/queries/users/useGetUser';
-import { useGetRecommand } from '@/hooks/queries/home/useRecommand';
+import {useGetRecommand} from '@/hooks/queries/home/useRecommand';
 
 const cardWidth = 300;
 const cardMargin = 15;
@@ -33,13 +33,13 @@ export default function HomeScreen({
   const [planCards, setPlanCards] = useState<CardItem[]>([]);
   const [otherCards, setOtherCards] = useState<CardItem[]>([]);
 
-  const { data: user, isLoading: isUserLoading } = useGetUser();
-  const { data: recommandData, isLoading: isRecommandLoading } = useGetRecommand();
-  
+  const {data: user, isLoading: isUserLoading} = useGetUser();
+  const {data: recommandData, isLoading: isRecommandLoading} =
+    useGetRecommand();
 
   useEffect(() => {
     if (recommandData) {
-      const { placeCards, planCards, otherCards } = categorizeData(recommandData);
+      const {placeCards, planCards, otherCards} = categorizeData(recommandData);
       setPlaceCards(placeCards);
       setPlanCards(planCards);
       setOtherCards(otherCards);
@@ -47,7 +47,8 @@ export default function HomeScreen({
   }, [recommandData]);
 
   const renderPlaceCard = ({item}: {item: any}) => (
-    <s.CardWrapper>
+    <s.CardWrapper
+      onPress={() => navigation.push('Detail', {photoId: item.photoId})}>
       <PlaceCard
         title={item.title}
         address={item.address}
@@ -57,7 +58,8 @@ export default function HomeScreen({
   );
 
   const renderPlanCard = ({item}: {item: any}) => (
-    <s.CardWrapper>
+    <s.CardWrapper
+      onPress={() => navigation.push('Detail', {photoId: item.photoId})}>
       <PlanCard
         date={item.date}
         title={item.title}
@@ -67,7 +69,8 @@ export default function HomeScreen({
   );
 
   const renderOtherCard = ({item}: {item: any}) => (
-    <s.CardWrapper>
+    <s.CardWrapper
+      onPress={() => navigation.push('Detail', {photoId: item.photoId})}>
       <OtherCard title={item.title} />
     </s.CardWrapper>
   );

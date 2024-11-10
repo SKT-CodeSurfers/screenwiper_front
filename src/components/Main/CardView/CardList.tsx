@@ -3,12 +3,17 @@ import {FlatList, View} from 'react-native';
 import ListCard from './CardItem';
 import {useGetPhotoList} from '@/hooks/queries/photos/useGetPhotoList';
 import styled from 'styled-components/native';
+import Loading from '@/components/common/Loading/Loading';
 
 export function PlaceCardList() {
   const [page, setPage] = useState(0);
-  const {data: res} = useGetPhotoList({type: '장소', page: page});
+  const {data: res, isLoading} = useGetPhotoList({type: '장소', page: page});
   const list = res?.data.photos;
   console.log(res);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <FlatList
@@ -19,8 +24,16 @@ export function PlaceCardList() {
       contentContainerStyle={{alignItems: 'center', paddingVertical: 10}}
       ItemSeparatorComponent={() => <View style={{height: 15}} />}
       ListEmptyComponent={
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 20}}>
-          <EmptyText style={{fontSize: 16, color: '#999'}}>사진을 업로드 해주세요.</EmptyText>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingVertical: 20,
+          }}>
+          <EmptyText style={{fontSize: 16, color: '#999'}}>
+            사진을 업로드 해주세요.
+          </EmptyText>
         </View>
       }
     />
@@ -29,9 +42,13 @@ export function PlaceCardList() {
 
 export function PlanCardList() {
   const [page, setPage] = useState(0);
-  const {data: res} = useGetPhotoList({type: '일정', page: page});
+  const {data: res, isLoading} = useGetPhotoList({type: '일정', page: page});
   const list = res?.data.photos;
   console.log(res);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <FlatList
@@ -42,8 +59,16 @@ export function PlanCardList() {
       contentContainerStyle={{alignItems: 'center', paddingVertical: 10}}
       ItemSeparatorComponent={() => <View style={{height: 15}} />}
       ListEmptyComponent={
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 20}}>
-          <EmptyText style={{fontSize: 16, color: '#999'}}>사진을 업로드 해주세요.</EmptyText>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingVertical: 20,
+          }}>
+          <EmptyText style={{fontSize: 16, color: '#999'}}>
+            사진을 업로드 해주세요.
+          </EmptyText>
         </View>
       }
     />
@@ -52,9 +77,13 @@ export function PlanCardList() {
 
 export function OtherCardList() {
   const [page, setPage] = useState(0);
-  const {data: res} = useGetPhotoList({type: '기타', page: page});
+  const {data: res, isLoading} = useGetPhotoList({type: '기타', page: page});
   const list = res?.data.photos;
   console.log(res);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <FlatList
@@ -65,8 +94,16 @@ export function OtherCardList() {
       contentContainerStyle={{alignItems: 'center', paddingVertical: 10}}
       ItemSeparatorComponent={() => <View style={{height: 15}} />}
       ListEmptyComponent={
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 20}}>
-          <EmptyText style={{fontSize: 16, color: '#999'}}>사진을 업로드 해주세요.</EmptyText>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingVertical: 20,
+          }}>
+          <EmptyText style={{fontSize: 16, color: '#999'}}>
+            사진을 업로드 해주세요.
+          </EmptyText>
         </View>
       }
     />
