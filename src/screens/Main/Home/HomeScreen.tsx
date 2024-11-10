@@ -4,7 +4,6 @@ import SettingIcon from '@/assets/icon/ic_settings.svg';
 import PlaceCard from '@/components/Main/CardView/PlaceCard';
 import PlanCard from '@/components/Main/CardView/PlanCard';
 import OtherCard from '@/components/Main/CardView/OtherCard';
-import rawData from '@/screens/Main/Home/HomeDummies.json';
 import {categorizeData} from '@/utils/CategoryUtils';
 import * as s from './HomeScreen.style';
 import {CardItem} from '@/types/Main/CardTypes';

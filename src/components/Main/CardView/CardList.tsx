@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {FlatList, View} from 'react-native';
 import ListCard from './CardItem';
-import {CardItem} from '@/types/Main/CardTypes'; // 타입 가져오기
-import useNavigator from '@/navigators/useNavigator';
 import {useGetPhotoList} from '@/hooks/queries/photos/useGetPhotoList';
+import styled from 'styled-components/native';
 
 export function PlaceCardList() {
   const [page, setPage] = useState(0);
@@ -19,6 +18,11 @@ export function PlaceCardList() {
       style={{backgroundColor: '#FCFCFC'}}
       contentContainerStyle={{alignItems: 'center', paddingVertical: 10}}
       ItemSeparatorComponent={() => <View style={{height: 15}} />}
+      ListEmptyComponent={
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 20}}>
+          <EmptyText style={{fontSize: 16, color: '#999'}}>사진을 업로드 해주세요.</EmptyText>
+        </View>
+      }
     />
   );
 }
@@ -37,6 +41,11 @@ export function PlanCardList() {
       style={{backgroundColor: '#FCFCFC'}}
       contentContainerStyle={{alignItems: 'center', paddingVertical: 10}}
       ItemSeparatorComponent={() => <View style={{height: 15}} />}
+      ListEmptyComponent={
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 20}}>
+          <EmptyText style={{fontSize: 16, color: '#999'}}>사진을 업로드 해주세요.</EmptyText>
+        </View>
+      }
     />
   );
 }
@@ -55,6 +64,19 @@ export function OtherCardList() {
       style={{backgroundColor: '#FCFCFC'}}
       contentContainerStyle={{alignItems: 'center', paddingVertical: 10}}
       ItemSeparatorComponent={() => <View style={{height: 15}} />}
+      ListEmptyComponent={
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 20}}>
+          <EmptyText style={{fontSize: 16, color: '#999'}}>사진을 업로드 해주세요.</EmptyText>
+        </View>
+      }
     />
   );
 }
+
+const EmptyText = styled.Text`
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+
+  ${({theme}) => theme.mixins.flexBox()};
+`;
