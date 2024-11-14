@@ -90,8 +90,9 @@ const ResultSearch = {
 
   SearchImage: styled.Image`
     flex: 1;
-    height: 100%;
     border-radius: 8px;
+    width: 80px;
+    height: 80px;
   `,
 };
 
