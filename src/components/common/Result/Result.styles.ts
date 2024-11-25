@@ -26,6 +26,14 @@ const ResultStyles = {
     padding-left: 5px;
     line-height: 25px;
   `,
+
+  Line: styled.View`
+    flex: 1;
+    border-bottom-width: 1px;
+    margin-vertical: 10px;
+    width: 100%;
+    border-bottom-color: ${({theme}) => theme.colors.gray2};
+  `,
 };
 
 const ResultPlanStyles = {
@@ -50,5 +58,62 @@ const ResultPlanStyles = {
   `,
 };
 
+const ResultSearch = {
+  SearchContainer: styled.View`
+    ${({theme}) => theme.mixins.flexBox('column', 'center', 'flex-start')}
+    gap: 10px;
+  `,
+
+  SearchBoxContainer: styled.ScrollView`
+    gap: 10px;
+    width: 100%;
+  `,
+
+  SearchBox: styled.View`
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    align-items: stretch;
+    margin-right: 10px;
+  `,
+
+  SearchItem: styled.View`
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    background: ${({theme}) => theme.colors.gray2};
+    align-items: stretch;
+    ${({theme}) => theme.mixins.flexBox('row', 'space-between', 'flex-start')}
+    gap: 10px;
+  `,
+
+  TextContainer: styled.View`
+    flex: 2;
+    ${({theme}) => theme.mixins.flexBox('column', 'flex-start', 'flex-start')}
+  `,
+
+  SearchTitle: styled.Text`
+    ${({theme}) => theme.fonts.body_m_15};
+  `,
+
+  SearchDate: styled.Text`
+    ${({theme}) => theme.fonts.body_m_12};
+    margin-top: 5px;
+  `,
+
+  SearchImage: styled.Image`
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+    background: ${({theme}) => theme.colors.gray2};
+  `,
+
+  SearchTitleText: styled.Text`
+    ${({theme}) => theme.fonts.title_eb_21};
+    margin-bottom: 10px;
+  `,
+};
+
 export default ResultStyles;
 export {ResultPlanStyles};
+export {ResultSearch};

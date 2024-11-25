@@ -36,7 +36,6 @@ export interface IResultOther {
   photoId: string;
   photoUrl: string;
   categoryName: ResultCategory;
-
   summary: string;
 }
 
